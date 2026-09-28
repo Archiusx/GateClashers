@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GATEClashers — GATE 2027 CS Preparation Portal</title>
+<meta name="description" content="GATE 2027 Computer Science & IT preparation: syllabus-wise notes, PYQs, video lectures, mock tests and weekly test series." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* DESIGN SYSTEM — same tokens as the BitVerse portal */
+:root{
+  --black:#0a0a0a; --white:#ffffff; --red:#e11d2e; --red-dark:#b7141f;
+  --gray-50:#fafafa; --gray-100:#f2f2f2; --gray-200:#e5e5e5; --gray-300:#d4d4d4; --gray-400:#a3a3a3;
+  --gray-500:#737373; --gray-600:#525252; --gray-700:#3a3a3a; --gray-900:#171717;
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:20px; --space-6:24px;
+  --space-8:32px; --space-10:40px; --space-12:48px; --space-16:64px; --space-20:80px;
+  --radius-sm:4px; --radius-md:6px; --radius-lg:10px;
+  --border:1px solid var(--gray-200); --border-strong:1px solid var(--black);
+  --ease:cubic-bezier(.4,0,.2,1); --t-fast:150ms var(--ease); --t-med:220ms var(--ease);
+  --container:1200px;
+}
+body.dark-mode{
+  --black:#ffffff; --white:#0a0a0a; --gray-50:#141414; --gray-100:#1a1a1a; --gray-200:#262626; --gray-300:#333333;
+  --gray-400:#5c5c5c; --gray-500:#8a8a8a; --gray-600:#b3b3b3; --gray-700:#d4d4d4; --gray-900:#f5f5f5;
+  --border-strong:1px solid var(--white); background:var(--white); color:var(--black);
+}
+body.dark-mode .btn-primary{background:var(--red); color:#fff; border-color:var(--red);}
+body.dark-mode .btn-primary:hover{background:var(--red-dark); border-color:var(--red-dark);}
+body.dark-mode .btn-secondary{background:transparent; color:var(--black); border:1px solid var(--gray-300);}
+body.dark-mode .btn-secondary:hover{background:var(--red); border-color:var(--red); color:#fff;}
+body.dark-mode .navbar{background:rgba(10,10,10,.92);}
+body.dark-mode .modal-card,body.dark-mode .dept-card,body.dark-mode .plan{background:var(--gray-50);}
+body.dark-mode .modal-backdrop{background:rgba(0,0,0,.75);}
+body.dark-mode .badge-important,body.dark-mode .note-box{background:#2a1214; border-color:#4a1d21; color:#ff8a93;}
+.theme-toggle{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--gray-200);flex-shrink:0;transition:border-color var(--t-fast);}
+.theme-toggle:hover{border-color:var(--red);color:var(--red);}
+.theme-toggle svg{width:17px;height:17px;}
+.theme-toggle .icon-moon{display:none;}
+body.dark-mode .theme-toggle .icon-sun{display:none;}
+body.dark-mode .theme-toggle .icon-moon{display:block;}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;overflow-x:hidden;width:100%;scroll-padding-top:76px;}
+body{overflow-x:hidden;width:100%;max-width:100vw;font-family:'Poppins',-apple-system,sans-serif;color:var(--black);background:var(--white);line-height:1.5;-webkit-font-smoothing:antialiased;font-size:15px;}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;}}
+img,svg{display:block;} a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;background:none;border:none;color:inherit;} input{font-family:inherit;} ul{list-style:none;}
+.container{max-width:var(--container);margin:0 auto;padding:0 var(--space-6);}
+@media (max-width:640px){.container{padding:0 var(--space-4);}}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--red);outline-offset:2px;border-radius:2px;}
+
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:8px;}
+h1,h2,h3,h4{font-weight:700;letter-spacing:-0.02em;color:var(--black);}
+.h1{font-size:44px;line-height:1.08;} .h2{font-size:30px;line-height:1.2;} .h3{font-size:19px;line-height:1.3;font-weight:600;}
+.body-lg{font-size:17px;line-height:1.6;color:var(--gray-600);} .body{font-size:15px;color:var(--gray-600);}
+.caption{font-size:12.5px;color:var(--gray-500);font-weight:500;}
+@media (max-width:640px){.h1{font-size:32px;}.h2{font-size:24px;}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;font-size:14.5px;font-weight:600;border-radius:var(--radius-sm);transition:background var(--t-fast),color var(--t-fast),border-color var(--t-fast),transform var(--t-fast);white-space:nowrap;line-height:1;}
+.btn:active{transform:translateY(1px);}
+.btn-primary{background:var(--black);color:var(--white);border:1px solid var(--black);}
+.btn-primary:hover{background:var(--red);border-color:var(--red);color:#fff;}
+.btn-secondary{background:var(--white);color:var(--black);border:1px solid var(--black);}
+.btn-secondary:hover{background:var(--black);color:var(--white);}
+.btn-sm{padding:8px 14px;font-size:13px;} .btn-block{width:100%;}
+.icon{width:20px;height:20px;stroke:currentColor;stroke-width:1.75;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+.icon-sm{width:16px;height:16px;} .icon-lg{width:26px;height:26px;}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:3px;letter-spacing:.02em;}
+.badge-neutral{background:var(--gray-100);color:var(--gray-600);}
+.badge-important{background:#fdecec;color:var(--red-dark);}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:var(--border);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px;}
+.logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:18px;letter-spacing:-0.01em;flex-shrink:0;}
+.logo-mark{width:30px;height:30px;background:var(--black);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:14px;font-weight:800;}
+.logo-mark span{color:var(--red);} .brand-red{color:var(--red);}
+.nav-links{display:flex;align-items:center;gap:2px;}
+.nav-link{padding:9px 14px;font-size:14px;font-weight:500;color:var(--gray-700);border-radius:var(--radius-sm);transition:color var(--t-fast),background var(--t-fast);position:relative;}
+.nav-link:hover{color:var(--black);background:var(--gray-50);} .nav-link.active{color:var(--black);}
+.nav-link.active::after{content:'';position:absolute;left:14px;right:14px;bottom:2px;height:2px;background:var(--red);}
+.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.icon-btn{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-sm);color:var(--gray-700);transition:background var(--t-fast);}
+.icon-btn:hover{background:var(--gray-100);color:var(--black);} .hamburger{display:none;}
+@media (max-width:900px){.nav-links{display:none;}.hamburger{display:flex;}.nav-login-text{display:none;}}
+.mobile-menu{position:fixed;inset:0;z-index:200;display:none;} .mobile-menu.open{display:block;}
+.mobile-menu-backdrop{position:absolute;inset:0;background:rgba(10,10,10,.4);animation:fadeIn var(--t-med);}
+.mobile-menu-panel{position:absolute;top:0;right:0;height:100%;width:82%;max-width:340px;background:var(--white);border-left:var(--border);display:flex;flex-direction:column;padding:var(--space-6);animation:slideIn var(--t-med);}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}} @keyframes slideIn{from{transform:translateX(100%)}to{transform:translateX(0)}}
+.mobile-menu-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-8);}
+.mobile-menu-links{display:flex;flex-direction:column;}
+.mobile-menu-links a{padding:14px 4px;font-size:16px;font-weight:500;border-bottom:1px solid var(--gray-100);}
+.mobile-menu-footer{margin-top:auto;padding-top:var(--space-6);border-top:var(--border);}
+
+/* HERO */
+.hero{padding:var(--space-20) 0 var(--space-16);border-bottom:var(--border);}
+.hero-inner{max-width:760px;} .hero-inner.container{max-width:var(--container);}
+.hero h1{margin-top:var(--space-5);max-width:760px;} .hero .body-lg{margin-top:var(--space-5);max-width:620px;}
+.hero-ctas{display:flex;gap:14px;margin-top:var(--space-8);flex-wrap:wrap;}
+.hero-body{max-width:760px;}
+@media (max-width:640px){.hero{padding:var(--space-12) 0 var(--space-10);}.hero-ctas{flex-direction:column;align-items:stretch;}.hero-ctas .btn{width:100%;}}
+.search-wrap{margin-top:var(--space-12);position:relative;max-width:640px;}
+.search-box{display:flex;align-items:center;gap:12px;border:1.5px solid var(--black);border-radius:var(--radius-md);padding:15px 18px;background:var(--white);transition:border-color var(--t-fast),box-shadow var(--t-fast);}
+.search-box:focus-within{border-color:var(--red);box-shadow:0 0 0 3px rgba(225,29,46,.08);}
+.search-box input{border:none;outline:none;flex:1;font-size:15px;background:transparent;color:var(--black);min-width:0;}
+.search-box input::placeholder{color:var(--gray-400);}
+.search-kbd{font-size:11px;color:var(--gray-400);border:1px solid var(--gray-200);border-radius:4px;padding:2px 6px;font-weight:500;}
+.search-suggestions{margin-top:var(--space-3);display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+.search-suggestions .label{font-size:12.5px;color:var(--gray-400);}
+.chip{font-size:12.5px;font-weight:500;padding:6px 12px;border:1px solid var(--gray-200);border-radius:20px;color:var(--gray-600);transition:all var(--t-fast);background:var(--white);}
+.chip:hover{border-color:var(--black);color:var(--black);}
+.search-results{position:absolute;top:calc(100% + 8px);left:0;right:0;background:var(--white);border:var(--border-strong);border-radius:var(--radius-md);box-shadow:0 12px 32px rgba(0,0,0,.12);max-height:360px;overflow-y:auto;z-index:50;display:none;}
+.search-results.open{display:block;}
+.search-result-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--gray-100);width:100%;text-align:left;transition:background var(--t-fast);}
+.search-result-item:last-child{border-bottom:none;} .search-result-item:hover{background:var(--gray-50);}
+.search-result-meta{font-size:12px;color:var(--gray-500);margin-top:2px;}
+.search-empty{padding:28px 18px;text-align:center;color:var(--gray-500);font-size:13.5px;}
+
+/* SECTIONS */
+.section{padding:var(--space-16) 0;} .section-border{border-bottom:var(--border);}
+.section-header{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--space-6);margin-bottom:var(--space-8);}
+.section-header .sh-text{max-width:560px;} .section-header h2{margin-top:var(--space-2);} .section-header .body{margin-top:var(--space-2);}
+@media (max-width:640px){.section{padding:var(--space-10) 0;}.section-header{flex-direction:column;align-items:flex-start;}}
+
+/* NOTICES */
+.notice-list{display:flex;flex-direction:column;}
+.notice-item{display:grid;grid-template-columns:90px 1fr auto;gap:var(--space-6);align-items:start;padding:var(--space-6) 0;border-bottom:var(--border);}
+.notice-item:first-child{padding-top:0;} .notice-item:last-child{border-bottom:none;padding-bottom:0;}
+.notice-date{font-size:12px;font-weight:600;color:var(--gray-400);letter-spacing:.03em;padding-top:3px;}
+.notice-title-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+.notice-title{font-size:15.5px;font-weight:600;} .notice-desc{font-size:13.5px;color:var(--gray-500);line-height:1.55;}
+.notice-arrow{color:var(--gray-400);align-self:center;transition:transform var(--t-fast),color var(--t-fast);}
+.notice-item:hover .notice-arrow{transform:translateX(3px);color:var(--red);}
+@media (max-width:600px){.notice-item{grid-template-columns:1fr auto;}.notice-date{grid-column:1/-1;padding-top:0;}}
+
+/* SYLLABUS GRID (dept-grid style) */
+.dept-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--gray-200);border:1px solid var(--gray-200);}
+@media (max-width:1000px){.dept-grid{grid-template-columns:repeat(3,1fr);}}
+@media (max-width:700px){.dept-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:440px){.dept-grid{grid-template-columns:1fr;}}
+.dept-card{background:var(--white);padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-4);transition:background var(--t-fast);min-height:176px;text-align:left;width:100%;}
+.dept-card:hover,.dept-card.open{background:var(--gray-50);}
+.dept-card.open{box-shadow:inset 0 -3px 0 var(--red);}
+.dept-card:hover .dept-arrow{transform:translate(3px,-3px);color:var(--red);}
+.dept-card:hover .dept-icon,.dept-card.open .dept-icon{border-color:var(--red);color:var(--red);}
+.dept-top{display:flex;justify-content:space-between;align-items:flex-start;}
+.dept-icon{width:42px;height:42px;border:1px solid var(--gray-300);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;transition:all var(--t-fast);}
+.dept-arrow{color:var(--gray-400);transition:all var(--t-fast);}
+.dept-name{font-size:15.5px;font-weight:700;margin-top:auto;line-height:1.3;}
+.dept-count{font-size:12px;color:var(--gray-500);font-weight:500;}
+.syl-panel{display:none;border:var(--border);border-top:none;padding:var(--space-8) var(--space-6);}
+.syl-panel.open{display:block;}
+.syl-head{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--space-4);margin-bottom:var(--space-6);}
+.syl-group{margin-top:var(--space-5);} .syl-group h4{font-size:14px;font-weight:600;margin-bottom:var(--space-3);}
+.syl-topics{display:flex;flex-wrap:wrap;gap:8px;}
+.topic{font-size:13px;font-weight:500;padding:6px 12px;border:1px solid var(--gray-200);border-radius:var(--radius-sm);color:var(--gray-700);}
+.topic.hit{border-color:var(--red);color:var(--red);}
+
+/* QUICK ACCESS */
+.quick-grid{display:grid;grid-template-columns:repeat(6,1fr);border:var(--border);}
+.quick-grid>*:not(:last-child){border-right:var(--border);}
+@media (max-width:900px){.quick-grid{grid-template-columns:repeat(3,1fr);}.quick-grid>*{border-right:var(--border)!important;}.quick-grid>*:nth-child(3n){border-right:none!important;}.quick-grid>*:nth-child(n+4){border-top:var(--border);}}
+@media (max-width:480px){.quick-grid{grid-template-columns:repeat(2,1fr);}.quick-grid>*:nth-child(3n){border-right:var(--border)!important;}.quick-grid>*:nth-child(2n){border-right:none!important;}.quick-grid>*:nth-child(n+3){border-top:var(--border);}}
+.quick-item{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:var(--space-5) var(--space-4);transition:background var(--t-fast),color var(--t-fast);}
+.quick-item:hover{background:var(--gray-50);color:var(--red);}
+.quick-label{font-size:13.5px;font-weight:600;}
+
+/* RESOURCE CARDS (pyq-card style) */
+.pyq-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4);}
+@media (max-width:1000px){.pyq-grid{grid-template-columns:repeat(2,1fr);}} @media (max-width:520px){.pyq-grid{grid-template-columns:1fr;}}
+.pyq-card{border:var(--border);border-radius:var(--radius-md);padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-3);transition:border-color var(--t-fast),transform var(--t-fast);text-align:left;}
+.pyq-card:hover{border-color:var(--black);transform:translateY(-2px);}
+.pyq-top{display:flex;justify-content:space-between;align-items:flex-start;}
+.pyq-subject{font-size:16px;font-weight:700;line-height:1.3;}
+.pyq-meta{font-size:13px;color:var(--gray-500);line-height:1.55;}
+.pyq-link{display:flex;align-items:center;gap:5px;font-size:13px;font-weight:600;margin-top:auto;padding-top:var(--space-2);}
+.pyq-card:hover .pyq-link{color:var(--red);}
+.lock-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--gray-500);}
+
+/* FREE TEST BAND */
+.free-band{display:flex;justify-content:space-between;align-items:center;gap:var(--space-6);border:var(--border-strong);border-radius:var(--radius-md);padding:var(--space-6);flex-wrap:wrap;}
+.free-band .h3{margin-bottom:4px;}
+
+/* PLANS */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--gray-200);border:1px solid var(--gray-200);}
+@media (max-width:820px){.plans{grid-template-columns:1fr;}}
+.plan{background:var(--white);padding:var(--space-8) var(--space-6);display:flex;flex-direction:column;gap:var(--space-4);}
+.plan.featured{box-shadow:inset 0 3px 0 var(--red);}
+.plan-price{font-size:38px;font-weight:800;letter-spacing:-0.02em;line-height:1;}
+.plan-price small{font-size:13px;font-weight:500;color:var(--gray-500);letter-spacing:0;}
+.plan ul{display:flex;flex-direction:column;gap:10px;margin:var(--space-2) 0 var(--space-4);}
+.plan li{display:flex;gap:10px;font-size:13.5px;color:var(--gray-600);line-height:1.45;}
+.plan li .icon{width:16px;height:16px;color:var(--red);margin-top:2px;}
+.plan .btn{margin-top:auto;}
+
+/* WHAT WE OFFER (toolkit style) */
+.toolkit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4);}
+@media (max-width:1000px){.toolkit-grid{grid-template-columns:repeat(2,1fr);}} @media (max-width:560px){.toolkit-grid{grid-template-columns:1fr;}}
+.toolkit-card{border:var(--border);border-radius:var(--radius-md);padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-3);}
+.toolkit-icon{width:38px;height:38px;border:1px solid var(--gray-200);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:var(--gray-600);}
+.toolkit-name{font-size:15px;font-weight:600;} .toolkit-desc{font-size:13px;color:var(--gray-500);line-height:1.55;}
+
+/* REVIEWS */
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);}
+@media (max-width:900px){.review-grid{grid-template-columns:repeat(2,1fr);}} @media (max-width:600px){.review-grid{grid-template-columns:1fr;}}
+.review-card{border:var(--border);border-radius:var(--radius-md);padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-3);}
+.review-card.extra{display:none;} .review-grid.all .review-card.extra{display:flex;}
+.review-top{display:flex;gap:12px;align-items:center;}
+.review-avatar{width:38px;height:38px;border-radius:50%;background:var(--black);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;}
+.review-name{font-size:14.5px;font-weight:600;line-height:1.2;} .review-meta{font-size:12px;color:var(--gray-500);margin-top:2px;}
+.review-stars{color:var(--red);font-size:14px;letter-spacing:2px;}
+.review-text{font-size:13.5px;color:var(--gray-600);line-height:1.6;}
+.center-row{display:flex;justify-content:center;margin-top:var(--space-8);}
+
+/* FAQ */
+.faq{border:var(--border);border-radius:var(--radius-md);overflow:hidden;max-width:820px;}
+.faq details{border-bottom:1px solid var(--gray-100);} .faq details:last-child{border-bottom:none;}
+.faq summary{list-style:none;cursor:pointer;padding:var(--space-5) var(--space-6);font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:16px;align-items:center;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary .icon{transition:transform var(--t-fast);color:var(--gray-400);} .faq details[open] summary .icon{transform:rotate(45deg);color:var(--red);}
+.faq p{padding:0 var(--space-6) var(--space-5);font-size:13.5px;color:var(--gray-500);line-height:1.65;}
+
+/* STATS */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);border:var(--border);}
+.stats-grid>*:not(:last-child){border-right:var(--border);}
+@media (max-width:700px){.stats-grid{grid-template-columns:repeat(2,1fr);}.stats-grid>*:nth-child(2n){border-right:none;}.stats-grid>*:nth-child(n+3){border-top:var(--border);}}
+.stat-block{padding:var(--space-8) var(--space-6);}
+.stat-num{font-size:38px;font-weight:800;letter-spacing:-0.02em;} .stat-num .accent{color:var(--red);}
+.stat-label{font-size:13px;color:var(--gray-500);font-weight:500;margin-top:6px;}
+
+/* FOOTER */
+.footer{background:var(--black);color:var(--gray-300);padding:var(--space-16) 0 var(--space-8);}
+.footer-top{display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:var(--space-8);padding-bottom:var(--space-12);}
+@media (max-width:800px){.footer-top{grid-template-columns:repeat(2,1fr);}} @media (max-width:480px){.footer-top{grid-template-columns:1fr;gap:var(--space-6);}}
+.footer-brand .logo{color:var(--white);} .footer-brand .logo-mark{background:var(--white);color:var(--black);}
+body.dark-mode .footer{background:var(--gray-50);} body.dark-mode .footer-brand .logo{color:var(--black);} body.dark-mode .footer-brand .logo-mark{background:var(--black);color:var(--white);}
+.footer-tagline{font-size:13.5px;color:var(--gray-500);margin-top:var(--space-4);max-width:300px;line-height:1.6;}
+.footer-col-title{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-500);margin-bottom:var(--space-4);}
+.footer-col a{display:block;font-size:13.5px;color:var(--gray-300);padding:6px 0;transition:color var(--t-fast);} .footer-col a:hover{color:var(--red);}
+.footer-bottom{border-top:1px solid var(--gray-700);padding-top:var(--space-6);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-bottom .caption{color:var(--gray-500);}
+.back-to-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--black);color:var(--white);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity var(--t-fast),transform var(--t-fast);z-index:80;}
+.back-to-top.show{opacity:1;pointer-events:auto;} .back-to-top:hover{background:var(--red);color:#fff;}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;padding:var(--space-4);}
+.modal-overlay.open{display:flex;}
+.modal-backdrop{position:absolute;inset:0;background:rgba(10,10,10,.5);animation:fadeIn var(--t-med);}
+.modal-card{position:relative;background:var(--white);border:var(--border);border-radius:var(--radius-lg);padding:var(--space-8);width:100%;max-width:440px;animation:fadeIn var(--t-med);}
+.modal-close{position:absolute;top:14px;right:14px;}
+.modal-title{font-size:22px;font-weight:700;margin:var(--space-4) 0 var(--space-2);} .modal-sub{font-size:14px;color:var(--gray-500);line-height:1.6;margin-bottom:var(--space-6);}
+.modal-actions{display:flex;flex-direction:column;gap:10px;}
+</style>
+</head>
+<body>
+<script>try{ if(localStorage.getItem('gateclashers_dark')==='1') document.body.classList.add('dark-mode'); }catch(e){}</script>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="#top" class="logo" aria-label="GATEClashers home">
+      <span class="logo-mark">G<span>.</span></span>
+      <span>GATE<span class="brand-red">Clashers</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#top" class="nav-link active" data-sec="top">Home</a>
+      <a href="#syllabus-section" class="nav-link" data-sec="syllabus-section">Syllabus</a>
+      <a href="#resources-section" class="nav-link" data-sec="resources-section">Resources</a>
+      <a href="#plans-section" class="nav-link" data-sec="plans-section">Plans</a>
+      <a href="#reviews-section" class="nav-link" data-sec="reviews-section">Reviews</a>
+    </nav>
+    <div class="nav-right">
+      <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleDark()">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+      </button>
+      <a class="btn btn-secondary btn-sm" href="auth.html" aria-label="Login">
+        <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span class="nav-login-text">Login</span>
+      </a>
+      <button class="icon-btn hamburger" aria-label="Open menu" onclick="toggleMenu(true)">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-backdrop" onclick="toggleMenu(false)"></div>
+  <div class="mobile-menu-panel">
+    <div class="mobile-menu-header">
+      <span class="logo"><span class="logo-mark">G<span>.</span></span><span>GATE<span class="brand-red">Clashers</span></span></span>
+      <button class="icon-btn" aria-label="Close menu" onclick="toggleMenu(false)"><svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <nav class="mobile-menu-links" aria-label="Mobile primary" onclick="toggleMenu(false)">
+      <a href="#top">Home</a><a href="#syllabus-section">Syllabus</a><a href="#resources-section">Resources</a><a href="#plans-section">Plans</a><a href="#reviews-section">Reviews</a>
+    </nav>
+    <div class="mobile-menu-footer"><a class="btn btn-primary btn-block" href="auth.html">Login</a></div>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-body">
+      <span class="eyebrow"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>GATE 2027 · Computer Science &amp; IT</span>
+      <h1 class="h1">Clear GATE CS 2027,<br>one syllabus section at a time.</h1>
+      <p class="body-lg">Your complete GATE preparation platform. Notes, previous year papers, video lectures, mock tests and a weekly test series, all organised around the official GATE 2027 syllabus.</p>
+      <div class="hero-ctas">
+        <a href="https://t.me/ragexking" target="_blank" rel="noopener" class="btn btn-primary">Buy Complete Course
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        <a href="#syllabus-section" class="btn btn-secondary">Explore Syllabus</a>
+      </div>
+      <div class="search-wrap">
+        <div class="search-box">
+          <svg class="icon" viewBox="0 0 24 24" style="color:var(--gray-400)"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" id="global-search" placeholder="Search syllabus topics, e.g. pipelining, B+ trees..." aria-label="Search syllabus" autocomplete="off" oninput="handleSearch(this.value)" onfocus="handleSearch(this.value)">
+          <span class="search-kbd">/</span>
+        </div>
+        <div class="search-results" id="search-results"></div>
+        <div class="search-suggestions">
+          <span class="label">Try:</span>
+          <button class="chip" onclick="setSearch('Deadlock')">Deadlock</button>
+          <button class="chip" onclick="setSearch('Dynamic programming')">Dynamic programming</button>
+          <button class="chip" onclick="setSearch('Normal forms')">Normal forms</button>
+          <button class="chip" onclick="setSearch('Pumping lemma')">Pumping lemma</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANNOUNCEMENTS -->
+<section class="section section-border" id="notices-section">
+  <div class="container">
+    <div class="section-header"><div class="sh-text">
+      <span class="eyebrow">Announcements</span><h2 class="h2">Latest updates</h2>
+      <p class="body">What's new for GATE 2027 aspirants on the portal.</p></div></div>
+    <div class="notice-list" id="notice-list"></div>
+  </div>
+</section>
+
+<!-- SYLLABUS -->
+<section class="section section-border" id="syllabus-section">
+  <div class="container">
+    <div class="section-header"><div class="sh-text">
+      <span class="eyebrow">GATE 2027 CS Syllabus</span><h2 class="h2">Explore by syllabus section</h2>
+      <p class="body">All 10 sections of the official GATE 2027 (IIT Madras) Computer Science &amp; IT syllabus. Tap a section to see its topics.</p></div></div>
+    <div class="dept-grid" id="syl-grid"></div>
+    <div class="syl-panel" id="syl-panel" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- QUICK ACCESS -->
+<section class="section section-border">
+  <div class="container">
+    <div class="section-header"><div class="sh-text">
+      <span class="eyebrow">Quick access</span><h2 class="h2">Jump straight in</h2></div></div>
+    <div class="quick-grid" id="quick-grid"></div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section class="section section-border" id="resources-section">
+  <div class="container">
+    <div class="section-header"><div class="sh-text">
+      <span class="eyebrow">Course content</span><h2 class="h2">Everything inside the course</h2>
+      <p class="body">Premium content unlocks with a GATEClashers subscription.</p></div></div>
+    <div class="pyq-grid" id="resource-grid"></div>
+    <div class="free-band" style="margin-top:var(--space-8);">
+      <div><div class="h3">Try before you subscribe</div><p class="body">Attempt a free sample test and see the exam-style interface and analysis.</p></div>
+      <a href="free-test.html" class="btn btn-secondary">Start Free Test
+        <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section class="section section-border" id="plans-section">
+  <div class="container">
+    <div class="section-header"><div class="sh-text">
+      <span class="eyebrow">Paid subscription</span><h2 class="h2">Pick a plan and start preparing</h2>
+      <p class="body">Access is activated on your account after payment is confirmed on Telegram.</p></div></div>
+    <div class="plans" id="plans"></div>
+  </div>
+</section>
+
+<!-- WHAT WE OFFER -->
+<section class="section section-border">
+  <div class="container">
+    <div class="section-header"><div class="sh-text">
+      <span class="eyebrow">What we offer</span><h2 class="h2">Built to crack GATE CS</h2>
+      <p class="body">Everything you need for the exam in one place.</p></div></div>
+    <div class="toolkit-grid" id="offer-grid"></div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section section-border" id="reviews-section">
+  <div class="container">
+    <div class="section-header"><div class="sh-text">
+      <span class="eyebrow">Student reviews</span><h2 class="h2">Trusted by GATE aspirants across India</h2>
+      <p class="body">Structured preparation, exam-aligned mock tests and focused revision.</p></div></div>
+    <div class="review-grid" id="review-grid"></div>
+    <div class="center-row"><button class="btn btn-secondary" id="review-more" onclick="showAllReviews()">Show all reviews</button></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-border">
+  <div class="container">
+    <div class="section-header"><div class="sh-text"><span class="eyebrow">FAQ</span><h2 class="h2">Common questions</h2></div></div>
+    <div class="faq" id="faq"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section">
+  <div class="container"><div class="stats-grid" id="stats-grid"></div></div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo"><span class="logo-mark">G<span>.</span></span><span>GATE<span class="brand-red">Clashers</span></span></span>
+        <p class="footer-tagline">A comprehensive preparation platform for GATE 2027 Computer Science &amp; Information Technology aspirants.</p>
+      </div>
+      <div class="footer-col"><div class="footer-col-title">Quick links</div>
+        <a href="#syllabus-section">Syllabus</a><a href="#resources-section">Course content</a><a href="#plans-section">Plans</a><a href="#reviews-section">Reviews</a></div>
+      <div class="footer-col"><div class="footer-col-title">Course</div>
+        <a href="#" data-lock="Previous Year Papers">Previous Year Papers</a><a href="#" data-lock="Study Modules">Study Modules</a><a href="#" data-lock="Practice Tests">Practice Tests</a><a href="#" data-lock="Weekly Test Series">Weekly Test Series</a><a href="#" data-lock="Video Lectures">Video Lectures</a></div>
+      <div class="footer-col"><div class="footer-col-title">Contact &amp; support</div>
+        <a href="https://t.me/ragexking" target="_blank" rel="noopener">Telegram @ragexking</a><a href="https://t.me/fos9x" target="_blank" rel="noopener">Telegram @fos9x</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span class="caption">© 2026 GATEClashers. All rights reserved.</span>
+      <span class="caption">Designed for GATE 2027 CS &amp; IT aspirants.</span>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg class="icon" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<!-- PREMIUM MODAL -->
+<div class="modal-overlay" id="premium-modal" role="dialog" aria-modal="true" aria-labelledby="pm-title">
+  <div class="modal-backdrop" onclick="closeModal()"></div>
+  <div class="modal-card">
+    <button class="icon-btn modal-close" aria-label="Close" onclick="closeModal()"><svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <span class="badge badge-important">Premium content</span>
+    <div class="modal-title" id="pm-title">Unlock <span id="pm-name">this content</span></div>
+    <p class="modal-sub">This content is part of the premium course. Message @ragexking on Telegram to unlock full access, or pick a plan below.</p>
+    <div class="modal-actions">
+      <a class="btn btn-primary btn-block" href="https://t.me/ragexking" target="_blank" rel="noopener">Message @ragexking on Telegram</a>
+      <a class="btn btn-secondary btn-block" href="#plans-section" onclick="closeModal()">View plans</a>
+      <button class="btn btn-block" onclick="closeModal()" style="color:var(--gray-500);">Maybe later</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   CONFIG — edit plan prices, links and notices here
+   ============================================================ */
+const BUY_LINK = 'https://t.me/ragexking';
+const PLANS = [
+  {name:'Test Series', price:'₹499', per:'till GATE 2027', feats:['Weekly test every Sunday','Full-length mock tests','Section-wise practice tests','Performance analysis'], cta:'Get Test Series'},
+  {name:'Complete Course', price:'₹1,499', per:'till GATE 2027', feats:['Everything in Test Series','Notes, worksheets and mind maps','PYQs with solutions','100+ video lectures','Guess papers and important questions','Live 1-on-1 doubt solving'], cta:'Buy Complete Course', featured:true},
+  {name:'Crash Course', price:'₹799', per:'3 months', feats:['Important questions','Revision notes and mind maps','Guess papers','Sectional tests'], cta:'Get Crash Course'}
+];
+
+/* Icons (stroke paths, 24x24) */
+const P = {
+  sigma:'<path d="M18 7V4H6l6 8-6 8h12v-3"/>',
+  logic:'<rect x="3" y="4" width="7" height="7" rx="1"/><rect x="14" y="13" width="7" height="7" rx="1"/><path d="M10 7.5h4a2 2 0 0 1 2 2V13M14 16.5h-4a2 2 0 0 1-2-2V11"/>',
+  layers:'<path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>',
+  code:'<path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/>',
+  algo:'<circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="9" r="2"/><path d="M6 8v8M18 11c0 4-6 3-12 5"/>',
+  auto:'<circle cx="6" cy="12" r="3"/><circle cx="18" cy="12" r="3"/><path d="M9 12h6"/>',
+  term:'<path d="m4 17 6-6-6-6M12 19h8"/>',
+  os:'<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>',
+  db:'<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+  net:'<circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v4M12 11l-6 6M12 11l6 6"/>',
+  file:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/>',
+  book:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5V22h16"/>',
+  check:'<rect x="4" y="3" width="16" height="18" rx="2"/><path d="m8.5 12 2.5 2.5 4.5-5"/>',
+  star:'<path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.3-6.2 3.3L8 14.2 3 9.3l6.9-1z"/>',
+  target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+  play:'<circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4z"/>',
+  cal:'<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+  lib:'<path d="M4 4v16M9 4v16M14 6l4 14"/>',
+  lock:'<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
+  tick:'<path d="M20 6 9 17l-5-5"/>',
+  arrow:'<path d="M7 17 17 7M8 7h9v9"/>',
+  right:'<path d="M5 12h14M13 5l7 7-7 7"/>',
+  plus:'<path d="M12 5v14M5 12h14"/>',
+  chat:'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+  map:'<circle cx="12" cy="12" r="2"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="m6.5 6.5 4 4M17.5 6.5l-4 4M6.5 17.5l4-4M17.5 17.5l-4-4"/>',
+  slides:'<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/>',
+  bell:'<path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/>'
+};
+const ic = (n,c='icon icon-sm') => `<svg class="${c}" viewBox="0 0 24 24">${P[n]}</svg>`;
+
+/* GATE 2027 CS syllabus — from the official GATE 2027 (IIT Madras) document */
+const SYLLABUS = [
+ {id:1,name:'Engineering Mathematics',icon:'sigma',groups:[
+  {h:'Discrete Mathematics',t:['Propositional and first order logic','Sets','Relations','Functions','Partial orders and lattices','Monoids','Groups','Graphs: connectivity','Graphs: matching','Graphs: colouring','Combinatorics: counting','Recurrence relations','Generating functions']},
+  {h:'Linear Algebra',t:['Matrices','Determinants','System of linear equations','Eigenvalues and eigenvectors','LU decomposition']},
+  {h:'Calculus',t:['Limits','Continuity and differentiability','Maxima and minima','Mean value theorem','Integration']},
+  {h:'Probability and Statistics',t:['Random variables','Uniform distribution','Normal distribution','Exponential distribution','Poisson distribution','Binomial distribution','Mean, median, mode','Standard deviation','Conditional probability','Bayes theorem']}]},
+ {id:2,name:'Digital Logic',icon:'logic',groups:[{t:['Boolean algebra and minimization','Algebraic technique','Karnaugh map','Tabular method','Design of combinational circuits','Design of sequential circuits','Number representation (fixed point)','Number representation (floating point)','Arithmetic']}]},
+ {id:3,name:'Computer Organization & Architecture',icon:'layers',groups:[{t:['Instruction set','Addressing modes','Design of ALU','Hardwired control unit','Microprogrammed control unit','Memory interfacing','Memory hierarchy and performance','Cache memory mapping','I/O interface: interrupt','I/O interface: DMA','Instruction pipelining','Pipeline hazards']}]},
+ {id:4,name:'Programming & Data Structures',icon:'code',groups:[{t:['Programming in C','Recursion','Arrays','Stacks','Queues','Linked lists','Trees','Binary search trees','Binary heaps','Graphs']}]},
+ {id:5,name:'Algorithms',icon:'algo',groups:[{t:['Searching','Sorting','Hashing','Asymptotic worst case time complexity','Asymptotic worst case space complexity','Greedy','Dynamic programming','Divide-and-conquer','Graph traversals','Minimum spanning trees','Shortest paths']}]},
+ {id:6,name:'Theory of Computation',icon:'auto',groups:[{t:['Regular expressions','Finite automata','Context-free grammars','Push-down automata','Regular languages','Context-free languages','Pumping lemma','Turing machines','Undecidability']}]},
+ {id:7,name:'Compiler Design',icon:'term',groups:[{t:['Lexical analysis','Parsing','Syntax-directed translation','Runtime environments','Intermediate code generation','Local optimisation','Data flow analyses','Constant propagation','Liveness analysis','Common sub expression elimination']}]},
+ {id:8,name:'Operating System',icon:'os',groups:[{t:['System calls','Processes','Threads','Inter-process communication','Concurrency and synchronization','Deadlock','CPU scheduling','I/O scheduling','Memory management','Virtual memory','File systems']}]},
+ {id:9,name:'Databases',icon:'db',groups:[{t:['ER-model','Relational model','Relational algebra','Tuple calculus','SQL','Integrity constraints','Normal forms','File organization','Indexing (B and B+ trees)','Transactions','Concurrency control']}]},
+ {id:10,name:'Computer Networks',icon:'net',groups:[{t:['Principles of layering','Switching: circuit, packet, virtual circuit','Performance metrics','Data link layer: error detection','Medium Access Control','Ethernet','Distance vector routing','Link state routing','IPv4 fragmentation','CIDR notation','Network Address Translation','TCP flow control','TCP congestion control','Socket API','DNS','HTTP']}]}
+];
+SYLLABUS.forEach(s=>{s.count=s.groups.reduce((n,g)=>n+g.t.length,0);});
+
+const NOTICES = [
+ {d:'Sep 2026',t:'GATE 2027 Computer Science &amp; IT syllabus is live',x:'All 10 sections of the official GATE 2027 (IIT Madras) syllabus are mapped to our notes, videos and tests.',b:'Syllabus',go:'#syllabus-section'},
+ {d:'Sep 2026',t:'Previous Year Papers now available with solutions',x:'Topic-wise PYQs with detailed solutions and most-repeated topics highlighted.',b:'PYQ',go:'#resources-section'},
+ {d:'Weekly',t:'New test every Sunday',x:'The Weekly Test Series keeps your preparation consistent. Track performance and find weak areas.',b:'Test Series',go:'#plans-section'},
+ {d:'Free',t:'Free sample test for every aspirant',x:'Try the exam-style interface before you subscribe.',b:'Free',go:'free-test.html'}
+];
+
+const QUICK = [
+ ['PYQ Papers','file','Previous Year Papers'],['Study Modules','book','Study Modules'],['Practice Tests','check','Practice Tests'],
+ ['Video Lectures','play','Video Lectures'],['Guess Papers','target','Guess Papers'],['Weekly Tests','cal','Weekly Test Series']
+];
+
+const RESOURCES = [
+ {n:'Previous Year Papers',i:'file',m:'GATE CS question papers with detailed solutions and topic-wise analysis.',c:'View PYQ Papers'},
+ {n:'Study Modules',i:'book',m:'Well-structured, section-wise notes and worksheets covering the full GATE CS syllabus.',c:'View Study Modules'},
+ {n:'Practice Tests',i:'check',m:'Full-length mock tests and sectional tests simulating the real GATE exam environment, with performance analysis.',c:'Start Test'},
+ {n:'Important Questions',i:'star',m:'Most frequently asked and high-priority questions curated from PYQ analysis, across all sections.',c:'View Important Qs'},
+ {n:'Guess Papers',i:'target',m:'Expert-curated guess papers based on deep trend analysis of past papers to maximise your score.',c:'Access Guess Papers'},
+ {n:'Video Lectures',i:'play',m:'100+ concise video lectures covering all topics. Includes recorded sessions and scheduled live classes.',c:'Watch Lectures'},
+ {n:'Weekly Test Series',i:'cal',m:'A fresh test every Sunday. Track performance, find weak areas and build exam confidence week by week.',c:'Join Test Series'},
+ {n:'Recommended Books',i:'lib',m:'Curated book list for every GATE CS section, with reference links.',c:'View Books',free:true}
+];
+
+const OFFERS = [
+ ['file','Detailed Notes &amp; Worksheets','Verified notes covering the most important topics, sub-topics, tricks and topper notes.'],
+ ['book','Previous Year Papers','Complete collection of GATE CS PYQs with solutions and most repeated topics highlighted.'],
+ ['chat','Live 1-on-1 Doubt Solving','Direct live doubt-clearing sessions. Ask anything and get clarity immediately.'],
+ ['cal','Weekly Test Series','Tests every Sunday to check preparation. Build consistency and track progress week over week.'],
+ ['target','Guess Papers','Expert-curated guess papers based on analysis of past trends, to maximise score on exam day.'],
+ ['map','Mind Maps','Topic-wise visual mind maps for all sections, perfect for fast last-minute revision.'],
+ ['slides','Chapter Presentations','Chapter-wise slide presentations for all subjects for structured visual learning.'],
+ ['play','Video Lectures','Short concept videos for every topic, from Engineering Mathematics to Computer Networks.']
+];
+
+const REVIEWS = [
+ ['Aarav Sharma','B.Tech CSE, Pune',5,'The section-wise notes follow the GATE syllabus exactly. I always knew what was left to cover.'],
+ ['Priya Mehta','B.Tech IT, Mumbai',5,'Weekly Sunday tests improved my consistency. The analysis showed my weak topics clearly.'],
+ ['Rohan Verma','B.Tech CSE, Lucknow',4,'Algorithms and DP practice sets improved my speed without hurting accuracy.'],
+ ['Sara Banerjee','B.Tech CSE, Kolkata',5,'Explanations are concept-based rather than shortcut-based. That made a real difference in TOC.'],
+ ['Aditya Patel','B.E. Computer, Ahmedabad',4,'Structured coverage meant no topic was left untouched before the exam.'],
+ ['Fatima Khan','B.Tech CSE, Delhi',5,'Operating Systems and Computer Networks videos were short and easy to revise before tests.'],
+ ['Kunal Rao','B.Tech CSE, Bhopal',5,'Extremely exam-oriented mock tests. The performance dashboard is detailed and useful.'],
+ ['Neha Iyer','B.Tech IT, Chennai',4,'The PYQ collection with topic-wise tagging saved me weeks of searching.'],
+ ['Rahul Deshmukh','B.E. Computer, Nagpur',5,'Practice sections improved my time management a lot before exam day.'],
+ ['Ananya Reddy','B.Tech CSE, Hyderabad',5,'Detailed explanations for Databases and normal forms made concepts finally click.'],
+ ['Vikram Singh','B.Tech CSE, Jaipur',5,'Strong focus on Engineering Mathematics and a clear revision strategy.'],
+ ['Shreya Nair','B.Tech CSE, Kochi',4,'Digital Logic and COA questions were exam relevant and well graded by difficulty.'],
+ ['Ishaan Kapoor','B.Tech CSE, Patna',5,'The mock interface closely resembled the real computer-based GATE test.'],
+ ['Meera Joshi','B.Tech IT, Nashik',5,'Sectional tests with increasing difficulty helped me build confidence steadily.'],
+ ['Harsh Trivedi','B.Tech CSE, Surat',4,'Mind maps were perfect for last-week revision of Compiler Design.'],
+ ['Divya Menon','B.Tech CSE, Thiruvananthapuram',5,'Live doubt solving cleared my confusion on pipeline hazards in one session.'],
+ ['Sourav Das','B.Tech CSE, Durgapur',5,'Guess papers were close to the real paper pattern and great for final practice.'],
+ ['Pooja Kulkarni','B.E. Computer, Kolhapur',4,'Data Structures and C programming problems were tricky in the right way.'],
+ ['Arjun Nambiar','B.Tech CSE, Bengaluru',5,'Good mix of theory videos and problems. I revised the whole syllabus twice.'],
+ ['Tanvi Joshi','B.Tech IT, Pune',5,'Probability and linear algebra sheets were concise and to the point.'],
+ ['Manish Yadav','B.Tech CSE, Varanasi',4,'Affordable and organised. Everything I needed was in one portal.'],
+ ['Kavya Gowda','B.Tech CSE, Mysuru',5,'Weekly tests kept me disciplined while working on my final year project.'],
+ ['Nikhil Chavan','B.E. Computer, Wardha',5,'Important questions list helped me focus on high-scoring topics in the last month.'],
+ ['Ritika Sinha','B.Tech CSE, Ranchi',5,'Clean interface, clear notes and tests that match the real exam level.']
+];
+
+const FAQS = [
+ ['What does the GATEClashers subscription include?','Section-wise study modules, previous year papers with solutions, video lectures, practice tests, the Sunday weekly test series, guess papers, important questions, mind maps and live doubt solving.'],
+ ['How do I get access after paying?','Message @ragexking on Telegram to buy a plan. Your account is upgraded once payment is confirmed.'],
+ ['Which syllabus does the portal follow?','The official GATE 2027 Computer Science and Information Technology syllabus released by IIT Madras, the organising institute.'],
+ ['Can I try the portal before subscribing?','Yes. Start the free sample test to see the exam interface and analysis.'],
+ ['Can I access the content on my phone?','Yes. The portal works on phones, tablets and laptops, any time you want to study.']
+];
+
+const STATS = [['10','Syllabus sections',false],['100<span class="accent">+</span>','Video lectures',false],['Every <span class="accent">Sunday</span>','Weekly test',false],['24/7','Access available',false]];
+
+/* ---------- RENDER ---------- */
+function renderAll(){
+  document.getElementById('notice-list').innerHTML = NOTICES.map(n=>`
+    <a class="notice-item" href="${n.go}">
+      <div class="notice-date">${n.d}</div>
+      <div><div class="notice-title-row"><span class="notice-title">${n.t}</span><span class="badge badge-neutral">${n.b}</span></div><p class="notice-desc">${n.x}</p></div>
+      <span class="notice-arrow">${ic('right')}</span></a>`).join('');
+
+  document.getElementById('syl-grid').innerHTML = SYLLABUS.map(s=>`
+    <button class="dept-card" data-id="${s.id}" onclick="openSyl(${s.id})" aria-expanded="false">
+      <div class="dept-top"><span class="dept-icon">${ic(s.icon,'icon')}</span><span class="dept-arrow">${ic('arrow')}</span></div>
+      <div class="dept-name">${s.name}</div>
+      <div class="dept-count">Section ${s.id} · ${s.count} topics</div></button>`).join('');
+
+  document.getElementById('quick-grid').innerHTML = QUICK.map(q=>`
+    <a href="#" class="quick-item" onclick="openPremium('${q[2]}');return false;">${ic(q[1],'icon quick-icon')}<span class="quick-label">${q[0]}</span></a>`).join('');
+
+  document.getElementById('resource-grid').innerHTML = RESOURCES.map(r=>`
+    <a href="#" class="pyq-card" onclick="${r.free?'return false;':`openPremium('${r.n}');return false;`}">
+      <div class="pyq-top"><span class="dept-icon" style="width:38px;height:38px;">${ic(r.i,'icon')}</span>
+        ${r.free?'<span class="badge badge-neutral">Free</span>':`<span class="lock-tag">${ic('lock')}Premium</span>`}</div>
+      <div class="pyq-subject">${r.n}</div><p class="pyq-meta">${r.m}</p>
+      <span class="pyq-link">${r.c} ${ic('right')}</span></a>`).join('');
+
+  document.getElementById('plans').innerHTML = PLANS.map(p=>`
+    <div class="plan${p.featured?' featured':''}">
+      <div style="display:flex;justify-content:space-between;align-items:center;"><h3 class="h3">${p.name}</h3>${p.featured?'<span class="badge badge-important">Best value</span>':''}</div>
+      <div class="plan-price">${p.price} <small>${p.per}</small></div>
+      <ul>${p.feats.map(f=>`<li>${ic('tick')}<span>${f}</span></li>`).join('')}</ul>
+      <a class="btn ${p.featured?'btn-primary':'btn-secondary'}" href="${BUY_LINK}" target="_blank" rel="noopener">${p.cta}</a></div>`).join('');
+
+  document.getElementById('offer-grid').innerHTML = OFFERS.map(o=>`
+    <div class="toolkit-card"><div class="toolkit-icon">${ic(o[0],'icon')}</div><div class="toolkit-name">${o[1]}</div><p class="toolkit-desc">${o[2]}</p></div>`).join('');
+
+  document.getElementById('review-grid').innerHTML = REVIEWS.map((r,i)=>{
+    const ini = r[0].split(' ').map(w=>w[0]).join('').slice(0,2);
+    return `<div class="review-card${i>=9?' extra':''}"><div class="review-top"><div class="review-avatar">${ini}</div>
+      <div><div class="review-name">${r[0]}</div><div class="review-meta">${r[1]}</div></div></div>
+      <div class="review-stars" aria-label="${r[2]} out of 5 stars">${'★'.repeat(r[2])}${'☆'.repeat(5-r[2])}</div>
+      <p class="review-text">${r[3]}</p></div>`;}).join('');
+
+  document.getElementById('faq').innerHTML = FAQS.map(f=>`<details><summary>${f[0]}${ic('plus','icon')}</summary><p>${f[1]}</p></details>`).join('');
+  document.getElementById('stats-grid').innerHTML = STATS.map(s=>`<div class="stat-block"><div class="stat-num">${s[0]}</div><div class="stat-label">${s[1]}</div></div>`).join('');
+}
+
+/* ---------- SYLLABUS PANEL ---------- */
+let openId = null;
+function openSyl(id, hitText){
+  const s = SYLLABUS.find(x=>x.id===id); if(!s) return;
+  const panel = document.getElementById('syl-panel');
+  if(openId===id && !hitText){ closeSyl(); return; }
+  openId = id;
+  document.querySelectorAll('.dept-card').forEach(c=>{const o=+c.dataset.id===id; c.classList.toggle('open',o); c.setAttribute('aria-expanded',o);});
+  panel.innerHTML = `<div class="syl-head"><div><span class="eyebrow">Section ${s.id} of 10</span><h3 class="h2" style="margin-top:6px;">${s.name}</h3></div>
+    <button class="btn btn-primary btn-sm" onclick="openPremium('${s.name.replace(/&/g,'and')} notes')">${ic('lock')}Unlock section</button></div>`+
+    s.groups.map(g=>`<div class="syl-group">${g.h?`<h4>${g.h}</h4>`:''}<div class="syl-topics">${g.t.map(t=>`<span class="topic${hitText&&t===hitText?' hit':''}">${t}</span>`).join('')}</div></div>`).join('');
+  panel.classList.add('open');
+  panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function closeSyl(){ openId=null; document.getElementById('syl-panel').classList.remove('open'); document.querySelectorAll('.dept-card').forEach(c=>{c.classList.remove('open');c.setAttribute('aria-expanded',false);}); }
+
+/* ---------- SEARCH ---------- */
+function handleSearch(q){
+  const box = document.getElementById('search-results'); q=(q||'').trim().toLowerCase();
+  if(!q){ box.classList.remove('open'); return; }
+  const hits=[]; SYLLABUS.forEach(s=>s.groups.forEach(g=>g.t.forEach(t=>{ if(t.toLowerCase().includes(q)||s.name.toLowerCase().includes(q)) hits.push({s,t,g}); })));
+  box.innerHTML = hits.length ? hits.slice(0,8).map(h=>`<button class="search-result-item" onclick="pickResult(${h.s.id},'${h.t.replace(/'/g,"\\'")}')">
+      <div><div style="font-size:14px;font-weight:600;">${h.t}</div><div class="search-result-meta">${h.s.name}${h.g.h?' · '+h.g.h:''}</div></div>${ic('right')}</button>`).join('')
+    : `<div class="search-empty">No syllabus topic matches “${q.replace(/</g,'&lt;')}”. Try a different keyword.</div>`;
+  box.classList.add('open');
+}
+function setSearch(v){ const i=document.getElementById('global-search'); i.value=v; i.focus(); handleSearch(v); }
+function pickResult(id,t){ document.getElementById('search-results').classList.remove('open'); document.getElementById('syllabus-section').scrollIntoView({behavior:'smooth'}); openSyl(id,t); }
+document.addEventListener('click',e=>{ if(!e.target.closest('.search-wrap')) document.getElementById('search-results').classList.remove('open'); });
+document.addEventListener('keydown',e=>{
+  if(e.key==='/' && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)){ e.preventDefault(); document.getElementById('global-search').focus(); }
+  if(e.key==='Escape'){ document.getElementById('search-results').classList.remove('open'); toggleMenu(false); closeModal(); }
+});
+
+/* ---------- UI ---------- */
+function toggleDark(){ const d=document.body.classList.toggle('dark-mode'); try{localStorage.setItem('gateclashers_dark',d?'1':'0');}catch(e){} }
+function toggleMenu(o){ document.getElementById('mobile-menu').classList.toggle('open',o); document.body.style.overflow=o?'hidden':''; }
+function openPremium(name){ document.getElementById('pm-name').textContent=name; document.getElementById('premium-modal').classList.add('open'); }
+function closeModal(){ document.getElementById('premium-modal').classList.remove('open'); }
+function showAllReviews(){ document.getElementById('review-grid').classList.add('all'); document.getElementById('review-more').parentElement.style.display='none'; }
+document.addEventListener('click',e=>{ const a=e.target.closest('[data-lock]'); if(a){ e.preventDefault(); openPremium(a.dataset.lock); } });
+
+/* Scroll: back-to-top + active nav link */
+const secs=['top','syllabus-section','resources-section','plans-section','reviews-section'];
+window.addEventListener('scroll',()=>{
+  document.getElementById('back-to-top').classList.toggle('show',window.scrollY>600);
+  let cur='top'; secs.forEach(id=>{ const el=document.getElementById(id); if(el && el.getBoundingClientRect().top<=120) cur=id; });
+  document.querySelectorAll('.nav-link').forEach(l=>l.classList.toggle('active',l.dataset.sec===cur));
+},{passive:true});
+
+renderAll();
+</script>
+</body>
+</html>
