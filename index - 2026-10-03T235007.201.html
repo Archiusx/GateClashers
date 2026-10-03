@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>GATEClashers — GATE 2027 CS Preparation Portal</title>
+<meta name="description" content="GATE 2027 Computer Science & IT preparation: syllabus-wise notes, PYQs, video lectures, mock tests and weekly test series." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* DESIGN SYSTEM — same tokens as the BitVerse portal */
+:root{
+  --black:#0a0a0a; --white:#ffffff; --red:#e11d2e; --red-dark:#b7141f;
+  --gray-50:#fafafa; --gray-100:#f2f2f2; --gray-200:#e5e5e5; --gray-300:#d4d4d4; --gray-400:#a3a3a3;
+  --gray-500:#737373; --gray-600:#525252; --gray-700:#3a3a3a; --gray-900:#171717;
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:20px; --space-6:24px;
+  --space-8:32px; --space-10:40px; --space-12:48px; --space-16:64px; --space-20:80px;
+  --radius-sm:4px; --radius-md:6px; --radius-lg:10px;
+  --border:1px solid var(--gray-200); --border-strong:1px solid var(--black);
+  --ease:cubic-bezier(.4,0,.2,1); --t-fast:150ms var(--ease); --t-med:220ms var(--ease);
+  --container:1200px;
+}
+body.dark-mode{
+  --black:#ffffff; --white:#0a0a0a; --gray-50:#141414; --gray-100:#1a1a1a; --gray-200:#262626; --gray-300:#333333;
+  --gray-400:#5c5c5c; --gray-500:#8a8a8a; --gray-600:#b3b3b3; --gray-700:#d4d4d4; --gray-900:#f5f5f5;
+  --border-strong:1px solid var(--white); background:var(--white); color:var(--black);
+}
+body.dark-mode .btn-primary{background:var(--red); color:#fff; border-color:var(--red);}
+body.dark-mode .btn-primary:hover{background:var(--red-dark); border-color:var(--red-dark);}
+body.dark-mode .btn-secondary{background:transparent; color:var(--black); border:1px solid var(--gray-300);}
+body.dark-mode .btn-secondary:hover{background:var(--red); border-color:var(--red); color:#fff;}
+body.dark-mode .navbar{background:rgba(10,10,10,.92);}
+body.dark-mode .modal-card,body.dark-mode .dept-card,body.dark-mode .plan{background:var(--gray-50);}
+body.dark-mode .modal-backdrop{background:rgba(0,0,0,.75);}
+body.dark-mode .badge-important,body.dark-mode .note-box{background:#2a1214; border-color:#4a1d21; color:#ff8a93;}
+.theme-toggle{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--gray-200);flex-shrink:0;transition:border-color var(--t-fast);}
+.theme-toggle:hover{border-color:var(--red);color:var(--red);}
+.theme-toggle svg{width:17px;height:17px;}
+.theme-toggle .icon-moon{display:none;}
+body.dark-mode .theme-toggle .icon-sun{display:none;}
+body.dark-mode .theme-toggle .icon-moon{display:block;}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;overflow-x:hidden;width:100%;scroll-padding-top:76px;}
+body{overflow-x:hidden;width:100%;max-width:100vw;font-family:'Poppins',-apple-system,sans-serif;color:var(--black);background:var(--white);line-height:1.5;-webkit-font-smoothing:antialiased;font-size:15px;}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;}}
+img,svg{display:block;} a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;background:none;border:none;color:inherit;} input{font-family:inherit;} ul{list-style:none;}
+.container{max-width:var(--container);margin:0 auto;padding:0 var(--space-6);}
+@media (max-width:640px){.container{padding:0 var(--space-4);}}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--red);outline-offset:2px;border-radius:2px;}
+
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:8px;}
+h1,h2,h3,h4{font-weight:700;letter-spacing:-0.02em;color:var(--black);}
+.h1{font-size:44px;line-height:1.08;} .h2{font-size:30px;line-height:1.2;} .h3{font-size:19px;line-height:1.3;font-weight:600;}
+.body-lg{font-size:17px;line-height:1.6;color:var(--gray-600);} .body{font-size:15px;color:var(--gray-600);}
+.caption{font-size:12.5px;color:var(--gray-500);font-weight:500;}
+@media (max-width:640px){.h1{font-size:32px;}.h2{font-size:24px;}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;font-size:14.5px;font-weight:600;border-radius:var(--radius-sm);transition:background var(--t-fast),color var(--t-fast),border-color var(--t-fast),transform var(--t-fast);white-space:nowrap;line-height:1;}
+.btn:active{transform:translateY(1px);}
+.btn-primary{background:var(--black);color:var(--white);border:1px solid var(--black);}
+.btn-primary:hover{background:var(--red);border-color:var(--red);color:#fff;}
+.btn-secondary{background:var(--white);color:var(--black);border:1px solid var(--black);}
+.btn-secondary:hover{background:var(--black);color:var(--white);}
+.btn-sm{padding:8px 14px;font-size:13px;} .btn-block{width:100%;}
+.icon{width:20px;height:20px;stroke:currentColor;stroke-width:1.75;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+.icon-sm{width:16px;height:16px;} .icon-lg{width:26px;height:26px;}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:3px;letter-spacing:.02em;}
+.badge-neutral{background:var(--gray-100);color:var(--gray-600);}
+.badge-important{background:#fdecec;color:var(--red-dark);}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:var(--border);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px;}
+.logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:18px;letter-spacing:-0.01em;flex-shrink:0;}
+.logo-mark{width:30px;height:30px;background:var(--black);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:14px;font-weight:800;}
+.logo-mark span{color:var(--red);} .brand-red{color:var(--red);}
+.nav-links{display:flex;align-items:center;gap:2px;}
+.nav-link{padding:9px 14px;font-size:14px;font-weight:500;color:var(--gray-700);border-radius:var(--radius-sm);transition:color var(--t-fast),background var(--t-fast);position:relative;}
+.nav-link:hover{color:var(--black);background:var(--gray-50);} .nav-link.active{color:var(--black);}
+.nav-link.active::after{content:'';position:absolute;left:14px;right:14px;bottom:2px;height:2px;background:var(--red);}
+.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.icon-btn{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-sm);color:var(--gray-700);transition:background var(--t-fast);}
+.icon-btn:hover{background:var(--gray-100);color:var(--black);} .hamburger{display:none;}
+@media (max-width:900px){.nav-links{display:none;}.hamburger{display:flex;}.nav-login-text{display:none;}}
+.mobile-menu{position:fixed;inset:0;z-index:200;display:none;} .mobile-menu.open{display:block;}
+.mobile-menu-backdrop{position:absolute;inset:0;background:rgba(10,10,10,.4);animation:fadeIn var(--t-med);}
+.mobile-menu-panel{position:absolute;top:0;right:0;height:100%;width:82%;max-width:340px;background:var(--white);border-left:var(--border);display:flex;flex-direction:column;padding:var(--space-6);animation:slideIn var(--t-med);}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}} @keyframes slideIn{from{transform:translateX(100%)}to{transform:translateX(0)}}
+.mobile-menu-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-8);}
+.mobile-menu-links{display:flex;flex-direction:column;}
+.mobile-menu-links a{padding:14px 4px;font-size:16px;font-weight:500;border-bottom:1px solid var(--gray-100);}
+.mobile-menu-footer{margin-top:auto;padding-top:var(--space-6);border-top:var(--border);}
+
+/* HERO */
+.hero{padding:var(--space-20) 0 var(--space-16);border-bottom:var(--border);}
+.hero-inner{max-width:760px;} .hero-inner.container{max-width:var(--container);}
+.hero h1{margin-top:var(--space-5);max-width:760px;} .hero .body-lg{margin-top:var(--space-5);max-width:620px;}
+.hero-ctas{display:flex;gap:14px;margin-top:var(--space-8);flex-wrap:wrap;}
+.hero-body{max-width:760px;}
+@media (max-width:640px){.hero{padding:var(--space-12) 0 var(--space-10);}.hero-ctas{flex-direction:column;align-items:stretch;}.hero-ctas .btn{width:100%;}}
+.search-wrap{margin-top:var(--space-12);position:relative;max-width:640px;}
+.search-box{display:flex;align-items:center;gap:12px;border:1.5px solid var(--black);border-radius:var(--radius-md);padding:15px 18px;background:var(--white);transition:border-color var(--t-fast),box-shadow var(--t-fast);}
+.search-box:focus-within{border-color:var(--red);box-shadow:0 0 0 3px rgba(225,29,46,.08);}
+.search-box input{border:none;outline:none;flex:1;font-size:15px;background:transparent;color:var(--black);min-width:0;}
+.search-box input::placeholder{color:var(--gray-400);}
+.search-kbd{font-size:11px;color:var(--gray-400);border:1px solid var(--gray-200);border-radius:4px;padding:2px 6px;font-weight:500;}
+.search-suggestions{margin-top:var(--space-3);display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+.search-suggestions .label{font-size:12.5px;color:var(--gray-400);}
+.chip{font-size:12.5px;font-weight:500;padding:6px 12px;border:1px solid var(--gray-200);border-radius:20px;color:var(--gray-600);transition:all var(--t-fast);background:var(--white);}
+.chip:hover{border-color:var(--black);color:var(--black);}
+.search-results{position:absolute;top:calc(100% + 8px);left:0;right:0;background:var(--white);border:var(--border-strong);border-radius:var(--radius-md);box-shadow:0 12px 32px rgba(0,0,0,.12);max-height:360px;overflow-y:auto;z-index:50;display:none;}
+.search-results.open{display:block;}
+.search-result-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--gray-100);width:100%;text-align:left;transition:background var(--t-fast);}
+.search-result-item:last-child{border-bottom:none;} .search-result-item:hover{background:var(--gray-50);}
+.search-result-meta{font-size:12px;color:var(--gray-500);margin-top:2px;}
+.search-empty{padding:28px 18px;text-align:center;color:var(--gray-500);font-size:13.5px;}
+
+/* SECTIONS */
+.section{padding:var(--space-16) 0;} .section-border{border-bottom:var(--border);}
+.section-header{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--space-6);margin-bottom:var(--space-8);}
+.section-header .sh-text{max-width:560px;} .section-header h2{margin-top:var(--space-2);} .section-header .body{margin-top:var(--space-2);}
+@media (max-width:640px){.section{padding:var(--space-10) 0;}.section-header{flex-direction:column;align-items:flex-start;}}
+
+/* NOTICES */
+.notice-list{display:flex;flex-direction:column;}
+.notice-item{display:grid;grid-template-columns:90px 1fr auto;gap:var(--space-6);align-items:start;padding:var(--space-6) 0;border-bottom:var(--border);}
+.notice-item:first-child{padding-top:0;} .notice-item:last-child{border-bottom:none;padding-bottom:0;}
+.notice-date{font-size:12px;font-weight:600;color:var(--gray-400);letter-spacing:.03em;padding-top:3px;}
+.notice-title-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+.notice-title{font-size:15.5px;font-weight:600;} .notice-desc{font-size:13.5px;color:var(--gray-500);line-height:1.55;}
+.notice-arrow{color:var(--gray-400);align-self:center;transition:transform var(--t-fast),color var(--t-fast);}
+.notice-item:hover .notice-arrow{transform:translateX(3px);color:var(--red);}
+@media (max-width:600px){.notice-item{grid-template-columns:1fr auto;}.notice-date{grid-column:1/-1;padding-top:0;}}
+
+/* SYLLABUS GRID (dept-grid style) */
+.dept-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--gray-200);border:1px solid var(--gray-200);}
+@media (max-width:1000px){.dept-grid{grid-template-columns:repeat(3,1fr);}}
+@media (max-width:700px){.dept-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:440px){.dept-grid{grid-template-columns:1fr;}}
+.dept-card{background:var(--white);padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-4);transition:background var(--t-fast);min-height:176px;text-align:left;width:100%;}
+.dept-card:hover,.dept-card.open{background:var(--gray-50);}
+.dept-card.open{box-shadow:inset 0 -3px 0 var(--red);}
+.dept-card:hover .dept-arrow{transform:translate(3px,-3px);color:var(--red);}
+.dept-card:hover .dept-icon,.dept-card.open .dept-icon{border-color:var(--red);color:var(--red);}
+.dept-top{display:flex;justify-content:space-between;align-items:flex-start;}
+.dept-icon{width:42px;height:42px;border:1px solid var(--gray-300);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;transition:all var(--t-fast);}
+.dept-arrow{color:var(--gray-400);transition:all var(--t-fast);}
+.dept-name{font-size:15.5px;font-weight:700;margin-top:auto;line-height:1.3;}
+.dept-count{font-size:12px;color:var(--gray-500);font-weight:500;}
+.syl-panel{display:none;border:var(--border);border-top:none;padding:var(--space-8) var(--space-6);}
+.syl-panel.open{display:block;}
+.syl-head{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--space-4);margin-bottom:var(--space-6);}
+.syl-group{margin-top:var(--space-5);} .syl-group h4{font-size:14px;font-weight:600;margin-bottom:var(--space-3);}
+.syl-topics{display:flex;flex-wrap:wrap;gap:8px;}
+.topic{font-size:13px;font-weight:500;padding:6px 12px;border:1px solid var(--gray-200);border-radius:var(--radius-sm);color:var(--gray-700);}
+.topic.hit{border-color:var(--red);color:var(--red);}
+
+/* QUICK ACCESS */
+.quick-grid{display:grid;grid-template-columns:repeat(6,1fr);border:var(--border);}
+.quick-grid>*:not(:last-child){border-right:var(--border);}
+@media (max-width:900px){.quick-grid{grid-template-columns:repeat(3,1fr);}.quick-grid>*{border-right:var(--border)!important;}.quick-grid>*:nth-child(3n){border-right:none!important;}.quick-grid>*:nth-child(n+4){border-top:var(--border);}}
+@media (max-width:480px){.quick-grid{grid-template-columns:repeat(2,1fr);}.quick-grid>*:nth-child(3n){border-right:var(--border)!important;}.quick-grid>*:nth-child(2n){border-right:none!important;}.quick-grid>*:nth-child(n+3){border-top:var(--border);}}
+.quick-item{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:var(--space-5) var(--space-4);transition:background var(--t-fast),color var(--t-fast);}
+.quick-item:hover{background:var(--gray-50);color:var(--red);}
+.quick-label{font-size:13.5px;font-weight:600;}
+
+/* RESOURCE CARDS (pyq-card style) */
+.pyq-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4);}
+@media (max-width:1000px){.pyq-grid{grid-template-columns:repeat(2,1fr);}} @media (max-width:520px){.pyq-grid{grid-template-columns:1fr;}}
+.pyq-card{border:var(--border);border-radius:var(--radius-md);padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-3);transition:border-color var(--t-fast),transform var(--t-fast);text-align:left;}
+.pyq-card:hover{border-color:var(--black);transform:translateY(-2px);}
+.pyq-top{display:flex;justify-content:space-between;align-items:flex-start;}
+.pyq-subject{font-size:16px;font-weight:700;line-height:1.3;}
+.pyq-meta{font-size:13px;color:var(--gray-500);line-height:1.55;}
+.pyq-link{display:flex;align-items:center;gap:5px;font-size:13px;font-weight:600;margin-top:auto;padding-top:var(--space-2);}
+.pyq-card:hover .pyq-link{color:var(--red);}
+.lock-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--gray-500);}
+
+/* FREE TEST BAND */
+.free-band{display:flex;justify-content:space-between;align-items:center;gap:var(--space-6);border:var(--border-strong);border-radius:var(--radius-md);padding:var(--space-6);flex-wrap:wrap;}
+.free-band .h3{margin-bottom:4px;}
+
+/* PLANS */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--gray-200);border:1px solid var(--gray-200);}
+@media (max-width:820px){.plans{grid-template-columns:1fr;}}
+.plan{background:var(--white);padding:var(--space-8) var(--space-6);display:flex;flex-direction:column;gap:var(--space-4);}
+.plan.featured{box-shadow:inset 0 3px 0 var(--red);}
+.plan-price{font-size:38px;font-weight:800;letter-spacing:-0.02em;line-height:1;}
+.plan-price small{font-size:13px;font-weight:500;color:var(--gray-500);letter-spacing:0;}
+.plan ul{display:flex;flex-direction:column;gap:10px;margin:var(--space-2) 0 var(--space-4);}
+.plan li{display:flex;gap:10px;font-size:13.5px;color:var(--gray-600);line-height:1.45;}
+.plan li .icon{width:16px;height:16px;color:var(--red);margin-top:2px;}
+.plan .btn{margin-top:auto;}
+
+/* WHAT WE OFFER (toolkit style) */
+.toolkit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4);}
+@media (max-width:1000px){.toolkit-grid{grid-template-columns:repeat(2,1fr);}} @media (max-width:560px){.toolkit-grid{grid-template-columns:1fr;}}
+.toolkit-card{border:var(--border);border-radius:var(--radius-md);padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-3);}
+.toolkit-icon{width:38px;height:38px;border:1px solid var(--gray-200);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:var(--gray-600);}
+.toolkit-name{font-size:15px;font-weight:600;} .toolkit-desc{font-size:13px;color:var(--gray-500);line-height:1.55;}
+
+/* REVIEWS */
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);}
+@media (max-width:900px){.review-grid{grid-template-columns:repeat(2,1fr);}} @media (max-width:600px){.review-grid{grid-template-columns:1fr;}}
+.review-card{border:var(--border);border-radius:var(--radius-md);padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-3);}
+.review-card.extra{display:none;} .review-grid.all .review-card.extra{display:flex;}
+.review-top{display:flex;gap:12px;align-items:center;}
+.review-avatar{width:38px;height:38px;border-radius:50%;background:var(--black);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;}
+.review-name{font-size:14.5px;font-weight:600;line-height:1.2;} .review-meta{font-size:12px;color:var(--gray-500);margin-top:2px;}
+.review-stars{color:var(--red);font-size:14px;letter-spacing:2px;}
+.review-text{font-size:13.5px;color:var(--gray-600);line-height:1.6;}
+.center-row{display:flex;justify-content:center;margin-top:var(--space-8);}
+
+/* FAQ */
+.faq{border:var(--border);border-radius:var(--radius-md);overflow:hidden;max-width:820px;}
+.faq details{border-bottom:1px solid var(--gray-100);} .faq details:last-child{border-bottom:none;}
+.faq summary{list-style:none;cursor:pointer;padding:var(--space-5) var(--space-6);font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:16px;align-items:center;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary .icon{transition:transform var(--t-fast);color:var(--gray-400);} .faq details[open] summary .icon{transform:rotate(45deg);color:var(--red);}
+.faq p{padding:0 var(--space-6) var(--space-5);font-size:13.5px;color:var(--gray-500);line-height:1.65;}
+
+/* STATS */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);border:var(--border);}
+.stats-grid>*:not(:last-child){border-right:var(--border);}
+@media (max-width:700px){.stats-grid{grid-template-columns:repeat(2,1fr);}.stats-grid>*:nth-child(2n){border-right:none;}.stats-grid>*:nth-child(n+3){border-top:var(--border);}}
+.stat-block{padding:var(--space-8) var(--space-6);}
+.stat-num{font-size:38px;font-weight:800;letter-spacing:-0.02em;} .stat-num .accent{color:var(--red);}
+.stat-label{font-size:13px;color:var(--gray-500);font-weight:500;margin-top:6px;}
+
+/* FOOTER */
+.footer{background:var(--black);color:var(--gray-300);padding:var(--space-16) 0 var(--space-8);}
+.footer-top{display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:var(--space-8);padding-bottom:var(--space-12);}
+@media (max-width:800px){.footer-top{grid-template-columns:repeat(2,1fr);}} @media (max-width:480px){.footer-top{grid-template-columns:1fr;gap:var(--space-6);}}
+.footer-brand .logo{color:var(--white);} .footer-brand .logo-mark{background:var(--white);color:var(--black);}
+body.dark-mode .footer{background:var(--gray-50);} body.dark-mode .footer-brand .logo{color:var(--black);} body.dark-mode .footer-brand .logo-mark{background:var(--black);color:var(--white);}
+.footer-tagline{font-size:13.5px;color:var(--gray-500);margin-top:var(--space-4);max-width:300px;line-height:1.6;}
+.footer-col-title{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-500);margin-bottom:var(--space-4);}
+.footer-col a{display:block;font-size:13.5px;color:var(--gray-300);padding:6px 0;transition:color var(--t-fast);} .footer-col a:hover{color:var(--red);}
+.footer-bottom{border-top:1px solid var(--gray-700);padding-top:var(--space-6);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-bottom .caption{color:var(--gray-500);}
+.back-to-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--black);color:var(--white);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity var(--t-fast),transform var(--t-fast);z-index:80;}
+.back-to-top.show{opacity:1;pointer-events:auto;} .back-to-top:hover{background:var(--red);color:#fff;}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;padding:var(--space-4);}
+.modal-overlay.open{display:flex;}
+.modal-backdrop{position:absolute;inset:0;background:rgba(10,10,10,.5);animation:fadeIn var(--t-med);}
+.modal-card{position:relative;background:var(--white);border:var(--border);border-radius:var(--radius-lg);padding:var(--space-8);width:100%;max-width:440px;animation:fadeIn var(--t-med);}
+.modal-close{position:absolute;top:14px;right:14px;}
+.modal-title{font-size:22px;font-weight:700;margin:var(--space-4) 0 var(--space-2);} .modal-sub{font-size:14px;color:var(--gray-500);line-height:1.6;margin-bottom:var(--space-6);}
+.modal-actions{display:flex;flex-direction:column;gap:10px;}
+/* PYQ PRACTICE */
+.pq-filters{display:flex;flex-direction:column;gap:var(--space-3);margin-bottom:var(--space-5);}
+.pq-row{display:flex;flex-wrap:wrap;gap:var(--space-2);align-items:center;}
+.pq-label{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-500);min-width:64px;}
+.pq-chip{padding:6px 14px;border:var(--border);border-radius:999px;font-size:13px;font-weight:600;color:var(--gray-600);transition:all var(--t-fast);background:var(--white);}
+.pq-chip:hover{border-color:var(--black);color:var(--black);}
+.pq-chip.on{background:var(--black);color:var(--white);border-color:var(--black);}
+.pq-stats{display:flex;flex-wrap:wrap;gap:var(--space-4);align-items:center;justify-content:space-between;border:var(--border);border-radius:var(--radius-md);padding:var(--space-3) var(--space-4);margin-bottom:var(--space-5);font-size:14px;color:var(--gray-600);}
+.pq-stats b{color:var(--black);}
+.pq-list{display:flex;flex-direction:column;gap:var(--space-5);}
+.pq-card{border:var(--border);border-radius:var(--radius-md);padding:var(--space-5);text-align:left;}
+.pq-head{display:flex;flex-wrap:wrap;gap:var(--space-2);align-items:center;margin-bottom:var(--space-3);}
+.pq-no{font-weight:700;font-size:15px;margin-right:4px;}
+.pq-tag{font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:999px;border:var(--border);color:var(--gray-600);}
+.pq-tag.type{background:var(--black);color:var(--white);border-color:var(--black);}
+.pq-q{font-size:15px;line-height:1.6;color:var(--black);margin-bottom:var(--space-3);}
+.pq-code{margin:0 0 var(--space-4);padding:0;background:none;border:0;overflow-x:auto;font-family:'SFMono-Regular',Consolas,'Courier New',monospace;font-size:14px;line-height:1.6;color:var(--black);white-space:pre;max-width:100%;}
+.pq-opts{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2);margin-bottom:var(--space-4);}
+@media (max-width:700px){.pq-opts{grid-template-columns:1fr;}}
+.pq-opt{display:flex;gap:10px;align-items:flex-start;text-align:left;border:var(--border);border-radius:var(--radius-md);padding:10px 12px;font-size:14px;line-height:1.45;transition:all var(--t-fast);width:100%;}
+.pq-opt:hover:not(:disabled){border-color:var(--black);}
+.pq-opt .k{flex-shrink:0;width:24px;height:24px;border-radius:50%;border:1px solid var(--gray-300);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;}
+.pq-opt.sel{border-color:var(--black);background:var(--gray-100);}
+.pq-opt.sel .k{background:var(--black);color:var(--white);border-color:var(--black);}
+.pq-opt.right{border-color:#16a34a;background:rgba(22,163,74,.1);}
+.pq-opt.right .k{background:#16a34a;color:#fff;border-color:#16a34a;}
+.pq-opt.wrong{border-color:var(--red);background:rgba(225,29,46,.08);}
+.pq-opt.wrong .k{background:var(--red);color:#fff;border-color:var(--red);}
+.pq-opt:disabled{cursor:default;}
+.pq-nat{display:flex;gap:var(--space-2);align-items:center;margin-bottom:var(--space-4);}
+.pq-nat input{border:var(--border);border-radius:var(--radius-md);padding:9px 12px;font-size:14px;width:180px;background:var(--white);color:var(--black);}
+.pq-actions{display:flex;gap:var(--space-2);flex-wrap:wrap;}
+.pq-res{margin-top:var(--space-4);border-radius:var(--radius-md);padding:var(--space-4);font-size:14px;line-height:1.65;border:1px solid var(--gray-200);}
+.pq-res.ok{border-color:#16a34a;background:rgba(22,163,74,.07);}
+.pq-res.bad{border-color:var(--red);background:rgba(225,29,46,.06);}
+.pq-res .v{font-weight:700;margin-bottom:4px;}
+.pq-res code{background:var(--gray-100);padding:1px 5px;border-radius:3px;font-family:Consolas,monospace;font-size:13px;}
+.pq-empty{border:var(--border);border-radius:var(--radius-md);padding:var(--space-8);text-align:center;color:var(--gray-500);}
+
+/* PYQ PAGE + SPLASH */
+.pq-page{position:fixed;inset:0;z-index:500;background:var(--white);color:var(--black);overflow-y:auto;overflow-x:hidden;display:none;-webkit-overflow-scrolling:touch;}
+.pq-page.open{display:block;animation:pqIn .35s var(--ease);}
+@keyframes pqIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+.pq-topbar{position:sticky;top:0;z-index:2;background:var(--white);border-bottom:var(--border);padding:var(--space-3) 0;}
+.pq-topbar-in{display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);}
+.pq-topbar-title{font-weight:700;font-size:15px;}
+.pq-splash{position:fixed;inset:0;z-index:600;background:var(--white);color:var(--black);display:none;align-items:center;justify-content:center;}
+.pq-splash.show{display:flex;animation:pqFade .25s var(--ease);}
+@keyframes pqFade{from{opacity:0;}to{opacity:1;}}
+.pq-splash-inner{text-align:center;padding:var(--space-6);}
+.pq-splash-logo{font-size:34px;font-weight:800;letter-spacing:-0.03em;}
+.pq-splash-logo span{color:var(--red);}
+.pq-splash-sub{margin-top:var(--space-3);font-size:14px;color:var(--gray-500);font-weight:500;}
+.pq-splash-bar{width:220px;height:4px;background:var(--gray-200);border-radius:99px;margin:var(--space-5) auto 0;overflow:hidden;}
+.pq-splash-bar i{display:block;height:100%;width:0;background:var(--red);border-radius:99px;}
+.pq-splash.show .pq-splash-bar i{animation:pqLoad 1.3s var(--ease) forwards;}
+@keyframes pqLoad{from{width:0;}to{width:100%;}}
+/* STUDY MODULES */
+.m-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:var(--space-4);margin-top:var(--space-6)}
+.m-card{border:var(--border);border-radius:var(--radius-lg);padding:var(--space-5);background:var(--white);text-align:left;transition:border-color var(--t-fast),transform var(--t-fast);display:block;width:100%}
+.m-card:hover{border-color:var(--red);transform:translateY(-2px)}
+.m-card.lock{opacity:.55}.m-card b{display:block;font-size:15px;margin:8px 0 2px}
+.m-crumb{font-size:13px;color:var(--gray-500);margin-top:var(--space-3)}.m-crumb a{color:var(--red);cursor:pointer;font-weight:600}
+.m-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:var(--space-5) 0;border-bottom:var(--border);padding-bottom:var(--space-3)}
+.m-tab{padding:8px 16px;border-radius:99px;font-size:13.5px;font-weight:600;border:1px solid var(--gray-200)}
+.m-tab.on{background:var(--black);border-color:var(--black);color:var(--white)}
+.m-layout{display:grid;grid-template-columns:230px 1fr;gap:var(--space-8);align-items:start}@media(max-width:860px){.m-layout{grid-template-columns:1fr}.m-toc{position:static!important;display:flex;flex-wrap:wrap;gap:6px}}
+.m-toc{position:sticky;top:76px;display:flex;flex-direction:column;gap:2px;font-size:13.5px}.m-toc a{padding:6px 10px;border-radius:6px;color:var(--gray-600);cursor:pointer}.m-toc a:hover{background:var(--gray-100);color:var(--black)}
+.m-note{padding:var(--space-6) 0;border-bottom:var(--border);scroll-margin-top:80px}
+.m-note h3{font-size:21px;margin-bottom:10px}.m-note h5{font-size:14px;margin:14px 0 4px}.m-note p,.m-note li{font-size:15px;color:var(--gray-700);margin:6px 0;line-height:1.65}
+.m-note ul{margin:6px 0 6px 20px}.m-note li{list-style:disc}.m-note code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;background:var(--gray-100);padding:1px 6px;border-radius:4px}
+.m-pre{font:13px/1.55 ui-monospace,Menlo,Consolas,monospace;background:var(--gray-100);border:var(--border);padding:12px 14px;border-radius:8px;overflow-x:auto;white-space:pre;margin:8px 0;color:var(--black)}
+.m-note table{border-collapse:collapse;width:100%;font-size:13.5px;margin:8px 0;display:block;overflow-x:auto}.m-note td,.m-note th{border:var(--border);padding:6px 10px;text-align:left;white-space:nowrap}.m-note th{background:var(--gray-100)}
+.m-key{border:1px solid var(--black);border-radius:8px;padding:10px 14px;margin:10px 0;font-size:14px;color:var(--black)}
+.m-note svg{width:100%;max-width:560px;margin:10px 0;color:var(--black)}
+.fc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:var(--space-4)}
+.fc{perspective:900px;height:150px;cursor:pointer}.fc-in{position:relative;width:100%;height:100%;transition:transform .55s var(--ease);transform-style:preserve-3d}
+.fc.flip .fc-in{transform:rotateY(180deg)}
+.fc-f,.fc-b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--radius-lg);padding:var(--space-5);display:flex;align-items:center;justify-content:center;text-align:center;font-weight:600;font-size:14.5px}
+.fc-f{background:var(--black);color:var(--white);border-top:4px solid var(--red)}.fc-b{background:var(--red);color:#fff;transform:rotateY(180deg)}
+.m-q{border:var(--border);border-radius:var(--radius-lg);padding:var(--space-5);margin-bottom:var(--space-4)}
+.m-q pre{background:#1e1e2e;color:#cdd6f4;padding:12px;border-radius:8px;font-size:13px;overflow-x:auto;margin:8px 0}
+.m-opt{display:block;width:100%;text-align:left;border:1px solid var(--gray-200);border-radius:var(--radius-md);padding:9px 12px;margin:6px 0;font-size:14px}
+.m-opt.sel{border-color:var(--red);background:rgba(225,29,46,.08)}.m-opt.ok{border-color:#16a34a;background:rgba(22,163,74,.12)}.m-opt.bad{border-color:var(--red);background:rgba(225,29,46,.15)}
+.m-q input{border:1px solid var(--gray-300);border-radius:6px;padding:9px 12px;background:var(--white);color:var(--black);width:180px}
+.m-exp{margin-top:10px;font-size:13.5px;padding:10px 12px;border-radius:6px;background:var(--gray-100)}
+/* C STUDIO */
+.mac-scene{perspective:1400px;padding:var(--space-4) 0}
+.mac{transform-style:preserve-3d;transition:transform .15s ease-out;border-radius:12px;background:#1e1e2e;box-shadow:0 40px 80px rgba(0,0,0,.4),0 0 0 1px rgba(255,255,255,.1);overflow:hidden;color:#cdd6f4}
+.mac-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:linear-gradient(#3a3a4a,#2c2c3a);font-size:12.5px;flex-wrap:wrap}
+.mac-bar i{width:12px;height:12px;border-radius:50%;display:block}.mac-bar span.tt{flex:1;text-align:center;color:#a6adc8;min-width:160px}
+.mb{font-size:12px;font-weight:600;padding:5px 11px;border-radius:6px;background:#45475a;color:#cdd6f4}.mb:hover{background:#585b70}.mb.g{background:#2f8f4e;color:#fff}.mb.b{background:#3b6fd4;color:#fff}
+.ide{display:grid;grid-template-columns:170px minmax(0,1.25fr) minmax(0,1fr);min-height:420px}@media(max-width:980px){.ide{grid-template-columns:1fr}}
+.ide-side{background:#181825;padding:10px 0;font-size:12.5px;border-right:1px solid #313244}.ide-side b{display:block;padding:4px 14px;color:#6c7086;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.ide-side button{display:block;width:100%;text-align:left;padding:6px 14px;color:#a6adc8;font-family:ui-monospace,Menlo,monospace}.ide-side button:hover{background:#252536}.ide-side button.on{background:#313244;color:#fff}
+.ed{display:flex;font:13px/20px ui-monospace,Menlo,Consolas,monospace;height:420px;overflow:hidden;position:relative;border-right:1px solid #313244}
+.gut{margin:0;padding:10px 8px 10px 12px;color:#585b70;text-align:right;user-select:none;background:#1e1e2e;min-width:38px;overflow:hidden}
+.edw{position:relative;flex:1;overflow:auto}.edw pre,.edw textarea{margin:0;padding:10px 12px;font:inherit;line-height:20px;white-space:pre;border:0;min-height:100%;width:max-content;min-width:100%;tab-size:2}
+.edw pre{pointer-events:none;color:#cdd6f4}.edw textarea{position:absolute;inset:0;background:transparent;color:transparent;caret-color:#fff;resize:none;outline:0;overflow:hidden}
+.ln{display:block;min-height:20px}.ln.on{background:rgba(249,226,175,.16);box-shadow:inset 3px 0 #f9e2af}.ln.er{background:rgba(243,139,168,.2)}
+.ed .p{color:#f9e2af}.ed .s{color:#a6e3a1}.ed .k{color:#cba6f7}.ed .n{color:#fab387}.ed .f{color:#89b4fa}.ed .c{color:#6c7086}
+.ide-out{display:flex;flex-direction:column;background:#11111b;height:420px}.ot{display:flex;border-bottom:1px solid #313244}.ot button{padding:8px 14px;font-size:12px;color:#7f849c;font-weight:600}.ot button.on{color:#fff;border-bottom:2px solid #89b4fa}
+.op{flex:1;overflow:auto;padding:12px;font:12.5px/1.6 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap}
+.t-ok{color:#a6e3a1}.t-dim{color:#7f849c}.t-pr{color:#f38ba8}.t-w{color:#f9e2af}
+.fr{border:1px solid #45475a;border-radius:6px;padding:6px 10px;margin:4px 0;background:#1e1e2e}.fr.top{border-color:#89b4fa;background:#1c2540}
+.vt{width:100%;border-collapse:collapse;margin-top:8px}.vt td{border-bottom:1px solid #313244;padding:3px 6px}.vt td:first-child{color:#89b4fa}
+.mac-st{display:flex;gap:16px;padding:5px 14px;background:#3b6fd4;color:#fff;font-size:11.5px;flex-wrap:wrap}
+/* MOBILE FIT + NOTE DIAGRAMS */
+#mods-body{max-width:100%;overflow-x:hidden}
+.m-layout{grid-template-columns:230px minmax(0,1fr)}.m-layout>*{min-width:0}
+.m-note{overflow-wrap:break-word}.m-note code{overflow-wrap:anywhere}
+.m-flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:12px 0}
+.m-flow span{border:1.5px solid var(--black);border-radius:8px;padding:8px 14px;font-size:13.5px;font-weight:600}.m-flow i{font-style:normal;color:var(--gray-500)}
+.m-mem{max-width:440px;margin:12px 0;font-size:13.5px}.m-mem div{border:1.5px solid var(--black);padding:9px 12px;margin-top:-1.5px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.m-mem div.gap{border-style:dashed;color:var(--gray-500);justify-content:center}.m-mem small{color:var(--gray-500);font-size:12px}
+.m-mem .hd{border:0;padding:2px 0;font-size:12px;color:var(--gray-500);margin:0}
+.m-q{min-width:0;overflow:hidden}.m-q pre{max-width:100%}
+.ide>*{min-width:0}
+@media(max-width:860px){
+  .m-layout{grid-template-columns:minmax(0,1fr);gap:var(--space-4)}
+  .m-toc{position:static!important;flex-direction:row;flex-wrap:nowrap;overflow-x:auto;gap:6px;padding-bottom:8px;-webkit-overflow-scrolling:touch}
+  .m-toc a{white-space:nowrap;border:1px solid var(--gray-200);flex-shrink:0;border-radius:99px}
+}
+@media(max-width:980px){
+  .ide-side{display:flex;overflow-x:auto;padding:6px;border-right:0;border-bottom:1px solid #313244}.ide-side b{display:none}.ide-side button{white-space:nowrap;width:auto;border-radius:6px}
+  .ed{height:340px;border-right:0}.ide-out{height:300px}
+}
+@media(max-width:640px){
+  .m-note h3{font-size:18px}.m-note p,.m-note li{font-size:14.5px}.m-note ul{margin-left:18px}
+  .m-note table{display:table;table-layout:auto;font-size:12px}.m-note td,.m-note th{white-space:normal;padding:5px 6px;word-break:break-word}
+  .m-pre{white-space:pre-wrap;word-break:break-word;font-size:12px}.m-key{font-size:13px}
+  .m-tab{padding:7px 12px;font-size:13px}.m-grid{grid-template-columns:1fr}.fc-grid{grid-template-columns:1fr}.fc{height:130px}
+  .mac-bar{padding:8px 10px;gap:6px}.mac-bar i{display:none}.mac-bar span.tt{flex-basis:100%;order:-1;min-width:0;font-size:11.5px}
+}
+/* ACCESS CONTROL */
+.modal-overlay{z-index:600}
+.lk{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:3px 9px;border-radius:99px;border:1px solid var(--gray-300);color:var(--gray-600);white-space:nowrap}
+.lk svg{width:12px;height:12px}.lk.un{border-color:#16a34a;color:#16a34a}
+.quick-item{position:relative}.lk.q{position:absolute;top:8px;right:8px;padding:4px}
+.dept-card .lk,.m-card .lk{align-self:flex-start;margin-top:8px}
+.gc-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:var(--black);color:var(--white);padding:11px 18px;border-radius:99px;font-size:13.5px;z-index:700;max-width:90vw;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.adm-grid{display:grid;grid-template-columns:300px minmax(0,1fr);gap:var(--space-8);align-items:start;margin-top:var(--space-6)}
+@media(max-width:860px){.adm-grid{grid-template-columns:minmax(0,1fr)}}
+.adm-grid h5{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-500);margin:18px 0 4px}
+.adm-row{display:flex;justify-content:space-between;align-items:center;gap:8px;width:100%;text-align:left;padding:10px 12px;border:var(--border);border-radius:8px;margin:6px 0;font-size:14px}
+.adm-row.on{border-color:var(--red);background:rgba(225,29,46,.06)}.adm-row small{color:var(--gray-500);font-size:11px}
+.adm-meta{display:flex;flex-direction:column;align-items:flex-end;gap:3px}
+.adm-box{border:var(--border);border-radius:var(--radius-lg);padding:var(--space-5)}
+.adm-box textarea{width:100%;min-height:90px;border:1px solid var(--gray-300);border-radius:8px;padding:10px 12px;background:var(--white);color:var(--black);font:14px/1.5 inherit;margin:8px 0}
+.adm-email{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:var(--border);padding:9px 0;font-size:14px;word-break:break-all}
+.adm-err{border:1px solid var(--red);color:var(--red);border-radius:8px;padding:10px 12px;font-size:13px;margin-bottom:12px}
+.adm-err pre{white-space:pre-wrap;font-size:11.5px;color:var(--gray-700);margin-top:8px}
+/* NOTES: on-page watermark, toolbar, PDF sheet */
+.m-notes-wrap{position:relative}
+.m-notes-wrap::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;background:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='380' height='280'%3E%3Ctext x='190' y='140' text-anchor='middle' transform='rotate(-28 190 140)' font-family='Poppins,Arial,sans-serif' font-size='34' font-weight='700' fill='rgb(120,120,120)' fill-opacity='.09'%3EGateClashers%3C/text%3E%3C/svg%3E") repeat}
+.m-toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:var(--space-4)}
+.m-toolbar .btn svg{width:15px;height:15px;margin-right:6px;vertical-align:-2px}
+.pdf-sheet{--black:#0a0a0a;--white:#fff;--red:#e11d2e;--gray-50:#fafafa;--gray-100:#f2f2f2;--gray-200:#e5e5e5;--gray-300:#d4d4d4;--gray-400:#a3a3a3;--gray-500:#737373;--gray-600:#525252;--gray-700:#3a3a3a;--border:1px solid #e5e5e5;background:#fff;color:#0a0a0a;font-family:Poppins,system-ui,sans-serif;box-sizing:border-box;width:700px;position:absolute;left:0;top:0;z-index:1;pointer-events:none}
+.pdf-sheet *{box-sizing:border-box}
+.pdf-sheet .m-note{padding:12px 0 14px;border-bottom:1px solid #e5e5e5}.pdf-sheet .m-note h3{font-size:18px;margin:0 0 8px;color:#0a0a0a}
+.pdf-sheet .m-note p,.pdf-sheet .m-note li{font-size:12.5px;line-height:1.6;color:#3a3a3a}
+.pdf-sheet .m-note table{display:table;width:100%;font-size:11.5px}.pdf-sheet .m-note td,.pdf-sheet .m-note th{white-space:normal;padding:4px 7px;word-break:break-word}
+.pdf-sheet .m-pre{white-space:pre-wrap;word-break:break-word;font-size:11.5px}
+.pdf-sheet .cv{padding:30px 0 14px;border-bottom:3px solid #e11d2e}.pdf-sheet .cv small{color:#e11d2e;font-weight:700;letter-spacing:.1em;font-size:11px}
+.pdf-sheet .cv h1{font-size:30px;line-height:1.2;margin:8px 0 6px;color:#0a0a0a}.pdf-sheet .cv p{font-size:13px;color:#525252;margin:0 0 4px}
+.pdf-sheet .cv ol{margin:14px 0 0 18px;columns:2;font-size:12px;color:#3a3a3a;line-height:1.8}
+.pdf-sheet .pb{display:block}
+#print-root{display:none}.wm-print{display:none}
+@media print{
+  body.printing>*:not(#print-root){display:none!important}
+  body.printing #print-root{display:block;position:static;width:auto;pointer-events:auto}
+  body.printing .wm-print{display:block;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-30deg);font-size:84px;font-weight:800;color:rgba(110,110,110,.09);z-index:9}
+  body.printing .m-note{break-inside:avoid-page}
+  @page{size:A4;margin:14mm 12mm}
+}
+/* ===== MOBILE AUTOFIT v2: everything fits the screen width ===== */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html,body{max-width:100%;overflow-x:hidden}
+img,svg,video{max-width:100%}
+#mods-body{overflow-x:clip;overflow-y:visible;max-width:100%}
+#mods-body,#m-pane,.m-layout,.m-layout>*,.m-notes-wrap,.m-note,.m-note>*,.m-toolbar{min-width:0;max-width:100%}
+.m-notes-wrap{width:100%}
+.m-note,.m-note *{overflow-wrap:anywhere}
+.m-note table{table-layout:auto}
+.m-pre,.m-note pre{max-width:100%;overflow-x:auto}
+@media(max-width:860px){
+  .m-layout{display:block}
+  .m-toc{display:flex;flex-direction:row;flex-wrap:nowrap;overflow-x:auto;width:100%;max-width:100%;margin-bottom:14px;-webkit-overflow-scrolling:touch}
+  .m-notes-wrap{display:block;width:100%}
+}
+@media(max-width:640px){
+  .container{padding-left:14px;padding-right:14px}
+  .m-note p,.m-note li{font-size:14.5px;line-height:1.6}
+  .m-note ul{margin-left:16px;padding-left:2px}
+  .m-note table{display:table;width:100%;max-width:100%;font-size:11.5px}
+  .m-note td,.m-note th{white-space:normal;padding:4px 5px;overflow-wrap:anywhere}
+  .m-pre{white-space:pre-wrap;font-size:11.5px;overflow-x:visible;padding:10px}
+  .m-flow{gap:6px}.m-flow span{padding:6px 10px;font-size:12.5px}
+  .m-key{padding:9px 11px;font-size:13px}
+  .m-toolbar{gap:8px}.m-toolbar .caption{flex:1 1 100%}
+  .m-note svg{max-width:100%;height:auto}
+}
+/* ===== WORD-STYLE A4 PAGES ===== */
+.m-docwrap{background:#d9dbe0;border-radius:12px;padding:18px 14px;width:100%;min-width:0;max-width:100%}
+body.dark-mode .m-docwrap{background:#0e0e11}
+.doc-stage{display:flex;flex-direction:column;align-items:center;gap:18px;width:100%}
+.doc-page{--black:#0a0a0a;--white:#fff;--red:#e11d2e;--gray-50:#fafafa;--gray-100:#f2f2f2;--gray-200:#e5e5e5;--gray-300:#d4d4d4;--gray-400:#a3a3a3;--gray-500:#737373;--gray-600:#525252;--gray-700:#3a3a3a;--border:1px solid #e5e5e5;
+ position:relative;flex:none;width:var(--pw);max-width:100%;height:calc(var(--pw)*1.4142);background:#fff;color:#0a0a0a;box-shadow:0 1px 3px rgba(0,0,0,.2),0 8px 24px rgba(0,0,0,.14);display:flex;flex-direction:column;padding:calc(var(--pw)*.05) calc(var(--pw)*.08) calc(var(--pw)*.04);overflow:hidden;font-family:Poppins,system-ui,sans-serif}
+.doc-page::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;background:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='380' height='280'%3E%3Ctext x='190' y='140' text-anchor='middle' transform='rotate(-28 190 140)' font-family='Poppins,Arial,sans-serif' font-size='34' font-weight='700' fill='rgb(120,120,120)' fill-opacity='.09'%3EGateClashers%3C/text%3E%3C/svg%3E") repeat;background-size:calc(var(--pw)*.48) auto}
+.pg-head,.pg-foot{display:flex;justify-content:space-between;gap:8px;font-size:max(8px,calc(var(--pw)*.0155));color:#828282;flex:none;position:relative;z-index:1}
+.pg-head{border-bottom:1px solid #e1e1e1;padding-bottom:calc(var(--pw)*.012);margin-bottom:calc(var(--pw)*.025)}
+.pg-foot{margin-top:calc(var(--pw)*.015)}
+.doc-page .pg-body{flex:1;min-height:0;overflow:hidden;padding:0!important;border:0!important;font-size:max(13px,calc(var(--pw)*.0182));position:relative;z-index:1;color:#0a0a0a}
+.doc-page .pg-body h3{font-size:1.38em;margin:0 0 .5em;line-height:1.3;color:#0a0a0a}
+.doc-page .pg-body h5{font-size:.95em;margin:.9em 0 .25em;color:#0a0a0a}
+.doc-page .pg-body p,.doc-page .pg-body li{font-size:1em;line-height:1.6;color:#3a3a3a;margin:.4em 0}
+.doc-page .pg-body ul,.doc-page .pg-body ol{margin:.15em 0 .15em 1.3em;padding:0}
+.doc-page .pg-body ul li{list-style:disc}.doc-page .pg-body ol li{list-style:decimal}
+.doc-page .pg-body code{font-size:.88em}
+.doc-page .pg-body table{font-size:.86em;display:table;width:100%}
+.doc-page .pg-body .m-pre{font-size:.84em;white-space:pre-wrap;overflow-x:visible}
+.doc-page .pg-body .m-key{font-size:.92em}
+.doc-page .pg-body .m-flow span{font-size:.9em}
+.doc-page .pg-body .u.sec{scroll-margin-top:90px;border-top:1px solid #e5e5e5;padding-top:.9em;margin-top:.9em}
+.doc-page .pg-body>.u.sec:first-child{border-top:0;padding-top:0;margin-top:0}
+.doc-page .cv{padding:calc(var(--pw)*.12) 0 0}
+.doc-page .cv small{color:#e11d2e;font-weight:700;letter-spacing:.1em;font-size:.8em}
+.doc-page .cv h1{font-size:2.1em;line-height:1.2;margin:.4em 0 .3em;color:#0a0a0a}
+.doc-page .cv p{font-size:.95em;color:#525252;margin:0 0 .3em}
+.doc-page .cv ol{margin:1.2em 0 0 1.3em;font-size:.9em;color:#3a3a3a;line-height:1.8;columns:1}
+.doc-page .cv li{list-style:decimal;font-size:1em;margin:0}
+@media(max-width:640px){.m-docwrap{padding:10px 8px}.doc-stage{gap:12px}}
+</style>
+</head>
+<body>
+<script>try{ if(localStorage.getItem('gateclashers_dark')==='1') document.body.classList.add('dark-mode'); }catch(e){}</script>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="#top" class="logo" aria-label="GATEClashers home">
+      <span class="logo-mark">G<span>.</span></span>
+      <span>GATE<span class="brand-red">Clashers</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#top" class="nav-link active" data-sec="top">Home</a>
+      <a href="#syllabus-section" class="nav-link" data-sec="syllabus-section">Syllabus</a>
+      <a href="#resources-section" class="nav-link" data-sec="resources-section">Resources</a>
+      <a href="#plans-section" class="nav-link" data-sec="plans-section">Plans</a>
+      <a href="#reviews-section" class="nav-link" data-sec="reviews-section">Reviews</a>
+    </nav>
+    <div class="nav-right">
+      <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleDark()">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+      </button>
+      <a class="btn btn-secondary btn-sm" id="nav-login" href="auth.html" aria-label="Login" onclick="return authClick(event)">
+        <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span class="nav-login-text" id="nav-login-text">Login</span>
+      </a>
+      <button class="icon-btn hamburger" aria-label="Open menu" onclick="toggleMenu(true)">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-backdrop" onclick="toggleMenu(false)"></div>
+  <div class="mobile-menu-panel">
+    <div class="mobile-menu-header">
+      <span class="logo"><span class="logo-mark">G<span>.</span></span><span>GATE<span class="brand-red">Clashers</span></span></span>
+      <button class="icon-btn" aria-label="Close menu" onclick="toggleMenu(false)"><svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <nav class="mobile-menu-links" aria-label="Mobile primary" onclick="toggleMenu(false)">
+      <a href="#top">Home</a><a href="#syllabus-section">Syllabus</a><a href="#resources-section">Resources</a><a href="#plans-section">Plans</a><a href="#reviews-section">Reviews</a>
+    </nav>
+    <div class="mobile-menu-footer"><a class="btn btn-primary btn-block" id="mob-login" href="auth.html" onclick="return authClick(event)">Login</a></div>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-body">
+      <span class="eyebrow"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>GATE 2027 · Computer Science &amp; IT</span>
+      <h1 class="h1">Clear GATE CS 2027,<br>one syllabus section at a time.</h1>
+      <p class="body-lg">Your complete GATE preparation platform. Notes, previous year papers, video lectures, mock tests and a weekly test series, all organised around the official GATE 2027 syllabus.</p>
+      <div class="hero-ctas">
+        <a href="https://t.me/ragexking" target="_blank" rel="noopener" class="btn btn-primary">Buy Complete Course
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        <a href="#syllabus-section" class="btn btn-secondary">Explore Syllabus</a>
+      </div>
+      <div class="search-wrap">
+        <div class="search-box">
+          <svg class="icon" viewBox="0 0 24 24" style="color:var(--gray-400)"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" id="global-search" placeholder="Search syllabus topics, e.g. pipelining, B+ trees..." aria-label="Search syllabus" autocomplete="off" oninput="handleSearch(this.value)" onfocus="handleSearch(this.value)">
+          <span class="search-kbd">/</span>
+        </div>
+        <div class="search-results" id="search-results"></div>
+        <div class="search-suggestions">
+          <span class="label">Try:</span>
+          <button class="chip" onclick="setSearch('Deadlock')">Deadlock</button>
+          <button class="chip" onclick="setSearch('Dynamic programming')">Dynamic programming</button>
+          <button class="chip" onclick="setSearch('Normal forms')">Normal forms</button>
+          <button class="chip" onclick="setSearch('Pumping lemma')">Pumping lemma</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANNOUNCEMENTS -->
+<section class="section section-border" id="notices-section">
+  <div class="container">
+    <div class="section-header"><div class="sh-text">
+      <span class="eyebrow">Announcements</span><h2 class="h2">Latest updates</h2>
+      <p class="body">What's new for GATE 2027 aspirants on the portal.</p></div></div>
+    <div class="notice-list" id="notice-list"></div>
+  </div>
+</section>
+
+<!-- SYLLABUS -->
+<section class="section section-border" id="syllabus-section">
+  <div class="container">
+    <div class="section-header"><div class="sh-text">
+      <span class="eyebrow">GATE 2027 CS Syllabus</span><h2 class="h2">Explore by syllabus section</h2>
+      <p class="body">All 10 sections of the official GATE 2027 (IIT Madras) Computer Science &amp; IT syllabus. Tap a section to see its topics.</p></div></div>
+    <div class="dept-grid" id="syl-grid"></div>
+    <div class="syl-panel" id="syl-panel" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- QUICK ACCESS -->
+<section class="section section-border">
+  <div class="container">
+    <div class="section-header"><div class="sh-text">
+      <span class="eyebrow">Quick access</span><h2 class="h2">Jump straight in</h2></div></div>
+    <div class="quick-grid" id="quick-grid"></div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section class="section section-border" id="resources-section">
+  <div class="container">
+    <div class="section-header"><div class="sh-text">
+      <span class="eyebrow">Course content</span><h2 class="h2">Everything inside the course</h2>
+      <p class="body">Premium content unlocks with a GATEClashers subscription.</p></div></div>
+    <div class="pyq-grid" id="resource-grid"></div>
+    <div class="free-band" style="margin-top:var(--space-8);">
+      <div><div class="h3">Try before you subscribe</div><p class="body">Attempt a free sample test and see the exam-style interface and analysis.</p></div>
+      <a href="free-test.html" class="btn btn-secondary">Start Free Test
+        <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- PYQ PRACTICE PAGE (opens inside this file, with splash) -->
+<div class="pq-splash" id="pyq-splash" aria-hidden="true">
+  <div class="pq-splash-inner">
+    <div class="pq-splash-logo">GATE<span>Clashers</span></div>
+    <div class="pq-splash-sub">Loading PYQ Practice…</div>
+    <div class="pq-splash-bar"><i></i></div>
+  </div>
+</div>
+<div class="pq-page" id="pyq-page" role="dialog" aria-modal="true" aria-label="PYQ Practice">
+  <div class="pq-topbar">
+    <div class="container pq-topbar-in">
+      <button class="btn btn-secondary btn-sm" onclick="closePyq()">&larr; Back to portal</button>
+      <span class="pq-topbar-title">PYQ Practice</span>
+    </div>
+  </div>
+  <section class="section" id="pyq-section">
+    <div class="container">
+      <div class="section-header"><div class="sh-text">
+        <span class="eyebrow">PYQ Practice</span><h2 class="h2">C Programming — Previous Year Questions</h2>
+        <p class="body">Tap an option (or type your answer and submit) to see the solution, just like the real exam. Filter by year, topic or question type.</p></div></div>
+      <div class="pq-filters" id="pq-filters"></div>
+      <div class="pq-stats" id="pq-stats"></div>
+      <div class="pq-list" id="pq-list"></div>
+    </div>
+  </section>
+</div>
+
+<div class="pq-page" id="mods-page" role="dialog" aria-modal="true" aria-label="Study Modules">
+  <div class="pq-topbar"><div class="container pq-topbar-in">
+    <button class="btn btn-secondary btn-sm" onclick="mBack()">&larr; <span id="m-backlbl">Back to portal</span></button>
+    <span class="pq-topbar-title">Study Modules</span></div></div>
+  <section class="section"><div class="container" id="mods-body"></div></section>
+</div>
+
+<!-- PLANS -->
+<section class="section section-border" id="plans-section">
+  <div class="container">
+    <div class="section-header"><div class="sh-text">
+      <span class="eyebrow">Paid subscription</span><h2 class="h2">Pick a plan and start preparing</h2>
+      <p class="body">Access is activated on your account after payment is confirmed on Telegram.</p></div></div>
+    <div class="plans" id="plans"></div>
+  </div>
+</section>
+
+<!-- WHAT WE OFFER -->
+<section class="section section-border">
+  <div class="container">
+    <div class="section-header"><div class="sh-text">
+      <span class="eyebrow">What we offer</span><h2 class="h2">Built to crack GATE CS</h2>
+      <p class="body">Everything you need for the exam in one place.</p></div></div>
+    <div class="toolkit-grid" id="offer-grid"></div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section section-border" id="reviews-section">
+  <div class="container">
+    <div class="section-header"><div class="sh-text">
+      <span class="eyebrow">Student reviews</span><h2 class="h2">Trusted by GATE aspirants across India</h2>
+      <p class="body">Structured preparation, exam-aligned mock tests and focused revision.</p></div></div>
+    <div class="review-grid" id="review-grid"></div>
+    <div class="center-row"><button class="btn btn-secondary" id="review-more" onclick="showAllReviews()">Show all reviews</button></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-border">
+  <div class="container">
+    <div class="section-header"><div class="sh-text"><span class="eyebrow">FAQ</span><h2 class="h2">Common questions</h2></div></div>
+    <div class="faq" id="faq"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section">
+  <div class="container"><div class="stats-grid" id="stats-grid"></div></div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo"><span class="logo-mark">G<span>.</span></span><span>GATE<span class="brand-red">Clashers</span></span></span>
+        <p class="footer-tagline">A comprehensive preparation platform for GATE 2027 Computer Science &amp; Information Technology aspirants.</p>
+      </div>
+      <div class="footer-col"><div class="footer-col-title">Quick links</div>
+        <a href="#syllabus-section">Syllabus</a><a href="#resources-section">Course content</a><a href="#plans-section">Plans</a><a href="#reviews-section">Reviews</a></div>
+      <div class="footer-col"><div class="footer-col-title">Course</div>
+        <a href="#" data-lock="Previous Year Papers">Previous Year Papers</a><a href="#" data-lock="Study Modules">Study Modules</a><a href="#" data-lock="Practice Tests">Practice Tests</a><a href="#" data-lock="Weekly Test Series">Weekly Test Series</a><a href="#" data-lock="Video Lectures">Video Lectures</a></div>
+      <div class="footer-col"><div class="footer-col-title">Contact &amp; support</div>
+        <a href="https://t.me/ragexking" target="_blank" rel="noopener">Telegram @ragexking</a><a href="https://t.me/fos9x" target="_blank" rel="noopener">Telegram @fos9x</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span class="caption">© 2026 GATEClashers. All rights reserved.</span>
+      <span class="caption">Designed for GATE 2027 CS &amp; IT aspirants.</span>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg class="icon" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<!-- PREMIUM MODAL -->
+<div class="modal-overlay" id="premium-modal" role="dialog" aria-modal="true" aria-labelledby="pm-title">
+  <div class="modal-backdrop" onclick="closeModal()"></div>
+  <div class="modal-card">
+    <button class="icon-btn modal-close" aria-label="Close" onclick="closeModal()"><svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <span class="badge badge-important">Premium content</span>
+    <div class="modal-title" id="pm-title">Unlock <span id="pm-name">this content</span></div>
+    <p class="modal-sub" id="pm-sub">This content is part of the premium course. Message @ragexking on Telegram to unlock full access, or pick a plan below.</p>
+    <div class="modal-actions">
+      <button class="btn btn-primary btn-block" id="pm-signin" style="display:none" onclick="gcLogin()">Sign in with Google</button>
+      <a class="btn btn-primary btn-block" href="https://t.me/ragexking" target="_blank" rel="noopener">Message @ragexking on Telegram</a>
+      <a class="btn btn-secondary btn-block" href="#plans-section" onclick="closeModal()">View plans</a>
+      <button class="btn btn-block" onclick="closeModal()" style="color:var(--gray-500);">Maybe later</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="acct-modal" role="dialog" aria-modal="true" aria-label="Account">
+  <div class="modal-backdrop" onclick="closeModal()"></div>
+  <div class="modal-card"><button class="icon-btn modal-close" aria-label="Close" onclick="closeModal()"><svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <span class="badge badge-neutral" id="ac-role">Student</span><div class="modal-title" id="ac-email" style="word-break:break-all"></div>
+    <p class="modal-sub" id="ac-list"></p>
+    <div class="modal-actions"><button class="btn btn-primary btn-block" id="ac-admin" style="display:none" onclick="closeModal();admOpen()">Open admin panel</button><button class="btn btn-secondary btn-block" onclick="gcLogout()">Sign out</button></div></div>
+</div>
+<div class="pq-page" id="adm-page" role="dialog" aria-modal="true" aria-label="Admin panel">
+  <div class="pq-topbar"><div class="container pq-topbar-in"><button class="btn btn-secondary btn-sm" onclick="admClose()">&larr; Back to portal</button><span class="pq-topbar-title">Admin · Locks</span></div></div>
+  <section class="section"><div class="container" id="adm-body"></div></section>
+</div>
+
+<script>
+/* ============================================================
+   CONFIG — edit plan prices, links and notices here
+   ============================================================ */
+const BUY_LINK = 'https://t.me/ragexking';
+const PLANS = [
+  {name:'BASIC COURSE', price:'₹350', per:'till GATE 2027', feats:['Weekly test every Sunday','Full-length mock tests','Section-wise practice tests','Performance analysis'], cta:'Get Test Series'},
+  {name:'PREMIUM COURSE', price:'₹450', per:'till GATE 2027', feats:['Everything in Test Series','Notes, worksheets and mind maps','PYQs with solutions','100+ video lectures','Guess papers and important questions','Live 1-on-1 doubt solving'], cta:'Buy Complete Course', featured:true},
+  {name:'PRO Course', price:'₹650', per:'3 months', feats:['Important questions','Revision notes and mind maps','Guess papers','Sectional tests'], cta:'Get PRO TODAY'}
+];
+
+/* Icons (stroke paths, 24x24) */
+const P = {
+  sigma:'<path d="M18 7V4H6l6 8-6 8h12v-3"/>',
+  logic:'<rect x="3" y="4" width="7" height="7" rx="1"/><rect x="14" y="13" width="7" height="7" rx="1"/><path d="M10 7.5h4a2 2 0 0 1 2 2V13M14 16.5h-4a2 2 0 0 1-2-2V11"/>',
+  layers:'<path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>',
+  code:'<path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/>',
+  algo:'<circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="9" r="2"/><path d="M6 8v8M18 11c0 4-6 3-12 5"/>',
+  auto:'<circle cx="6" cy="12" r="3"/><circle cx="18" cy="12" r="3"/><path d="M9 12h6"/>',
+  term:'<path d="m4 17 6-6-6-6M12 19h8"/>',
+  os:'<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>',
+  db:'<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+  net:'<circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v4M12 11l-6 6M12 11l6 6"/>',
+  file:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/>',
+  book:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5V22h16"/>',
+  check:'<rect x="4" y="3" width="16" height="18" rx="2"/><path d="m8.5 12 2.5 2.5 4.5-5"/>',
+  star:'<path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.3-6.2 3.3L8 14.2 3 9.3l6.9-1z"/>',
+  target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+  play:'<circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4z"/>',
+  cal:'<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+  lib:'<path d="M4 4v16M9 4v16M14 6l4 14"/>',
+  lock:'<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
+  tick:'<path d="M20 6 9 17l-5-5"/>',
+  arrow:'<path d="M7 17 17 7M8 7h9v9"/>',
+  right:'<path d="M5 12h14M13 5l7 7-7 7"/>',
+  plus:'<path d="M12 5v14M5 12h14"/>',
+  chat:'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+  map:'<circle cx="12" cy="12" r="2"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="m6.5 6.5 4 4M17.5 6.5l-4 4M6.5 17.5l4-4M17.5 17.5l-4-4"/>',
+  slides:'<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/>',
+  bell:'<path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/>'
+};
+const ic = (n,c='icon icon-sm') => `<svg class="${c}" viewBox="0 0 24 24">${P[n]}</svg>`;
+
+/* GATE 2027 CS syllabus — from the official GATE 2027 (IIT Madras) document */
+const SYLLABUS = [
+ {id:1,name:'Engineering Mathematics',icon:'sigma',groups:[
+  {h:'Discrete Mathematics',t:['Propositional and first order logic','Sets','Relations','Functions','Partial orders and lattices','Monoids','Groups','Graphs: connectivity','Graphs: matching','Graphs: colouring','Combinatorics: counting','Recurrence relations','Generating functions']},
+  {h:'Linear Algebra',t:['Matrices','Determinants','System of linear equations','Eigenvalues and eigenvectors','LU decomposition']},
+  {h:'Calculus',t:['Limits','Continuity and differentiability','Maxima and minima','Mean value theorem','Integration']},
+  {h:'Probability and Statistics',t:['Random variables','Uniform distribution','Normal distribution','Exponential distribution','Poisson distribution','Binomial distribution','Mean, median, mode','Standard deviation','Conditional probability','Bayes theorem']}]},
+ {id:2,name:'Digital Logic',icon:'logic',groups:[{t:['Boolean algebra and minimization','Algebraic technique','Karnaugh map','Tabular method','Design of combinational circuits','Design of sequential circuits','Number representation (fixed point)','Number representation (floating point)','Arithmetic']}]},
+ {id:3,name:'Computer Organization & Architecture',icon:'layers',groups:[{t:['Instruction set','Addressing modes','Design of ALU','Hardwired control unit','Microprogrammed control unit','Memory interfacing','Memory hierarchy and performance','Cache memory mapping','I/O interface: interrupt','I/O interface: DMA','Instruction pipelining','Pipeline hazards']}]},
+ {id:4,name:'Programming & Data Structures',icon:'code',groups:[{t:['Programming in C','Recursion','Arrays','Stacks','Queues','Linked lists','Trees','Binary search trees','Binary heaps','Graphs']}]},
+ {id:5,name:'Algorithms',icon:'algo',groups:[{t:['Searching','Sorting','Hashing','Asymptotic worst case time complexity','Asymptotic worst case space complexity','Greedy','Dynamic programming','Divide-and-conquer','Graph traversals','Minimum spanning trees','Shortest paths']}]},
+ {id:6,name:'Theory of Computation',icon:'auto',groups:[{t:['Regular expressions','Finite automata','Context-free grammars','Push-down automata','Regular languages','Context-free languages','Pumping lemma','Turing machines','Undecidability']}]},
+ {id:7,name:'Compiler Design',icon:'term',groups:[{t:['Lexical analysis','Parsing','Syntax-directed translation','Runtime environments','Intermediate code generation','Local optimisation','Data flow analyses','Constant propagation','Liveness analysis','Common sub expression elimination']}]},
+ {id:8,name:'Operating System',icon:'os',groups:[{t:['System calls','Processes','Threads','Inter-process communication','Concurrency and synchronization','Deadlock','CPU scheduling','I/O scheduling','Memory management','Virtual memory','File systems']}]},
+ {id:9,name:'Databases',icon:'db',groups:[{t:['ER-model','Relational model','Relational algebra','Tuple calculus','SQL','Integrity constraints','Normal forms','File organization','Indexing (B and B+ trees)','Transactions','Concurrency control']}]},
+ {id:10,name:'Computer Networks',icon:'net',groups:[{t:['Principles of layering','Switching: circuit, packet, virtual circuit','Performance metrics','Data link layer: error detection','Medium Access Control','Ethernet','Distance vector routing','Link state routing','IPv4 fragmentation','CIDR notation','Network Address Translation','TCP flow control','TCP congestion control','Socket API','DNS','HTTP']}]}
+];
+SYLLABUS.forEach(s=>{s.count=s.groups.reduce((n,g)=>n+g.t.length,0);});
+
+const NOTICES = [
+ {d:'Sep 2026',t:'GATE 2027 Computer Science &amp; IT syllabus is live',x:'All 10 sections of the official GATE 2027 (IIT Madras) syllabus are mapped to our notes, videos and tests.',b:'Syllabus',go:'#syllabus-section'},
+ {d:'Sep 2026',t:'Previous Year Papers now available with solutions',x:'Topic-wise PYQs with detailed solutions and most-repeated topics highlighted.',b:'PYQ',go:'javascript:goPyq();'},
+ {d:'Weekly',t:'New test every Sunday',x:'The Weekly Test Series keeps your preparation consistent. Track performance and find weak areas.',b:'Test Series',go:'#plans-section'},
+ {d:'Free',t:'Free sample test for every aspirant',x:'Try the exam-style interface before you subscribe.',b:'Free',go:'free-test.html'}
+];
+
+const QUICK = [
+ ['PYQ Papers','file','Previous Year Papers'],['Study Modules','book','Study Modules'],['Practice Tests','check','Practice Tests'],
+ ['Video Lectures','play','Video Lectures'],['Guess Papers','target','Guess Papers'],['Weekly Tests','cal','Weekly Test Series']
+];
+
+const RESOURCES = [
+ {n:'Previous Year Papers',i:'file',m:'GATE CS question papers with detailed solutions and topic-wise analysis.',c:'View PYQ Papers'},
+ {n:'Study Modules',i:'book',m:'Well-structured, section-wise notes and worksheets covering the full GATE CS syllabus.',c:'View Study Modules'},
+ {n:'Practice Tests',i:'check',m:'Full-length mock tests and sectional tests simulating the real GATE exam environment, with performance analysis.',c:'Start Test'},
+ {n:'Important Questions',i:'star',m:'Most frequently asked and high-priority questions curated from PYQ analysis, across all sections.',c:'View Important Qs'},
+ {n:'Guess Papers',i:'target',m:'Expert-curated guess papers based on deep trend analysis of past papers to maximise your score.',c:'Access Guess Papers'},
+ {n:'Video Lectures',i:'play',m:'100+ concise video lectures covering all topics. Includes recorded sessions and scheduled live classes.',c:'Watch Lectures'},
+ {n:'Weekly Test Series',i:'cal',m:'A fresh test every Sunday. Track performance, find weak areas and build exam confidence week by week.',c:'Join Test Series'},
+ {n:'Recommended Books',i:'lib',m:'Curated book list for every GATE CS section, with reference links.',c:'View Books',free:true}
+];
+
+const OFFERS = [
+ ['file','Detailed Notes &amp; Worksheets','Verified notes covering the most important topics, sub-topics, tricks and topper notes.'],
+ ['book','Previous Year Papers','Complete collection of GATE CS PYQs with solutions and most repeated topics highlighted.'],
+ ['chat','Live 1-on-1 Doubt Solving','Direct live doubt-clearing sessions. Ask anything and get clarity immediately.'],
+ ['cal','Weekly Test Series','Tests every Sunday to check preparation. Build consistency and track progress week over week.'],
+ ['target','Guess Papers','Expert-curated guess papers based on analysis of past trends, to maximise score on exam day.'],
+ ['map','Mind Maps','Topic-wise visual mind maps for all sections, perfect for fast last-minute revision.'],
+ ['slides','Chapter Presentations','Chapter-wise slide presentations for all subjects for structured visual learning.'],
+ ['play','Video Lectures','Short concept videos for every topic, from Engineering Mathematics to Computer Networks.']
+];
+
+const REVIEWS = [
+ ['Aarav Sharma','B.Tech CSE, Pune',5,'The section-wise notes follow the GATE syllabus exactly. I always knew what was left to cover.'],
+ ['Priya Mehta','B.Tech IT, Mumbai',5,'Weekly Sunday tests improved my consistency. The analysis showed my weak topics clearly.'],
+ ['Rohan Verma','B.Tech CSE, Lucknow',4,'Algorithms and DP practice sets improved my speed without hurting accuracy.'],
+ ['Sara Banerjee','B.Tech CSE, Kolkata',5,'Explanations are concept-based rather than shortcut-based. That made a real difference in TOC.'],
+ ['Aditya Patel','B.E. Computer, Ahmedabad',4,'Structured coverage meant no topic was left untouched before the exam.'],
+ ['Fatima Khan','B.Tech CSE, Delhi',5,'Operating Systems and Computer Networks videos were short and easy to revise before tests.'],
+ ['Kunal Rao','B.Tech CSE, Bhopal',5,'Extremely exam-oriented mock tests. The performance dashboard is detailed and useful.'],
+ ['Neha Iyer','B.Tech IT, Chennai',4,'The PYQ collection with topic-wise tagging saved me weeks of searching.'],
+ ['Rahul Deshmukh','B.E. Computer, Nagpur',5,'Practice sections improved my time management a lot before exam day.'],
+ ['Ananya Reddy','B.Tech CSE, Hyderabad',5,'Detailed explanations for Databases and normal forms made concepts finally click.'],
+ ['Vikram Singh','B.Tech CSE, Jaipur',5,'Strong focus on Engineering Mathematics and a clear revision strategy.'],
+ ['Shreya Nair','B.Tech CSE, Kochi',4,'Digital Logic and COA questions were exam relevant and well graded by difficulty.'],
+ ['Ishaan Kapoor','B.Tech CSE, Patna',5,'The mock interface closely resembled the real computer-based GATE test.'],
+ ['Meera Joshi','B.Tech IT, Nashik',5,'Sectional tests with increasing difficulty helped me build confidence steadily.'],
+ ['Harsh Trivedi','B.Tech CSE, Surat',4,'Mind maps were perfect for last-week revision of Compiler Design.'],
+ ['Divya Menon','B.Tech CSE, Thiruvananthapuram',5,'Live doubt solving cleared my confusion on pipeline hazards in one session.'],
+ ['Sourav Das','B.Tech CSE, Durgapur',5,'Guess papers were close to the real paper pattern and great for final practice.'],
+ ['Pooja Kulkarni','B.E. Computer, Kolhapur',4,'Data Structures and C programming problems were tricky in the right way.'],
+ ['Arjun Nambiar','B.Tech CSE, Bengaluru',5,'Good mix of theory videos and problems. I revised the whole syllabus twice.'],
+ ['Tanvi Joshi','B.Tech IT, Pune',5,'Probability and linear algebra sheets were concise and to the point.'],
+ ['Manish Yadav','B.Tech CSE, Varanasi',4,'Affordable and organised. Everything I needed was in one portal.'],
+ ['Kavya Gowda','B.Tech CSE, Mysuru',5,'Weekly tests kept me disciplined while working on my final year project.'],
+ ['Nikhil Chavan','B.E. Computer, Wardha',5,'Important questions list helped me focus on high-scoring topics in the last month.'],
+ ['Ritika Sinha','B.Tech CSE, Ranchi',5,'Clean interface, clear notes and tests that match the real exam level.']
+];
+
+const FAQS = [
+ ['What does the GATEClashers subscription include?','Section-wise study modules, previous year papers with solutions, video lectures, practice tests, the Sunday weekly test series, guess papers, important questions, mind maps and live doubt solving.'],
+ ['How do I get access after paying?','Message @ragexking on Telegram to buy a plan. Your account is upgraded once payment is confirmed.'],
+ ['Which syllabus does the portal follow?','The official GATE 2027 Computer Science and Information Technology syllabus released by IIT Madras, the organising institute.'],
+ ['Can I try the portal before subscribing?','Yes. Start the free sample test to see the exam interface and analysis.'],
+ ['Can I access the content on my phone?','Yes. The portal works on phones, tablets and laptops, any time you want to study.']
+];
+
+const STATS = [['10','Syllabus sections',false],['100<span class="accent">+</span>','Video lectures',false],['Every <span class="accent">Sunday</span>','Weekly test',false],['24/7','Access available',false]];
+
+/* ---------- RENDER ---------- */
+function renderAll(){
+  document.getElementById('notice-list').innerHTML = NOTICES.map(n=>`
+    <a class="notice-item" href="${n.go}">
+      <div class="notice-date">${n.d}</div>
+      <div><div class="notice-title-row"><span class="notice-title">${n.t}</span><span class="badge badge-neutral">${n.b}</span></div><p class="notice-desc">${n.x}</p></div>
+      <span class="notice-arrow">${ic('right')}</span></a>`).join('');
+
+  document.getElementById('syl-grid').innerHTML = SYLLABUS.map(s=>`
+    <button class="dept-card" data-id="${s.id}" onclick="openSyl(${s.id})" aria-expanded="false">
+      <div class="dept-top"><span class="dept-icon">${ic(s.icon,'icon')}</span><span class="dept-arrow">${ic('arrow')}</span></div>
+      <div class="dept-name">${s.name}</div>
+      <div class="dept-count">Section ${s.id} · ${s.count} topics</div>${lockBadge('sub'+s.id)}</button>`).join('');
+
+  document.getElementById('quick-grid').innerHTML = QUICK.map(q=>`
+    <a href="#" class="quick-item" onclick="openPremium('${q[2]}');return false;">${ic(q[1],'icon quick-icon')}<span class="quick-label">${q[0]}</span>${lockBadge(NAME2KEY[q[2]],true)}</a>`).join('');
+
+  document.getElementById('resource-grid').innerHTML = RESOURCES.map(r=>`
+    <a href="#" class="pyq-card" onclick="${r.free?'return false;':`openPremium('${r.n}');return false;`}">
+      <div class="pyq-top"><span class="dept-icon" style="width:38px;height:38px;">${ic(r.i,'icon')}</span>
+        ${r.free?'<span class="badge badge-neutral">Free</span>':(r.n==='Study Modules'?`<span class="lock-tag">${ic('lock')}Locked per subject</span>`:lockBadge(NAME2KEY[r.n]))}</div>
+      <div class="pyq-subject">${r.n}</div><p class="pyq-meta">${r.m}</p>
+      <span class="pyq-link">${r.c} ${ic('right')}</span></a>`).join('');
+
+  document.getElementById('plans').innerHTML = PLANS.map(p=>`
+    <div class="plan${p.featured?' featured':''}">
+      <div style="display:flex;justify-content:space-between;align-items:center;"><h3 class="h3">${p.name}</h3>${p.featured?'<span class="badge badge-important">Best value</span>':''}</div>
+      <div class="plan-price">${p.price} <small>${p.per}</small></div>
+      <ul>${p.feats.map(f=>`<li>${ic('tick')}<span>${f}</span></li>`).join('')}</ul>
+      <a class="btn ${p.featured?'btn-primary':'btn-secondary'}" href="${BUY_LINK}" target="_blank" rel="noopener">${p.cta}</a></div>`).join('');
+
+  document.getElementById('offer-grid').innerHTML = OFFERS.map(o=>`
+    <div class="toolkit-card"><div class="toolkit-icon">${ic(o[0],'icon')}</div><div class="toolkit-name">${o[1]}</div><p class="toolkit-desc">${o[2]}</p></div>`).join('');
+
+  document.getElementById('review-grid').innerHTML = REVIEWS.map((r,i)=>{
+    const ini = r[0].split(' ').map(w=>w[0]).join('').slice(0,2);
+    return `<div class="review-card${i>=9?' extra':''}"><div class="review-top"><div class="review-avatar">${ini}</div>
+      <div><div class="review-name">${r[0]}</div><div class="review-meta">${r[1]}</div></div></div>
+      <div class="review-stars" aria-label="${r[2]} out of 5 stars">${'★'.repeat(r[2])}${'☆'.repeat(5-r[2])}</div>
+      <p class="review-text">${r[3]}</p></div>`;}).join('');
+
+  document.getElementById('faq').innerHTML = FAQS.map(f=>`<details><summary>${f[0]}${ic('plus','icon')}</summary><p>${f[1]}</p></details>`).join('');
+  document.getElementById('stats-grid').innerHTML = STATS.map(s=>`<div class="stat-block"><div class="stat-num">${s[0]}</div><div class="stat-label">${s[1]}</div></div>`).join('');
+}
+
+/* ---------- SYLLABUS PANEL ---------- */
+let openId = null;
+function openSyl(id, hitText, quiet){
+  const s = SYLLABUS.find(x=>x.id===id); if(!s) return;
+  const panel = document.getElementById('syl-panel');
+  if(openId===id && !hitText){ closeSyl(); return; }
+  openId = id;
+  document.querySelectorAll('.dept-card').forEach(c=>{const o=+c.dataset.id===id; c.classList.toggle('open',o); c.setAttribute('aria-expanded',o);});
+  panel.innerHTML = `<div class="syl-head"><div><span class="eyebrow">Section ${s.id} of 10</span><h3 class="h2" style="margin-top:6px;">${s.name}</h3></div>
+    ${sylBtn(s)}</div>`+
+    s.groups.map(g=>`<div class="syl-group">${g.h?`<h4>${g.h}</h4>`:''}<div class="syl-topics">${g.t.map(t=>`<span class="topic${hitText&&t===hitText?' hit':''}">${t}</span>`).join('')}</div></div>`).join('');
+  panel.classList.add('open');
+  if(!quiet) panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function closeSyl(){ openId=null; document.getElementById('syl-panel').classList.remove('open'); document.querySelectorAll('.dept-card').forEach(c=>{c.classList.remove('open');c.setAttribute('aria-expanded',false);}); }
+
+/* ---------- SEARCH ---------- */
+function handleSearch(q){
+  const box = document.getElementById('search-results'); q=(q||'').trim().toLowerCase();
+  if(!q){ box.classList.remove('open'); return; }
+  const hits=[]; SYLLABUS.forEach(s=>s.groups.forEach(g=>g.t.forEach(t=>{ if(t.toLowerCase().includes(q)||s.name.toLowerCase().includes(q)) hits.push({s,t,g}); })));
+  box.innerHTML = hits.length ? hits.slice(0,8).map(h=>`<button class="search-result-item" onclick="pickResult(${h.s.id},'${h.t.replace(/'/g,"\\'")}')">
+      <div><div style="font-size:14px;font-weight:600;">${h.t}</div><div class="search-result-meta">${h.s.name}${h.g.h?' · '+h.g.h:''}</div></div>${ic('right')}</button>`).join('')
+    : `<div class="search-empty">No syllabus topic matches “${q.replace(/</g,'&lt;')}”. Try a different keyword.</div>`;
+  box.classList.add('open');
+}
+function setSearch(v){ const i=document.getElementById('global-search'); i.value=v; i.focus(); handleSearch(v); }
+function pickResult(id,t){ document.getElementById('search-results').classList.remove('open'); document.getElementById('syllabus-section').scrollIntoView({behavior:'smooth'}); openSyl(id,t); }
+document.addEventListener('click',e=>{ if(!e.target.closest('.search-wrap')) document.getElementById('search-results').classList.remove('open'); });
+document.addEventListener('keydown',e=>{
+  if(e.key==='/' && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)){ e.preventDefault(); document.getElementById('global-search').focus(); }
+  if(e.key==='Escape'){ document.getElementById('search-results').classList.remove('open'); toggleMenu(false); closeModal(); }
+});
+
+/* ---------- UI ---------- */
+function toggleDark(){ const d=document.body.classList.toggle('dark-mode'); try{localStorage.setItem('gateclashers_dark',d?'1':'0');}catch(e){} }
+function toggleMenu(o){ document.getElementById('mobile-menu').classList.toggle('open',o); document.body.style.overflow=o?'hidden':''; }
+function closeModal(){ document.getElementById('premium-modal').classList.remove('open'); const a=document.getElementById('acct-modal'); if(a)a.classList.remove('open'); }
+function showAllReviews(){ document.getElementById('review-grid').classList.add('all'); document.getElementById('review-more').parentElement.style.display='none'; }
+document.addEventListener('click',e=>{ const a=e.target.closest('[data-lock]'); if(a){ e.preventDefault(); openPremium(a.dataset.lock); } });
+
+/* Scroll: back-to-top + active nav link */
+const secs=['top','syllabus-section','resources-section','plans-section','reviews-section'];
+window.addEventListener('scroll',()=>{
+  document.getElementById('back-to-top').classList.toggle('show',window.scrollY>600);
+  let cur='top'; secs.forEach(id=>{ const el=document.getElementById(id); if(el && el.getBoundingClientRect().top<=120) cur=id; });
+  document.querySelectorAll('.nav-link').forEach(l=>l.classList.toggle('active',l.dataset.sec===cur));
+},{passive:true});
+
+/* ---------- PYQ PRACTICE ---------- */
+const PYQ = [
+{id:141,y:2021,topic:'Loops & Operators',type:'MCQ',
+ q:'Consider the following ANSI C program. Which one of the following options is correct?',
+ code:String.raw`#include <stdio.h>
+int main()
+{
+   int i, j, count;
+   count = 0;
+   i = 0;
+   for (j = -3; j <= 3; j++)
+   {
+      if ((j >= 0) && (i++))
+         count = count + j;
+   }
+   count = count + i;
+   printf("%d", count);
+   return 0;
+}`,
+ opts:['The program will compile successfully and output 8 when executed.','The program will not compile successfully.','The program will compile successfully and output 10 when executed.','The program will compile successfully and output 13 when executed.'],
+ ans:[2],
+ exp:`For j = -3, -2, -1 the left operand <code>j &gt;= 0</code> is false, so <code>i++</code> is never evaluated (short-circuit) and i stays 0.<br>j = 0: condition true, <code>i++</code> yields 0 (false) and i becomes 1, so count is unchanged.<br>j = 1: <code>i++</code> yields 1 (true), i = 2, count = 1. j = 2: i = 3, count = 3. j = 3: i = 4, count = 6.<br>After the loop: count = 6 + i = 6 + 4 = <b>10</b>.`},
+{id:142,y:2021,topic:'Functions & Arrays',type:'NAT',
+ q:'Consider the following ANSI C function. Let Z be an array of 10 elements with Z[i] = 1 for all i such that 0 ≤ i ≤ 9. The value returned by SimpleFunction(Z, 10, 2) is ______.',
+ code:String.raw`int SimpleFunction(int Y[], int n, int x)
+{
+   int total = Y[0], loopIndex;
+   for (loopIndex = 1; loopIndex <= n - 1; loopIndex++)
+      total = x * total + Y[loopIndex];
+   return total;
+}`,
+ ans:1023,
+ exp:`The loop is Horner's rule: total = x·total + Y[k]. With every Y[k] = 1 and x = 2 the result is 2<sup>9</sup> + 2<sup>8</sup> + … + 2 + 1 = 2<sup>10</sup> − 1 = <b>1023</b>.`},
+{id:143,y:2021,topic:'Recursion',type:'NAT',
+ q:'Consider the following ANSI C function. The value returned by SomeFunction(15, 255) is ______.',
+ code:String.raw`int SomeFunction(int x, int y)
+{
+   if ((x == 1) || (y == 1)) return 1;
+   if (x == y) return x;
+   if (x > y) return SomeFunction(x - y, y);
+   if (y > x) return SomeFunction(x, y - x);
+}`,
+ ans:15,
+ exp:`This is the subtraction-based Euclid algorithm, so it returns gcd(x, y) unless one argument becomes 1.<br>(15, 255) → (15, 240) → (15, 225) → … → (15, 15), where x == y and 15 is returned. gcd(15, 255) = <b>15</b>.`},
+{id:144,y:2021,topic:'Recursion',type:'NAT',
+ q:'Consider the following ANSI C program. The output of the program upon execution is ______.',
+ code:String.raw`#include <stdio.h>
+int foo(int x, int y, int q)
+{
+   if ((x <= 0) && (y <= 0))
+      return q;
+   if (x <= 0)
+      return foo(x, y - q, q);
+   if (y <= 0)
+      return foo(x - q, y, q);
+   return foo(x, y - q, q) + foo(x - q, y, q);
+}
+int main()
+{
+   int r = foo(15, 15, 10);
+   printf("%d", r);
+   return 0;
+}`,
+ ans:60,
+ exp:`With q = 10, each argument goes 15 → 5 → (≤ 0). Once either x or y is ≤ 0 the function keeps subtracting from the other one and finally returns q = 10, so foo = 10 whenever x ≤ 0 or y ≤ 0.<br>foo(5,5) = foo(5,−5) + foo(−5,5) = 10 + 10 = 20<br>foo(5,15) = foo(5,5) + foo(−5,15) = 20 + 10 = 30<br>foo(15,5) = foo(15,−5) + foo(5,5) = 10 + 20 = 30<br>foo(15,15) = foo(15,5) + foo(5,15) = 30 + 30 = <b>60</b>.`},
+{id:145,y:2021,topic:'Pointers & Linked List',type:'MCQ',
+ q:'Consider the following ANSI C program. Which one of the statements below is correct about the program?',
+ code:String.raw`#include <stdio.h>
+#include <stdlib.h>
+struct Node {
+   int value;
+   struct Node *next;
+};
+int main() {
+   struct Node *boxE, *head, *boxN;
+   int index = 0;
+   boxE = head = (struct Node *) malloc(sizeof(struct Node));
+   head->value = index;
+   for (index = 1; index <= 3; index++)
+   {
+      boxN = (struct Node *) malloc(sizeof(struct Node));
+      boxE->next = boxN;
+      boxN->value = index;
+      boxE = boxN;
+   }
+   for (index = 0; index <= 3; index++) {
+      printf("Value at index %d is %d\n", index, head->value);
+      head = head->next;
+      printf("Value at index %d is %d\n", index + 1, head->value);
+   }
+}`,
+ opts:['Upon execution, the program goes into an infinite loop.','It has a missing return which will be reported as an error by the compiler.','Upon execution, the program creates a linked-list of five nodes.','It dereferences an uninitialized pointer that may result in a run-time error.'],
+ ans:[3],
+ exp:`The list has 4 nodes (values 0, 1, 2, 3), not five, and the loops are finite. A missing <code>return</code> in <code>main</code> is not a compile error.<br>The <code>next</code> field of the last node is never set (no NULL assignment). In the last iteration (index = 3) <code>head = head-&gt;next</code> loads this uninitialized pointer and <code>head-&gt;value</code> dereferences it, which may crash at run time. Answer: <b>D</b>.`},
+{id:146,y:2021,topic:'Pointers & Arrays',type:'MCQ',
+ q:'Consider the following ANSI C program. Find the output of the above program.',
+ code:String.raw`int main()
+{
+   int a[4][5];
+   int i, j;
+   for (i = 0; i < 4; i++)
+      for (j = 0; j < 5; j++)
+         a[i][j] = 10 * i + j;
+   printf("%d", *(a[1] + 9));
+}`,
+ opts:['20','24','30','14'],
+ ans:[1],
+ exp:`<code>a[1]</code> points to the first element of row 1. A 2-D array is stored row by row, so <code>a[1] + 9</code> is 9 ints past the start of row 1: that is row 1 (5 elements) + 4 more, i.e. <code>a[2][4]</code>.<br>Its value is 10·2 + 4 = <b>24</b>.`},
+{id:147,y:2022,topic:'Pointers & Arrays',type:'MCQ',
+ q:'What is printed by the ANSI C program?',
+ code:String.raw`#include <stdio.h>
+int main(int argc, char *argv[])
+{
+   int x = 1, z[2] = {10, 11};
+   int *p = NULL;
+   p = &x;
+   *p = 10;
+   p = &z[1];
+   *(&z[0] + 1) += 3;
+   printf("%d, %d, %d\n", x, z[0], z[1]);
+   return 0;
+}`,
+ opts:['10, 10, 14','1, 10, 11','1, 10, 14','10, 14, 11'],
+ ans:[0],
+ exp:`<code>p = &x; *p = 10;</code> changes x to 10. <code>&z[0] + 1</code> is the address of <code>z[1]</code>, so <code>+= 3</code> makes z[1] = 14. z[0] is untouched (10).<br>Output: <b>10, 10, 14</b>.`},
+{id:148,y:2022,topic:'Pointers & Arrays',type:'MCQ',
+ q:'What is printed by the ANSI C program?',
+ code:String.raw`#include <stdio.h>
+int main(int argc, char *argv[])
+{
+   int a[3][3][3] =
+   {{1, 2, 3, 4, 5, 6, 7, 8, 9}, {10, 11, 12, 13, 14, 15, 16,
+   17, 18}, {19, 20, 21, 22, 23, 24, 25, 26, 27}};
+   int i = 0, j = 0, k = 0;
+   for (i = 0; i < 3; i++) {
+      for (k = 0; k < 3; k++)
+         printf("%d ", a[i][j][k]);
+      printf("\n");
+   }
+   return 0;
+}`,
+ opts:['1 2 3 / 10 11 12 / 19 20 21','1 4 7 / 10 13 16 / 19 22 25','1 2 3 / 4 5 6 / 7 8 9','1 2 3 / 13 14 15 / 25 26 27'],
+ ans:[0],
+ exp:`The initializer fills the array in row-major order, so a[0] holds 1–9, a[1] holds 10–18 and a[2] holds 19–27. Each a[i] is a 3×3 block whose first row (j = 0) starts at 1, 10 and 19 respectively.<br>With j fixed at 0 the program prints the first row of each block: <b>1 2 3</b>, <b>10 11 12</b>, <b>19 20 21</b>.`},
+{id:149,y:2022,topic:'Bitwise & Characters',type:'MCQ',
+ q:'What is printed by the following ANSI C program? (ASCII: P = 80, x = 120, * = 42, + = 43, − = 45)',
+ code:String.raw`#include <stdio.h>
+int main(int argc, char *argv[]) {
+   char a = 'P';
+   char b = 'x';
+   char c = (a & b) + '*';
+   char d = (a | b) - '-';
+   char e = (a ^ b) + '+';
+   printf("%c %c %c\n", c, d, e);
+   return 0;
+}`,
+ opts:['z K S','122 75 83','* - +','P x +'],
+ ans:[0],
+ exp:`a = 80 = 01010000, b = 120 = 01111000.<br>a &amp; b = 01010000 = 80, plus 42 = 122 → <b>'z'</b>.<br>a | b = 01111000 = 120, minus 45 = 75 → <b>'K'</b>.<br>a ^ b = 00101000 = 40, plus 43 = 83 → <b>'S'</b>.<br>Since <code>%c</code> prints characters, the output is <b>z K S</b>.`},
+{id:150,y:2023,topic:'Storage Classes & Functions',type:'NAT',
+ q:'The integer value printed by the ANSI-C program given below is ______.',
+ code:String.raw`#include <stdio.h>
+int funcp() {
+   static int x = 1;
+   x++;
+   return x;
+}
+int main() {
+   int x, y;
+   x = funcp();
+   y = funcp() + x;
+   printf("%d\n", (x + y));
+   return 0;
+}`,
+ ans:7,
+ exp:`The <code>x</code> inside <code>funcp</code> is a static variable: it is initialized once and keeps its value between calls. The <code>x</code> in <code>main</code> is a different, local variable.<br>First call: static x = 2, so main's x = 2. Second call returns 3, so y = 3 + 2 = 5.<br>x + y = 2 + 5 = <b>7</b>.`},
+{id:151,y:2024,topic:'Loops & Operators',type:'MCQ',
+ q:'Consider the following C program. Which one of the following statements is CORRECT?',
+ code:String.raw`#include <stdio.h>
+int main() {
+   int a = 6;
+   int b = 0;
+   while (a < 10) {
+      a = a / 12 + 1;
+      a += b;
+   }
+   printf("%d", a);
+   return 0;
+}`,
+ opts:['The program prints 9 as output','The program prints 10 as output','The program gets stuck in an infinite loop','The program prints 6 as output'],
+ ans:[2],
+ exp:`a = 6: a/12 is 0 (integer division), so a = 0 + 1 = 1, then a += 0 keeps it at 1.<br>Next iteration: a = 1/12 + 1 = 1 again. a never reaches 10, so the condition <code>a &lt; 10</code> is always true: <b>infinite loop</b>.`},
+{id:152,y:2024,topic:'Recursion',type:'MCQ',
+ q:'Consider the following C program. Assume that the input to the program from the command line is 1234 followed by a newline character. Which one of the following statements is CORRECT?',
+ code:String.raw`#include <stdio.h>
+void fx();
+int main() {
+   fx();
+   return 0;
+}
+void fx() {
+   char a;
+   if ((a = getchar()) != '\n')
+      fx();
+   if (a != '\n')
+      putchar(a);
+}`,
+ opts:['The program will not terminate','The program will terminate with no input','The program will terminate with 4321 as output','The program will terminate with 1234 as output'],
+ ans:[2],
+ exp:`<code>fx</code> reads a character and recurses until it reads the newline, so the characters 1, 2, 3, 4 are held in separate stack frames (each has its own <code>a</code>).<br>At the newline the recursion stops (nothing printed for it). While returning, the deepest frame prints first: '4', then '3', '2', '1'. Output: <b>4321</b> and the program terminates.`},
+{id:153,y:2024,topic:'Loops & Operators',type:'MSQ',
+ q:'Consider the following C function definition. Which of the following statements is/are TRUE about the above function? (Select all that apply; assume no integer overflow.)',
+ code:String.raw`int f(int x, int y) {
+   for (int i = 0; i < y; i++) {
+      x = x + x + y;
+   }
+   return x;
+}`,
+ opts:['If the inputs are x = 20, y = 10, then the return value is less than 2^20','If the inputs are x = 20, y = 20, then the return value is greater than 2^20','If the inputs are x = 20, y = 10, then the return value is greater than 2^10','If the inputs are x = 10, y = 20, then the return value is greater than 2^20'],
+ ans:[0,1,2,3],
+ exp:`Each iteration does x → 2x + y, so after y iterations the result is x·2<sup>y</sup> + y·(2<sup>y</sup> − 1).<br>(A) 20·2<sup>10</sup> + 10·1023 = 30710 &lt; 2<sup>20</sup> (1048576) → true.<br>(B) 20·2<sup>20</sup> + 20·(2<sup>20</sup> − 1) = 40·2<sup>20</sup> − 20 &gt; 2<sup>20</sup> → true.<br>(C) 30710 &gt; 2<sup>10</sup> = 1024 → true.<br>(D) 10·2<sup>20</sup> + 20·(2<sup>20</sup> − 1) = 30·2<sup>20</sup> − 20 &gt; 2<sup>20</sup> → true.<br>All four statements are true.`},
+{id:154,y:2024,topic:'Functions & Evaluation Order',type:'MCQ',
+ q:'Consider the following C program. Assume parameters to a function are evaluated from right to left. Which one of the following options is the CORRECT output of the above C program?',
+ code:String.raw`#include <stdio.h>
+int g(int p) { printf("%d", p); return p; }
+int h(int q) { printf("%d", q); return q; }
+void f(int x, int y) {
+   g(x);
+   h(y);
+}
+int main() {
+   f(g(10), h(20));
+}`,
+ opts:['20101020','10202010','20102010','10201020'],
+ ans:[0],
+ exp:`Arguments are evaluated right to left, so <code>h(20)</code> runs first and prints 20, then <code>g(10)</code> prints 10.<br>Inside <code>f(10, 20)</code>: <code>g(10)</code> prints 10, then <code>h(20)</code> prints 20.<br>Total output: 20 10 10 20 = <b>20101020</b>.`},
+{id:155,y:2024,topic:'Pointers & Strings',type:'MSQ',
+ q:'Consider the following C function definition. Which of the following statement is/are TRUE?',
+ code:String.raw`int fX(char *a) {
+   char *b = a;
+   while (*b)
+      b++;
+   return b - a;
+}`,
+ opts:['The function call fX("abcd") will always return a value','Assuming a character array c is declared as char c[] = "abcd" in main(), the function call fX(c) will always return a value','The code of the function will not compile','Assuming a character pointer c is declared as char *c = "abcd" in main(), the function call fX(c) will always return a value'],
+ ans:[0,1,3],
+ exp:`<code>fX</code> walks forward until it finds the terminating '\\0' and returns the string length (like <code>strlen</code>). The function compiles fine, so (C) is false.<br>A string literal "abcd", a <code>char c[] = "abcd"</code> array and a <code>char *c = "abcd"</code> pointer all point to a null-terminated string, so the loop always stops and the call returns 4. Statements <b>A, B and D</b> are true.`},
+{id:156,y:2025,topic:'Pointers & Functions',type:'NAT',
+ q:'What is the output of the given C program? (Answer in integer)',
+ code:String.raw`#include <stdio.h>
+void foo(int *p, int x) {
+   *p = x;
+}
+int main() {
+   int *z;
+   int a = 20, b = 25;
+   z = &a;
+   foo(z, b);
+   printf("%d", a);
+   return 0;
+}`,
+ ans:25,
+ exp:`<code>z</code> points to <code>a</code>. Inside <code>foo</code>, <code>*p = x</code> writes 25 into the variable that p points to, i.e. into <code>a</code>. So a becomes <b>25</b>.`},
+{id:157,y:2025,topic:'Recursion',type:'NAT',
+ q:'The value printed by the given C program is ______. (Answer in integer)',
+ code:String.raw`#include <stdio.h>
+int foo(int S[], int size) {
+   if (size == 0) return 0;
+   if (size == 1) return 1;
+   if (S[0] != S[1]) return 1 + foo(S + 1, size - 1);
+   return foo(S + 1, size - 1);
+}
+int main() {
+   int A[] = {0, 1, 2, 2, 2, 0, 0, 1, 1};
+   printf("%d", foo(A, 9));
+   return 0;
+}`,
+ ans:5,
+ exp:`<code>foo</code> adds 1 every time an element differs from the next one, and the last element contributes the base case 1. So it counts the groups of equal consecutive values.<br>A = {0} {1} {2,2,2} {0,0} {1,1} → <b>5</b> groups.`},
+{id:158,y:2025,topic:'Loops & Operators',type:'NAT',
+ q:'The value printed by the given C program is ______. (Answer in integer)',
+ code:String.raw`#include <stdio.h>
+int gate(int n) {
+   int d, t, newnum, turn;
+   newnum = turn = 0; t = 1;
+   while (n >= t) t *= 10;
+   t /= 10;
+   while (t > 0) {
+      d = n / t;
+      n = n % t;
+      t /= 10;
+      if (turn) newnum = 10 * newnum + d;
+      turn = (turn + 1) % 2;
+   }
+   return newnum;
+}
+int main() {
+   printf("%d", gate(14362));
+   return 0;
+}`,
+ ans:46,
+ exp:`The first loop makes t = 10000. The second loop extracts the digits 1, 4, 3, 6, 2 one by one, but <code>turn</code> alternates 0, 1, 0, 1, 0, so only the digits at odd positions (4 and 6) are appended to newnum.<br>newnum = 4 → 46. Output: <b>46</b>.`},
+{id:159,y:2025,topic:'Pointers & Strings',type:'MCQ',
+ q:'Which ONE of the following will be the output of the program?',
+ code:String.raw`#include <stdio.h>
+void stringcopy(char *, char *);
+int main() {
+   char a[30] = "@#Hello World!";
+   stringcopy(a, a + 2);
+   printf("%s\n", a);
+   return 0;
+}
+void stringcopy(char *s, char *t) {
+   while (*t)
+      *s++ = *t++;
+}`,
+ opts:['@#Hello World!','Hello World!','ello World!','Hello World!d!'],
+ ans:[3],
+ exp:`The string is "@#Hello World!" (14 characters). <code>stringcopy</code> shifts "Hello World!" (12 characters) to the start of the array, but the loop stops at the null, so the terminator is <b>not</b> copied.<br>Positions 12 and 13 still hold the old characters 'd' and '!', so the array reads <b>Hello World!d!</b>.`},
+{id:160,y:2025,topic:'Booth Multiplication (COA)',type:'NAT',
+ q:"The following two signed 2's complement numbers (multiplicand M and multiplier Q) are being multiplied using Booth's algorithm: M = 1100 1101 1110 1101 and Q = 1010 0100 1010 1010. The total number of addition and subtraction operations to be performed is ______. (Answer in integer)",
+ ans:13,
+ exp:`In Booth's algorithm an operation happens only when the current multiplier bit and the previous bit (Q<sub>−1</sub> = 0 at the start) differ: pair 10 → subtract M, pair 01 → add M, pairs 00 and 11 → only a shift.<br>Q = 1010 0100 1010 1010. Counting the bit pairs gives 7 pairs of type 10 (subtractions) and 6 pairs of type 01 (additions). Total = 7 + 6 = <b>13</b>.`},
+{id:161,y:2025,topic:'Loops & Operators',type:'NAT',
+ q:'The output of the given C code segment is ______. (Answer in integer)',
+ code:String.raw`int x = 126, y = 105;
+do {
+   if (x > y) x = x - y;
+   else y = y - x;
+} while (x != y);
+printf("%d", x);`,
+ ans:21,
+ exp:`This is Euclid's subtraction method, so the loop ends when x = y = gcd(126, 105).<br>(126,105) → (21,105) → (21,84) → (21,63) → (21,42) → (21,21). Output: <b>21</b>.`},
+{id:162,y:2025,topic:'Pointers & Arrays',type:'NAT',
+ q:'The output of the above program is ______. (Answer in integer)',
+ code:String.raw`#include <stdio.h>
+int main() {
+   int a;
+   int arr[5] = {30, 50, 10};
+   int *ptr;
+   ptr = &arr[0] + 1;
+   a = *ptr;
+   (*ptr)++;
+   ptr++;
+   printf("%d", a + (*ptr) + arr[1]);
+   return 0;
+}`,
+ ans:111,
+ exp:`<code>ptr = &arr[0] + 1</code> points to arr[1] = 50, so a = 50.<br><code>(*ptr)++</code> makes arr[1] = 51. <code>ptr++</code> now points to arr[2] = 10.<br>a + *ptr + arr[1] = 50 + 10 + 51 = <b>111</b>.`},
+{id:163,y:2025,topic:'Functions',type:'NAT',
+ q:'The output of the given C program is ______. (Answer in integer)',
+ code:String.raw`#include <stdio.h>
+int g(int n) {
+   return (n + 10);
+}
+int f(int n) {
+   return g(n * 2);
+}
+int main() {
+   int sum, n;
+   sum = 0;
+   for (n = 1; n < 3; n++)
+      sum += g(f(n));
+   printf("%d", sum);
+   return 0;
+}`,
+ ans:46,
+ exp:`f(n) = 2n + 10 and g(f(n)) = 2n + 20.<br>n = 1 → 22, n = 2 → 24. sum = 22 + 24 = <b>46</b>.`},
+{id:164,y:2026,topic:'Functions & Scope',type:'NAT',
+ q:'The output of the program is ______. (Answer in integer) Note: Assume that the program compiles and runs successfully.',
+ code:String.raw`#include <stdio.h>
+void func(int i, int j) {
+   int i = 0;
+   while (i < 10) {
+      j += 2;
+      i++;
+   }
+}
+int main() {
+   int i = 9, j = 10;
+   func(i, j);
+   printf("%d", i);
+   return 0;
+}`,
+ ans:9,
+ exp:`C passes arguments by value, so <code>func</code> works on its own copies of i and j. Whatever happens inside <code>func</code> cannot change the i and j of <code>main</code>.<br>main's i is still <b>9</b>.`},
+{id:165,y:2026,topic:'Recursion',type:'NAT',
+ q:'The smallest positive integer n for which foo(n) returns 5 is ______. (Answer in integer) Note: Ignore syntax errors (if any) in the function.',
+ code:String.raw`int bar(int n) {
+   if (n == 1) return 0;
+   else return 1 + bar(n / 2);
+}
+int foo(int n) {
+   if (n == 1) return 1;
+   else return 1 + foo(bar(n));
+}`,
+ ans:65536,
+ exp:`<code>bar(n)</code> = ⌊log<sub>2</sub> n⌋. So foo(n) = 1 + foo(⌊log<sub>2</sub> n⌋) and foo(1) = 1.<br>Smallest n for each value: foo = 1 → n = 1; foo = 2 → n = 2; foo = 3 → n = 4 (log = 2); foo = 4 → n = 2<sup>4</sup> = 16; foo = 5 → n = 2<sup>16</sup> = <b>65536</b>.`},
+{id:166,y:2026,topic:'Memory Management',type:'MCQ',
+ q:'In C runtime environment, which one of the following is stored in heap?',
+ opts:['A static variable declared inside a function','An array of integers declared inside a function','A dynamically allocated array of integers created using malloc() function call','Return address of a function'],
+ ans:[2],
+ exp:`Static variables live in the data segment, local arrays and return addresses live on the stack, while memory obtained with <code>malloc()</code> comes from the <b>heap</b>.`},
+{id:167,y:2026,topic:'Scope & Declarations',type:'MCQ',
+ q:'Consider the following three ANSI-C programs P1, P2 and P3. Which one of the following statements is true?',
+ code:String.raw`P1:                         P2:                         P3:
+#include <stdio.h>          #include <stdio.h>          #include <stdio.h>
+int a = 5;                  int main() {                int main() {
+int main() {                   int a = 5;                  int a = 5;
+   int a = 7;                  int a = 7;                  float a = 7;
+   return (0);                 return (0);                 return (0);
+}                           }                           }`,
+ opts:['Only P1 will compile without any error','Only P2 will compile without any error','Only P3 will compile without any error','All three programs P1, P2 and P3 will compile without any error'],
+ ans:[0],
+ exp:`In P1 the global <code>a</code> and the local <code>a</code> in main are in different scopes, so the local one simply hides the global one: it compiles.<br>In P2 and P3 both declarations of <code>a</code> are in the same block (even with a different type in P3), which is a redeclaration error. Only <b>P1</b> compiles.`},
+{id:168,y:2026,topic:'Pointers & Functions',type:'NAT',
+ q:'The output of this program is ______. (Answer in integer) Note: Assume that the program compiles and runs successfully.',
+ code:String.raw`#include <stdio.h>
+int main() {
+   int *ptr, a, b, c;
+   a = 5; b = 11; c = 20;
+   ptr = &a; *ptr = c; ptr = &c;
+   a = *(&b); c = *ptr - a;
+   printf("%d", c);
+   return (0);
+}`,
+ ans:9,
+ exp:`ptr = &a and *ptr = c → a = 20. Then ptr = &c.<br>a = *(&b) = b = 11. c = *ptr − a, where *ptr is c itself (20): c = 20 − 11 = <b>9</b>.`},
+{id:169,y:2026,topic:'Recursion',type:'NAT',
+ q:'The maximum possible value that can be returned from this function is ______. (Answer in integer) Note: Ignore syntax errors (if any) in the function.',
+ code:String.raw`int func(int start, int end) {
+   int length = end + 1 - start;
+   if ((length < 1) || (start < 0) || (end < 0)) { return (0); }
+   if (length % 3 == 0) {
+      return (func(start + 1, end));
+   } else if (length % 3 == 1) {
+      return (1 + func(start, end - 1));
+   } else {
+      return (func(start + 2, end));
+   }
+}`,
+ ans:1,
+ exp:`Track length mod 3. If it is 0, the length drops by 1 and becomes ≡ 2. If it is 2, the length drops by 2 and becomes ≡ 0. So the states alternate 0 → 2 → 0 → … and never return to 1.<br>The "1 +" branch (length ≡ 1) can therefore run only once, at the very first call, so the maximum return value is <b>1</b>.`}
+];
+
+const pqState = {};
+const pqFilter = {y:'all', topic:'all', type:'all'};
+const PQ_LETTERS = ['A','B','C','D','E','F'];
+function pqEsc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function pqSt(id){ return pqState[id] || (pqState[id] = {sel:[], val:'', done:false, ok:false}); }
+
+function pqInit(){ pqRenderFilters(); pqRender(); }
+
+function pqRenderFilters(){
+  const years = [...new Set(PYQ.map(p=>p.y))].sort();
+  const topics = [...new Set(PYQ.map(p=>p.topic))].sort();
+  const types = ['MCQ','MSQ','NAT'];
+  const chip = (k,v,label)=>`<button class="pq-chip${pqFilter[k]===v?' on':''}" onclick="pqSet('${k}','${String(v).replace(/'/g,"\\'")}')">${label}</button>`;
+  document.getElementById('pq-filters').innerHTML =
+    `<div class="pq-row"><span class="pq-label">Year</span>${chip('y','all','All years')}${years.map(y=>chip('y',y,y)).join('')}</div>
+     <div class="pq-row"><span class="pq-label">Topic</span>${chip('topic','all','All topics')}${topics.map(t=>chip('topic',t,t)).join('')}</div>
+     <div class="pq-row"><span class="pq-label">Type</span>${chip('type','all','All types')}${types.map(t=>chip('type',t,t)).join('')}</div>`;
+}
+function pqSet(k,v){ pqFilter[k] = (v==='all') ? 'all' : (k==='y' ? +v : v); pqRenderFilters(); pqRender(); }
+
+function pqVisible(){ return PYQ.filter(p=>(pqFilter.y==='all'||p.y===pqFilter.y)&&(pqFilter.topic==='all'||p.topic===pqFilter.topic)&&(pqFilter.type==='all'||p.type===pqFilter.type)); }
+
+function pqRender(){
+  const list = pqVisible();
+  const all = PYQ.map(p=>pqSt(p.id));
+  const att = all.filter(s=>s.done).length, ok = all.filter(s=>s.done&&s.ok).length;
+  document.getElementById('pq-stats').innerHTML =
+    `<span>Showing <b>${list.length}</b> of ${PYQ.length} questions</span><span>Attempted <b>${att}</b> · Correct <b>${ok}</b></span>
+     <button class="btn btn-secondary btn-sm" onclick="pqResetAll()">Reset all</button>`;
+  document.getElementById('pq-list').innerHTML = list.length ? list.map(pqCard).join('') :
+    `<div class="pq-empty">No questions match these filters. Try a different year, topic or type.</div>`;
+}
+
+function pqCard(p){
+  const s = pqSt(p.id);
+  let body = '';
+  if(p.type==='NAT'){
+    body = `<div class="pq-nat"><input type="number" step="any" id="pq-nat-${p.id}" placeholder="Enter your answer" value="${pqEsc(s.val)}" ${s.done?'disabled':''} oninput="pqSt(${p.id}).val=this.value" onkeydown="if(event.key==='Enter')pqCheck(${p.id})"></div>`;
+  } else {
+    body = `<div class="pq-opts">` + p.opts.map((o,i)=>{
+      let cls = '';
+      if(s.done){ if(p.ans.includes(i)) cls=' right'; else if(s.sel.includes(i)) cls=' wrong'; }
+      else if(s.sel.includes(i)) cls=' sel';
+      return `<button class="pq-opt${cls}" ${s.done?'disabled':''} onclick="pqPick(${p.id},${i})"><span class="k">${PQ_LETTERS[i]}</span><span>${pqEsc(o)}</span></button>`;
+    }).join('') + `</div>`;
+  }
+  let res = '';
+  if(s.done){
+    const ansText = p.type==='NAT' ? p.ans : p.ans.map(i=>PQ_LETTERS[i]).join(', ');
+    res = `<div class="pq-res ${s.ok?'ok':'bad'}"><div class="v">${s.ok?'Correct!':'Not quite.'} Correct answer: ${ansText}</div>${p.exp}</div>`;
+  }
+  return `<div class="pq-card" id="pq-${p.id}">
+    <div class="pq-head"><span class="pq-no">Q${p.id}.</span><span class="pq-tag type">${p.type}</span><span class="pq-tag">GATE ${p.y}</span><span class="pq-tag">${p.topic}</span></div>
+    <p class="pq-q">${p.q}${p.type==='MSQ'?' <b>(more than one option may be correct)</b>':''}</p>
+    ${p.code?`<pre class="pq-code">${pqEsc(p.code)}</pre>`:''}
+    ${body}
+    <div class="pq-actions">
+      ${s.done?`<button class="btn btn-secondary btn-sm" onclick="pqRetry(${p.id})">Try again</button>`:(p.type==='MCQ'?`<span class="caption">Tap an option to check your answer</span>`:`<button class="btn btn-primary btn-sm" onclick="pqCheck(${p.id})">Submit answer</button>`)}
+    </div>${res}</div>`;
+}
+
+function pqPick(id,i){
+  const p = PYQ.find(x=>x.id===id), s = pqSt(id); if(s.done) return;
+  if(p.type==='MSQ'){ s.sel = s.sel.includes(i) ? s.sel.filter(x=>x!==i) : [...s.sel,i]; }
+  else { s.sel = [i]; s.ok = p.ans.includes(i); s.done = true; pqRefresh(id); pqStatsOnly(); return; }
+  pqRefresh(id);
+}
+function pqCheck(id){
+  const p = PYQ.find(x=>x.id===id), s = pqSt(id);
+  if(p.type==='NAT'){
+    const inp = document.getElementById('pq-nat-'+id); if(inp) s.val = inp.value;
+    if(String(s.val).trim()===''){ if(inp) inp.focus(); return; }
+    s.ok = Math.abs(parseFloat(s.val)-p.ans) < 1e-9;
+  } else {
+    if(!s.sel.length){ return pqNudge(id); }
+    s.ok = s.sel.length===p.ans.length && p.ans.every(a=>s.sel.includes(a));
+  }
+  s.done = true; pqRefresh(id); pqStatsOnly();
+}
+function pqNudge(id){ const c=document.getElementById('pq-'+id); if(!c) return; const a=c.querySelector('.pq-actions'); if(!a.querySelector('.pq-hint')){ const h=document.createElement('span'); h.className='pq-hint caption'; h.style.alignSelf='center'; h.textContent='Select an answer first.'; a.appendChild(h); setTimeout(()=>h.remove(),1800); } }
+function pqRetry(id){ pqState[id] = {sel:[], val:'', done:false, ok:false}; pqRefresh(id); pqStatsOnly(); }
+function pqRefresh(id){ const p = PYQ.find(x=>x.id===id), el = document.getElementById('pq-'+id); if(!el) return; const tmp=document.createElement('div'); tmp.innerHTML=pqCard(p); el.replaceWith(tmp.firstElementChild); }
+function pqStatsOnly(){
+  const all = PYQ.map(p=>pqSt(p.id)), att = all.filter(s=>s.done).length, ok = all.filter(s=>s.done&&s.ok).length;
+  document.getElementById('pq-stats').innerHTML = `<span>Showing <b>${pqVisible().length}</b> of ${PYQ.length} questions</span><span>Attempted <b>${att}</b> · Correct <b>${ok}</b></span><button class="btn btn-secondary btn-sm" onclick="pqResetAll()">Reset all</button>`;
+}
+function pqResetAll(){ Object.keys(pqState).forEach(k=>delete pqState[k]); pqRender(); }
+let pqBusy=false;
+function goPyq(){
+  if(!hasAccess('pyq')){openPremium('Previous Year Papers','pyq');return;}
+  if(pqBusy) return; pqBusy=true;
+  const sp=document.getElementById('pyq-splash'), pg=document.getElementById('pyq-page');
+  toggleMenu(false);
+  sp.classList.add('show'); document.body.style.overflow='hidden';
+  setTimeout(()=>{ pg.classList.add('open'); pg.scrollTop=0; sp.classList.remove('show'); pqBusy=false; },1400);
+}
+function closePyq(){ document.getElementById('pyq-page').classList.remove('open'); document.body.style.overflow=''; }
+document.addEventListener('keydown',e=>{ if(e.key==='Escape' && document.getElementById('mods-page').classList.contains('open')) closeMods(); if(e.key==='Escape' && document.getElementById('pyq-page').classList.contains('open')) closePyq(); });
+
+/* ---------- STUDY MODULES ---------- */
+const PRE=c=>`<div class="m-pre">${c.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</div>`;
+const C1_NOTES=[
+['Compilation pipeline & program structure',`<p>A C program is a set of functions and global declarations. Execution starts at <code>main</code>. The toolchain turns source into an executable in four stages:</p>
+<div class="m-flow"><span>Preprocess</span><i>→</i><span>Compile</span><i>→</i><span>Assemble</span><i>→</i><span>Link</span></div>
+<ul><li><b>Preprocess:</b> expands <code>#include</code>, <code>#define</code>, conditional compilation, strips comments.</li><li><b>Compile:</b> syntax and type checking, produces assembly.</li><li><b>Assemble:</b> produces relocatable object code (<code>.o</code>).</li><li><b>Link:</b> resolves external symbols against libraries and produces <code>a.out</code>. A missing function body shows up here as an <i>undefined reference</i>.</li></ul>
+<div class="m-key">Declaration vs definition: a declaration introduces a name and type; a definition also allocates storage or provides the body.</div>`],
+['Data types, sizes and conversions',`<p>GATE normally states the assumption. If not, use the common model below.</p><table><tr><th>Type</th><th>Bytes</th><th>Range (signed)</th></tr><tr><td>char</td><td>1</td><td>-128 to 127</td></tr><tr><td>short</td><td>2</td><td>-32768 to 32767</td></tr><tr><td>int</td><td>4</td><td>-2<sup>31</sup> to 2<sup>31</sup>-1</td></tr><tr><td>long / long long</td><td>8 / 8</td><td>-2<sup>63</sup> to 2<sup>63</sup>-1</td></tr><tr><td>float / double</td><td>4 / 8</td><td>IEEE 754</td></tr><tr><td>pointer</td><td>8 (4 on 32-bit)</td><td>address</td></tr></table>
+<ul><li>An n-bit unsigned type holds 0 to 2<sup>n</sup>-1. A signed n-bit type (two's complement) holds -2<sup>n-1</sup> to 2<sup>n-1</sup>-1.</li><li><b>Integer promotion:</b> <code>char</code> and <code>short</code> are promoted to <code>int</code> in expressions.</li><li><b>Usual arithmetic conversions:</b> in a mixed expression, the lower type is converted to the higher: int &lt; unsigned &lt; long &lt; float &lt; double. Comparing a signed with an unsigned value converts the signed one to unsigned.</li><li>Integer division truncates toward zero: <code>-7/2 == -3</code>, and <code>-7%2 == -1</code> (sign follows the dividend).</li><li>Signed overflow is undefined behaviour; unsigned overflow wraps modulo 2<sup>n</sup>.</li></ul>`+PRE(`unsigned int u = 1;\nint i = -1;\nif (i < u) ...   // false: i becomes 4294967295`)],
+['Operators, precedence and sequence points',`<table><tr><th>Precedence (high to low)</th><th>Operators</th><th>Associativity</th></tr><tr><td>1</td><td>() [] -&gt; . postfix ++ --</td><td>left to right</td></tr><tr><td>2</td><td>prefix ++ -- ! ~ unary + - * &amp; sizeof (cast)</td><td>right to left</td></tr><tr><td>3</td><td>* / %</td><td>left to right</td></tr><tr><td>4</td><td>+ -</td><td>left to right</td></tr><tr><td>5</td><td>&lt;&lt; &gt;&gt;</td><td>left to right</td></tr><tr><td>6</td><td>&lt; &lt;= &gt; &gt;=</td><td>left to right</td></tr><tr><td>7</td><td>== !=</td><td>left to right</td></tr><tr><td>8-10</td><td>&amp; then ^ then |</td><td>left to right</td></tr><tr><td>11-12</td><td>&amp;&amp; then ||</td><td>left to right</td></tr><tr><td>13</td><td>?:</td><td>right to left</td></tr><tr><td>14</td><td>= += -= etc.</td><td>right to left</td></tr><tr><td>15</td><td>,</td><td>left to right</td></tr></table>
+<ul><li><code>&amp;&amp;</code> and <code>||</code> short-circuit: in <code>a &amp;&amp; b</code>, <code>b</code> is not evaluated if <code>a</code> is 0.</li><li>Sequence points exist after <code>&amp;&amp;</code>, <code>||</code>, <code>?:</code>, <code>,</code> and at the end of a full expression. Modifying a variable twice between sequence points (<code>i = i++ + 1</code>, <code>a[i] = i++</code>) is <b>undefined behaviour</b>.</li><li>Order of evaluation of function arguments is unspecified.</li><li><code>x &lt;&lt; 1</code> multiplies by 2, <code>x &gt;&gt; 1</code> divides by 2 (for non-negative x). <code>x &amp; (x-1)</code> clears the lowest set bit.</li></ul>`],
+['Control flow',`<ul><li><code>if / else</code>: a dangling <code>else</code> binds to the nearest unmatched <code>if</code>.</li><li><code>switch</code> works on integer expressions. Without <code>break</code>, execution <b>falls through</b> into the next case. <code>default</code> may appear anywhere.</li><li><code>for(init; cond; step)</code>: init runs once, cond is tested before every iteration. An empty cond means infinite loop.</li><li><code>while</code> tests first; <code>do-while</code> runs the body at least once.</li><li><code>break</code> exits the innermost loop or switch. <code>continue</code> jumps to the next iteration (in a <code>for</code> it still runs the step).</li><li>Any non-zero value is true. A stray semicolon after <code>if(...)</code> or <code>for(...)</code> makes an empty body.</li></ul>`+PRE(`int x = 2, s = 0;\nswitch (x) {\n  case 1: s += 1;\n  case 2: s += 2;   // starts here\n  case 3: s += 3; break;\n  default: s += 4;\n}\n// s == 5`)],
+['Functions, scope and parameter passing',`<ul><li>C is strictly <b>call by value</b>: the callee gets copies. To modify the caller's variable, pass its address.</li><li>A prototype (<code>int f(int, int);</code>) lets the compiler check calls made before the definition.</li><li><b>Scope:</b> block scope for locals, file scope for globals. An inner declaration hides an outer one of the same name (shadowing). C uses <b>static (lexical) scoping</b>.</li><li>Arrays decay to pointers when passed, so <code>sizeof(arr)</code> inside a function gives the pointer size, not the array size.</li><li>Returning the address of a local variable is a dangling pointer (undefined behaviour).</li><li><code>void f()</code> in C means unspecified parameters; <code>void f(void)</code> means none.</li></ul>`+PRE(`void swap(int *x, int *y) {\n  int t = *x; *x = *y; *y = t;\n}\nswap(&a, &b);   // a and b really swap`)],
+['Storage classes: lifetime, scope, linkage',`<table><tr><th>Class</th><th>Stored in</th><th>Lifetime</th><th>Scope / linkage</th><th>Default value</th></tr><tr><td>auto (default for locals)</td><td>Stack</td><td>Block</td><td>Block</td><td>Garbage</td></tr><tr><td>register</td><td>CPU register (hint)</td><td>Block</td><td>Block; cannot take &amp;</td><td>Garbage</td></tr><tr><td>static local</td><td>Data / BSS</td><td>Whole program</td><td>Block</td><td>0</td></tr><tr><td>static global</td><td>Data / BSS</td><td>Whole program</td><td>File only (internal linkage)</td><td>0</td></tr><tr><td>extern / plain global</td><td>Data / BSS</td><td>Whole program</td><td>External linkage</td><td>0</td></tr></table>
+<ul><li>A static local is initialised <b>once</b>, before the program starts, with a constant expression, and retains its value across calls.</li><li>Initialised globals and statics live in the <b>Data</b> segment; uninitialised ones live in <b>BSS</b> and are zeroed.</li></ul>`],
+['Arrays and address calculation',`<ul><li>Elements are contiguous. <code>a[i]</code> is exactly <code>*(a+i)</code>, so <code>i[a]</code> is also legal.</li><li>The name of an array is not a variable you can assign to. It decays to <code>&amp;a[0]</code> except under <code>sizeof</code> and unary <code>&amp;</code>. So <code>sizeof(a)</code> is the full array size and <code>&amp;a</code> has type pointer-to-array.</li><li>C does not check bounds; out-of-range access is undefined behaviour.</li></ul>
+<h5>Row-major addressing</h5><p>For <code>T a[R][C]</code> with base address B and element size w:</p><div class="m-key">Address of a[i][j] = B + (i × C + j) × w</div><p>Column-major (Fortran style) would be B + (j × R + i) × w. For a 1-D array with lower bound L: B + (i - L) × w. For 3-D <code>a[X][Y][Z]</code>: B + ((i×Y + j)×Z + k)×w.</p>`+PRE(`int a[2][3] = {{1,2,3},{4,5,6}};\n*(*(a+1)+2)   // a[1][2] == 6\na[1]           // address of row 1\n*a             // address of a[0][0]`)],
+['Pointers',`<ul><li>A pointer stores an address. <code>p+k</code> advances by <code>k × sizeof(*p)</code> bytes. Subtracting two pointers into the same array gives the <b>element count</b>.</li><li><code>*p++</code> reads <code>*p</code> then increments <code>p</code>. <code>(*p)++</code> increments the pointed value. <code>*++p</code> increments first.</li><li>A <code>NULL</code> pointer must never be dereferenced. A <code>void*</code> cannot be dereferenced or used in arithmetic without a cast.</li><li><b>Pointer to pointer:</b> <code>int **pp = &amp;p;</code> then <code>**pp</code> is the int.</li></ul>
+<h5>Declarations</h5><table><tr><th>Declaration</th><th>Meaning</th></tr><tr><td>const int *p</td><td>pointer to constant int: cannot change *p, can change p</td></tr><tr><td>int *const p</td><td>constant pointer: can change *p, cannot change p</td></tr><tr><td>const int *const p</td><td>neither can change</td></tr><tr><td>int *a[5]</td><td>array of 5 pointers to int</td></tr><tr><td>int (*a)[5]</td><td>pointer to an array of 5 ints</td></tr><tr><td>int (*f)(int)</td><td>pointer to function taking int, returning int</td></tr></table>
+<p>Read declarations inside-out: start at the name, go right for <code>[]</code> and <code>()</code>, then left for <code>*</code>.</p>`+PRE(`int a[5] = {10,20,30,40,50};\nint *p = a + 1;\n*(p+2)   // a[3] = 40\np - a    // 1`)],
+['Strings',`<ul><li>A C string is a <code>char</code> array terminated by <code>'\\0'</code>. <code>"GATE"</code> needs <b>5</b> bytes.</li><li><code>char s[] = "GATE";</code> makes a modifiable copy on the stack. <code>char *s = "GATE";</code> points to a string literal in read-only memory; modifying it is undefined behaviour.</li><li><code>strlen</code> does not count the terminator; <code>sizeof</code> on the array does.</li><li><code>strcpy</code>, <code>strcat</code> need a large enough destination. <code>strcmp</code> returns 0 when equal, negative or positive otherwise, so never compare strings with <code>==</code>.</li><li><code>printf</code> returns the number of characters printed; <code>scanf</code> returns the number of items read.</li></ul>`+PRE(`char s[] = "GATE";\nsizeof(s)  // 5\nstrlen(s)  // 4\nchar *t = "GATE";\nsizeof(t)  // 8 (pointer)`)],
+['Dynamic memory and the process memory layout',`<div class="m-mem"><div class="hd">High address</div><div><b>Stack</b><small>locals, frames (grows down)</small></div><div class="gap">unused</div><div><b>Heap</b><small>malloc / calloc (grows up)</small></div><div><b>BSS</b><small>uninitialised globals (zeroed)</small></div><div><b>Data</b><small>initialised globals / statics</small></div><div><b>Text</b><small>machine code (read-only)</small></div><div class="hd">Low address</div></div>
+<ul><li><code>malloc(n)</code> returns uninitialised memory or <code>NULL</code>. <code>calloc(c, n)</code> zero-fills. <code>realloc</code> resizes and may move the block. <code>free(p)</code> releases it.</li><li><b>Memory leak:</b> allocated memory never freed. <b>Dangling pointer:</b> used after free. <b>Double free</b> is undefined behaviour. Freeing a <code>NULL</code> pointer is safe.</li><li>Heap memory lives until freed, not until the function returns. Stack memory dies when the function returns.</li></ul>`+PRE(`int *p = malloc(5 * sizeof(int));\nif (p == NULL) return 1;\np[0] = 42;\nfree(p);\np = NULL;   // avoid dangling pointer`)],
+['Recursion',`<ul><li>Each call pushes an <b>activation record</b> holding parameters, locals, saved registers and the return address. Stack space is <code>O(depth)</code>.</li><li>Every recursion needs a base case that is eventually reached; otherwise the stack overflows.</li><li>Stack frames are released in LIFO order, so values computed after the recursive call happen on the way back (unwinding).</li><li><b>Tail recursion</b> (the recursive call is the last action) can be optimised to a loop, but the C standard does not guarantee this.</li><li>Naive Fibonacci makes <code>T(n) = T(n-1) + T(n-2) + 1</code> calls, which is exponential, O(2<sup>n</sup>) (tight bound Θ(φ<sup>n</sup>)). Factorial and digit-sum make n and log n calls respectively.</li></ul>`+PRE(`int fact(int n) {\n  if (n <= 1) return 1;       // base case\n  return n * fact(n - 1);      // multiplies while unwinding\n}\n\nint sumd(int n) {              // digit sum\n  return n == 0 ? 0 : n % 10 + sumd(n / 10);\n}`)+`<p>Use the Code Lab tab and press <b>Step</b> on <code>factorial.c</code> to watch the call stack grow and unwind.</p>`],
+['Structures, unions, enums and padding',`<ul><li>A <code>struct</code> lays out members in order. The compiler inserts <b>padding</b> so each member is aligned to its own size, and pads the end so the total is a multiple of the largest member alignment.</li><li>A <code>union</code> shares one block for all members; its size is the size of the largest member (rounded to alignment). Only the last written member holds a valid value.</li><li><code>enum</code> constants are integers starting at 0, increasing by 1 unless assigned.</li><li><code>typedef</code> creates a type alias. Bit-fields pack members into a specified number of bits.</li><li>Access with <code>.</code> for objects and <code>-&gt;</code> for pointers: <code>p-&gt;x</code> equals <code>(*p).x</code>.</li></ul>`+PRE(`struct A { char c; int i; char d; };  // c(1)+pad(3)+i(4)+d(1)+pad(3) = 12\nstruct B { int i; char c; char d; };  // i(4)+c(1)+d(1)+pad(2)  = 8\nunion  U { int i; char c; double d; }; // 8`)],
+['Preprocessor and macros',`<ul><li>Macros are <b>textual substitution</b>, with no type checking and no evaluation until the expansion is compiled.</li><li>Always parenthesise macro parameters and the whole body, otherwise operator precedence breaks the result.</li><li>A macro argument with side effects can be evaluated more than once.</li><li><code>#ifdef</code>, <code>#ifndef</code>, <code>#if</code>, <code>#endif</code> control conditional compilation; include guards stop double inclusion of headers.</li></ul>`+PRE(`#define SQ(x) x*x\nSQ(2+3)    // 2+3*2+3 = 11, not 25\n#define SQ2(x) ((x)*(x))\nSQ2(2+3)   // 25\n#define MAX(a,b) ((a)>(b)?(a):(b))\nMAX(i++, j) // i may be incremented twice`)],
+['Bitwise operations and common idioms',`<ul><li>Set bit k: <code>x |= (1u &lt;&lt; k)</code>. Clear: <code>x &amp;= ~(1u &lt;&lt; k)</code>. Toggle: <code>x ^= (1u &lt;&lt; k)</code>. Test: <code>(x &gt;&gt; k) &amp; 1</code>.</li><li>Power of two test: <code>x &amp;&amp; !(x &amp; (x-1))</code>. Count set bits (Kernighan): repeat <code>x &amp;= x-1</code> until x is 0; the number of iterations is the popcount.</li><li>Swap without a temporary: <code>a ^= b; b ^= a; a ^= b;</code> (fails when both names refer to the same object).</li><li><code>~x</code> equals <code>-x-1</code> in two's complement. Right shift of a negative signed value is implementation-defined.</li></ul>`],
+['GATE traps checklist',`<ul><li>Uninitialised local variables are garbage; globals and statics are 0.</li><li><code>sizeof</code> of an array parameter is the pointer size.</li><li><code>=</code> versus <code>==</code> inside conditions; semicolon after <code>if</code>/<code>for</code>/<code>while</code>.</li><li>Integer division, <code>%</code> on negatives, and mixed signed/unsigned comparison.</li><li><code>printf("%d")</code> with a <code>float</code>, or <code>%f</code> with an <code>int</code>, is undefined.</li><li>Pointer arithmetic scales by element size; array indices do not need a cast.</li><li>Macro precedence bugs, and arguments evaluated twice.</li><li>String literal modification, and returning pointers to locals.</li><li>Trace carefully: write each variable in a table and update it line by line. Use the Code Lab's step mode to practise this habit.</li></ul>`]
+];
+
+C1_NOTES.push(
+['Input and output: printf, scanf and format specifiers',`<table><tr><th>Spec</th><th>Meaning</th><th>Spec</th><th>Meaning</th></tr><tr><td>%d / %i</td><td>signed int</td><td>%u</td><td>unsigned int</td></tr><tr><td>%ld / %lld</td><td>long / long long</td><td>%zu</td><td>size_t (sizeof)</td></tr><tr><td>%f</td><td>float / double (6 decimals)</td><td>%c</td><td>char</td></tr><tr><td>%s</td><td>string</td><td>%p</td><td>pointer</td></tr><tr><td>%x / %o</td><td>hex / octal</td><td>%%</td><td>literal percent</td></tr></table>
+<ul><li><code>%5d</code> right-aligns in width 5; <code>%-5d</code> left-aligns; <code>%05d</code> zero-pads; <code>%.2f</code> prints 2 decimals; <code>%.3s</code> prints at most 3 characters.</li><li><code>printf</code> returns the number of characters printed. <code>scanf</code> returns the number of items successfully read (or EOF).</li><li><code>scanf</code> needs addresses (<code>&amp;x</code>); for a char array the name already is an address. <code>%s</code> stops at whitespace.</li><li>A mismatched specifier (<code>%d</code> with a double, <code>%f</code> with an int) is undefined behaviour.</li><li>Escape sequences: <code>\\n</code> newline, <code>\\t</code> tab, <code>\\0</code> null, <code>\\\\</code> backslash, <code>\\"</code> quote.</li><li><code>getchar()</code> returns an <code>int</code> so it can represent EOF (-1); <code>puts</code> appends a newline, <code>putchar</code> writes one character.</li></ul>`+PRE(`int n = printf("ab");   // prints ab, n == 2\nprintf("%d", printf("ab")); // prints ab2\nprintf("%5.2f|%-4d|%04d", 3.14159, 7, 42);\n// " 3.14|7   |0042"`)],
+['Type qualifiers, typedef and miscellaneous keywords',`<ul><li><code>const</code>: the object is read-only through this name. A const global may be placed in read-only memory.</li><li><code>volatile</code>: the value may change outside the program's control (hardware register, signal handler), so the compiler must re-read it on every access and must not optimise it away.</li><li><code>restrict</code> (C99): a promise that a pointer is the only way to reach that object, enabling optimisation. <code>inline</code> suggests expanding a function in place.</li><li><code>typedef</code> gives a new name to a type: <code>typedef unsigned long ul;</code>. It is not a macro; it obeys scope rules.</li><li><b>Comma operator:</b> evaluates left to right and yields the right operand: <code>x = (1, 2, 3);</code> gives 3. In a declaration or argument list the comma is only a separator.</li><li><b>Ternary:</b> <code>c ? a : b</code>; only one branch is evaluated. <code>goto</code> jumps to a label in the same function and is legal but discouraged.</li><li><code>void</code> as a return type means no value; <code>void *</code> is a generic pointer.</li></ul>`],
+['Function pointers, variadic functions and command-line arguments',`<ul><li>A function name decays to its address. Declare a pointer with <code>int (*fp)(int, int);</code>, assign <code>fp = add;</code> and call with <code>fp(2,3)</code> or <code>(*fp)(2,3)</code>. Used for callbacks (for example the comparator in <code>qsort</code>) and dispatch tables.</li><li>Variadic functions (<code>int f(int n, ...)</code>) use <code>va_list</code>, <code>va_start</code>, <code>va_arg</code>, <code>va_end</code> from <code>&lt;stdarg.h&gt;</code>. The callee cannot know the number or types of extra arguments; that has to be conveyed by a fixed argument, as <code>printf</code> does with its format string.</li><li><code>int main(int argc, char *argv[])</code>: <code>argc</code> counts arguments including the program name, <code>argv[0]</code> is the program name, and <code>argv[argc]</code> is NULL.</li><li>Function arguments are passed on the stack (or in registers) and the order of evaluation is unspecified. With the usual stack-based convention arguments are pushed right to left, which is why <code>printf("%d %d", i++, i++)</code> is unreliable.</li></ul>`+PRE(`int add(int a, int b) { return a + b; }\nint (*fp)(int, int) = add;\nprintf("%d", fp(2, 3));   // 5`)],
+['2-D arrays, arrays of strings and passing arrays to functions',`<ul><li>A 2-D array <code>int a[R][C]</code> is stored row by row in one contiguous block. Only the first dimension may be omitted in a parameter: <code>void f(int a[][C])</code> or <code>void f(int (*a)[C])</code>.</li><li><code>a[i]</code> has type <code>int[C]</code> (decays to <code>int*</code>); <code>*(a+i)</code> is row i; <code>*(*(a+i)+j)</code> is a[i][j]. <code>sizeof(a)</code> is R×C×4, <code>sizeof(a[0])</code> is C×4.</li><li><code>char names[3][10]</code> reserves 30 bytes, all inside the array. <code>char *names[3]</code> reserves three pointers and the strings live elsewhere (often read-only literals).</li><li>Partial initialisation fills the rest with 0: <code>int a[5] = {1,2};</code> gives 1 2 0 0 0. <code>int a[] = {1,2,3};</code> infers size 3.</li><li>A variable-length array (<code>int a[n];</code>, C99) is sized at run time on the stack; <code>sizeof</code> is then evaluated at run time.</li><li>Passing an array passes its address, so the callee can modify the caller's elements.</li></ul>`+PRE(`int a[2][3] = {{1,2,3},{4,5,6}};\nsizeof(a)       // 24\nsizeof(a[0])    // 12\n**a             // 1\n*(a[1]+1)       // 5`)],
+['Self-referential structures and linked data in C',`<ul><li>A struct may contain a pointer to its own type, which is how lists and trees are built. It cannot contain itself by value.</li><li>Allocate nodes with <code>malloc</code>, link them through the pointer, and free them one by one. Always handle the empty list (<code>head == NULL</code>) separately.</li><li>Insert at head: O(1). Insert at tail without a tail pointer: O(n). Search: O(n). Reverse a list in place with three pointers (prev, curr, next) in O(n) time and O(1) extra space.</li></ul>`+PRE(`struct node { int data; struct node *next; };\n\nstruct node *push(struct node *head, int x) {\n  struct node *n = malloc(sizeof *n);\n  n->data = x;\n  n->next = head;     // new node points to old head\n  return n;           // new head\n}\n\nstruct node *reverse(struct node *h) {\n  struct node *prev = NULL, *next;\n  while (h) { next = h->next; h->next = prev; prev = h; h = next; }\n  return prev;\n}`)],
+['Floating point, endianness and representation pitfalls',`<ul><li><code>float</code> has 1 sign, 8 exponent and 23 mantissa bits; <code>double</code> has 1, 11 and 52 (IEEE 754). Many decimals such as 0.1 are not exactly representable.</li><li>Never test floating-point equality directly; compare with a tolerance. <code>0.1 + 0.2 == 0.3</code> is false.</li><li>A literal like <code>3.5</code> is a <code>double</code>; <code>3.5f</code> is a <code>float</code>. Converting a floating value to int truncates toward zero.</li><li><code>5/2</code> is 2, <code>5/2.0</code> is 2.5, and <code>(float)5/2</code> is 2.5 because the cast applies before the division.</li><li><b>Endianness:</b> little-endian machines store the least significant byte at the lowest address. For <code>int x = 0x01020304;</code> the first byte in memory is 0x04 on little-endian and 0x01 on big-endian.</li><li>Characters are small integers (ASCII): <code>'A'</code> is 65, <code>'a'</code> is 97, <code>'0'</code> is 48, so <code>'a' - 'A'</code> is 32 and <code>c - '0'</code> converts a digit character to its value.</li></ul>`],
+['Output prediction patterns and worked traces',`<ul><li><b>Pre vs post increment:</b> <code>y = x++</code> assigns the old value; <code>y = ++x</code> assigns the new value. Both increment x.</li><li><b>printf argument order</b> is unspecified, and modifying a variable twice in one expression is undefined. In GATE, such questions give a sequence of statements, so trace line by line.</li><li><b>Loop traces:</b> write the variables in columns and update them after every line. Check the exit condition before the first iteration for <code>for</code> and <code>while</code>.</li><li><b>Pointer traces:</b> draw boxes with addresses. Remember <code>p++</code> moves by <code>sizeof(*p)</code>.</li><li><b>Recursion traces:</b> draw the call tree, mark what each call returns, then evaluate bottom-up. Count calls separately from the final value.</li></ul>`+PRE(`int x = 5;\nint y = x++ + 2;     // y = 7, x = 6\nint z = ++x * 2;     // x = 7, z = 14\n\nchar *s = "abc";\nprintf("%c", *s++ + 1);   // 'a' + 1 = 'b'`)],
+['File handling basics',`<ul><li><code>FILE *fp = fopen("f.txt", "r");</code> returns <code>NULL</code> on failure. Modes: <code>r</code> read, <code>w</code> write (truncates), <code>a</code> append, <code>r+</code>/<code>w+</code> read and write, add <code>b</code> for binary.</li><li>Use <code>fprintf</code>, <code>fscanf</code>, <code>fgets</code>, <code>fputs</code>, <code>fgetc</code>, <code>fputc</code>, <code>fread</code>, <code>fwrite</code>, <code>fseek</code>, <code>ftell</code>, <code>rewind</code>, and always <code>fclose</code>.</li><li><code>feof</code> becomes true only after a read attempt hits the end, so test the return value of the read function instead of looping on <code>!feof(fp)</code>.</li><li><code>stdin</code>, <code>stdout</code> and <code>stderr</code> are predefined streams; <code>stdout</code> is usually buffered, <code>stderr</code> is not.</li></ul>`]
+);
+C1_NOTES.push(C1_NOTES.splice(14,1)[0]); // keep the checklist last
+const C1_CARDS=[['sizeof(char)?','1 byte, by definition'],['Default value of an uninitialised global or static?','0 (placed in BSS)'],['Default value of an uninitialised auto local?','Indeterminate (garbage)'],['a[i] is equivalent to?','*(a+i), so i[a] is also valid'],['p+1 for int *p moves by?','sizeof(int) bytes (4)'],['Lifetime of a static local?','Whole program; initialised once'],['Stack space used by recursion of depth n?','O(n) activation records'],['What does malloc return on failure?','NULL'],['How does C pass arguments?','By value always; pass an address to modify the caller'],['Address of a[i][j] in row-major order?','B + (i×C + j)×w'],['const int *p vs int *const p?','1st: value is const. 2nd: pointer is const'],['Size of "GATE" as a char array?','5 bytes (includes \\0)'],['What does -7/2 give in C99?','-3 (truncation toward zero)'],['What does -7%2 give in C99?','-1 (sign of dividend)'],['Result of SQ(2+3) with #define SQ(x) x*x?','11, because of textual expansion'],['What is a dangling pointer?','Pointer to memory that was freed or went out of scope'],['Which segment stores initialised globals?','Data segment'],['Does switch fall through without break?','Yes, into the next case'],['Size of a union?','Size of its largest member (plus alignment padding)'],['Result of x & (x-1)?','x with its lowest set bit cleared'],['Is signed overflow defined?','No, undefined. Unsigned wraps modulo 2^n'],['What does p - q give for pointers into one array?','Number of elements between them']];
+const C1_QS=[
+{t:'mcq',q:'What is printed?',c:'char s[]="GATE";\nprintf("%zu %zu", sizeof(s), strlen(s));',o:['4 4','5 4','5 5','4 5'],a:[1],e:'sizeof counts the trailing \\0 (5 bytes). strlen stops before it (4).'},
+{t:'mcq',q:'What does the last printf print?',c:'int f(){ static int c=0; return ++c; }\nf(); f();\nprintf("%d", f());',o:['1','2','3','0'],a:[2],e:'c persists across calls: 1, 2, then 3.'},
+{t:'mcq',q:'What is the value printed?',c:'printf("%d", 7/2 + 7%2 - (-7)/2);',o:['4','5','7','8'],a:[2],e:'7/2=3, 7%2=1, (-7)/2=-3, so 3 + 1 - (-3) = 7.'},
+{t:'mcq',q:'What is printed?',c:'int x=2, s=0;\nswitch(x){\n  case 1: s+=1;\n  case 2: s+=2;\n  case 3: s+=3; break;\n  default: s+=4;\n}\nprintf("%d", s);',o:['2','5','6','9'],a:[1],e:'Starts at case 2 and falls through case 3 until break: 2 + 3 = 5.'},
+{t:'mcq',q:'What is printed?',c:'int a[2][3]={{1,2,3},{4,5,6}};\nprintf("%d", *(*(a+1)+2));',o:['3','5','6','4'],a:[2],e:'*(a+1) is row 1; +2 selects column 2; that is a[1][2] = 6.'},
+{t:'mcq',q:'What is printed?',c:'#define SQ(x) x*x\nprintf("%d", SQ(2+3));',o:['25','11','10','13'],a:[1],e:'Expands to 2+3*2+3 = 11 because the macro has no parentheses.'},
+{t:'msq',q:'Select all TRUE statements about C.',c:'',o:['An array name passed to a function decays to a pointer','sizeof of a non-VLA is evaluated at compile time','Local non-static variables are zero-initialised','A static global has internal linkage'],a:[0,1,3],e:'Uninitialised locals hold garbage, so option 3 is false.'},
+{t:'msq',q:'Select all TRUE statements about recursion in C.',c:'',o:['Each call gets its own activation record','A missing base case can overflow the stack','Local variables live on the heap','The C standard guarantees tail-call optimisation'],a:[0,1],e:'Locals live on the stack, and TCO is not guaranteed by the standard.'},
+{t:'msq',q:'Which declarations make *p read-only but allow p itself to change?',c:'',o:['const int *p;','int const *p;','int *const p;','const int *const p;'],a:[0,1],e:'const to the left of * protects the pointed value. int *const fixes the pointer instead.'},
+{t:'msq',q:'Which of these cause undefined behaviour?',c:'',o:['i = i++ + 1;','Dereferencing a NULL pointer','Signed integer overflow','Unsigned integer overflow'],a:[0,1,2],e:'Unsigned overflow wraps modulo 2^n and is well defined.'},
+{t:'nat',q:'What is printed?',c:'int a[5]={10,20,30,40,50};\nint *p = a+1;\nprintf("%d", *(p+2) - *p);',a:20,e:'p=&a[1]. *(p+2)=a[3]=40, *p=20. 40-20=20.'},
+{t:'nat',q:'How many times is "Hi" printed?',c:'for(int i=1; i<=100; i*=2)\n  printf("Hi");',a:7,e:'i = 1,2,4,8,16,32,64 gives 7 iterations.'},
+{t:'nat',q:'What does fun(2749) return?',c:'int fun(int n){\n  return n==0 ? 0 : n%10 + fun(n/10);\n}',a:22,e:'Digit sum: 9+4+7+2 = 22.'},
+{t:'nat',q:'What is sizeof(struct S) assuming int is 4 bytes, 4-byte aligned?',c:'struct S { char c; int i; char d; };',a:12,e:'c(1)+3 pad, i(4), d(1)+3 end padding = 12.'},
+{t:'nat',q:'int a[10][20] has base address 1000 and int is 4 bytes. What is the address of a[3][5] in row-major order?',c:'',a:1260,e:'1000 + (3×20 + 5)×4 = 1000 + 260 = 1260.'}];
+C1_QS.push(
+{t:'mcq',q:'What is printed?',c:'printf("%d", printf("ab"));',o:['ab','ab2','2ab','2'],a:[1],e:'The inner printf prints "ab" and returns 2, which the outer printf then prints.'},
+{t:'mcq',q:'What is printed?',c:'char *s = "abc";\nprintf("%c", *s++ + 1);',o:['a','b','c','98'],a:[1],e:'*s++ yields \'a\' (97); adding 1 gives 98, and %c prints it as \'b\'.'},
+{t:'nat',q:'What is printed?',c:'int x = 5;\nprintf("%d", x << 2 | 1);',a:21,e:'<< binds tighter than |. 5<<2 = 20, and 20 | 1 = 21.'}
+);
+/* program traces: S(line,vars,stack,out) */
+const S=(l,v,s,o)=>({l,v,s,o:o||''});
+function trFact(n){const T=[],st=['main()'];let f=[1];for(let i=1;i<=n;i++)f[i]=f[i-1]*i;
+  T.push(S(9,{r:'?'},[...st])); const fr=k=>`fact(n=${k})`;
+  for(let k=n;k>=1;k--){st.push(fr(k));T.push(S(3,{n:k},[...st])); if(k>1)T.push(S(5,{n:k},[...st]));}
+  T.push(S(4,{n:1,'return':1},[...st]));
+  for(let k=2;k<=n;k++){st.pop();T.push(S(5,{n:k,'return':f[k]},[...st]));}
+  st.pop();T.push(S(9,{r:f[n]},[...st]));T.push(S(10,{r:f[n]},[...st],`fact(${n}) = ${f[n]}\n`));T.push(S(11,{r:f[n]},[...st]));return T;}
+function trFib(){const T=[];let a=0,b=1,out='';T.push(S(2,{a:0,b:1},['main()']));
+  for(let i=0;i<6;i++){T.push(S(4,{i,a,b},['main()'],a+' '));const t=a+b;T.push(S(5,{i,a,b,t},['main()']));a=b;T.push(S(6,{i,a,b,t},['main()']));b=t;T.push(S(7,{i,a,b,t},['main()']));}
+  T.push(S(9,{a,b},['main()'],'\n'));T.push(S(10,{a,b},['main()']));return T;}
+const C1_PROGS=[
+{n:'factorial.c',c:`#include <stdio.h>\n\nint fact(int n) {\n  if (n <= 1)\n    return 1;\n  return n * fact(n - 1);\n}\n\nint main() {\n  int r = fact(4);\n  printf("fact(4) = %d\\n", r);\n  return 0;\n}`,tr:trFact(4)},
+{n:'swap.c',c:`#include <stdio.h>\nvoid swap(int *x, int *y) {\n  int t = *x;\n  *x = *y;\n  *y = t;\n}\nint main() {\n  int a = 3, b = 7;\n  swap(&a, &b);\n  printf("a=%d b=%d\\n", a, b);\n  return 0;\n}`,tr:[S(7,{a:3,b:7},['main()']),S(8,{a:3,b:7},['main()','swap(x=&a, y=&b)']),S(2,{a:3,b:7,t:3},['main()','swap(x=&a, y=&b)']),S(3,{a:7,b:7,t:3},['main()','swap(x=&a, y=&b)']),S(4,{a:7,b:3,t:3},['main()','swap(x=&a, y=&b)']),S(9,{a:7,b:3},['main()'],'a=7 b=3\n'),S(10,{a:7,b:3},['main()'])]},
+{n:'pointers.c',c:`#include <stdio.h>\nint main() {\n  int a[5] = {10, 20, 30, 40, 50};\n  int *p = a + 1;\n  printf("%d\\n", *p);\n  printf("%d\\n", *(p + 2));\n  p++;\n  printf("%d\\n", *p);\n  printf("%ld\\n", p - a);\n  return 0;\n}`,tr:[S(2,{a:'{10,20,30,40,50}'},['main()']),S(3,{p:'&a[1]'},['main()']),S(4,{p:'&a[1]','*p':20},['main()'],'20\n'),S(5,{p:'&a[1]','*(p+2)':40},['main()'],'40\n'),S(6,{p:'&a[2]'},['main()']),S(7,{p:'&a[2]','*p':30},['main()'],'30\n'),S(8,{'p - a':2},['main()'],'2\n'),S(9,{},['main()'])]},
+{n:'static_counter.c',c:`#include <stdio.h>\nint counter() {\n  static int c = 0;\n  c++;\n  return c;\n}\nint main() {\n  counter();\n  counter();\n  printf("%d\\n", counter());\n  return 0;\n}`,tr:[S(7,{c:0},['main()','counter()']),S(3,{c:1},['main()','counter()']),S(4,{c:1,'return':1},['main()','counter()']),S(8,{c:1},['main()']),S(3,{c:2},['main()','counter()']),S(4,{c:2,'return':2},['main()','counter()']),S(9,{c:2},['main()']),S(3,{c:3},['main()','counter()']),S(4,{c:3,'return':3},['main()','counter()']),S(9,{c:3},['main()'],'3\n'),S(10,{c:3},['main()'])]},
+{n:'strings.c',c:`#include <stdio.h>\n#include <string.h>\nint main() {\n  char s[] = "GATE";\n  printf("%zu\\n", sizeof(s));\n  printf("%zu\\n", strlen(s));\n  s[1] = 'a';\n  printf("%s\\n", s);\n  return 0;\n}`,tr:[S(3,{s:'G A T E \\0'},['main()']),S(4,{'sizeof(s)':5},['main()'],'5\n'),S(5,{'strlen(s)':4},['main()'],'4\n'),S(6,{s:'G a T E \\0'},['main()']),S(7,{s:'"GaTE"'},['main()'],'GaTE\n'),S(8,{},['main()'])]},
+{n:'fibonacci.c',c:`#include <stdio.h>\nint main() {\n  int a = 0, b = 1;\n  for (int i = 0; i < 6; i++) {\n    printf("%d ", a);\n    int t = a + b;\n    a = b;\n    b = t;\n  }\n  printf("\\n");\n  return 0;\n}`,tr:trFib()}];
+
+const MODS={4:{'Programming in C':[{id:'c1',title:'C Programming Essentials',sub:'Types, operators, control flow, functions, storage classes, arrays, pointers, strings, memory, recursion, structs, macros',notes:C1_NOTES,cards:C1_CARDS,qs:C1_QS,progs:C1_PROGS}]}};
+let mv={s:null,t:null,m:null,tab:'notes'},mq={};
+const $m=id=>document.getElementById(id);
+function goMods(sid){toggleMenu(false);mv={s:(sid&&hasAccess('sub'+sid))?sid:null,t:null,m:null,tab:'notes'};mq={};$m('mods-page').classList.add('open');$m('mods-page').scrollTop=0;document.body.style.overflow='hidden';mRender();}
+function closeMods(){$m('mods-page').classList.remove('open');document.body.style.overflow='';}
+function mBack(){ if(mv.m){mv.m=null;} else if(mv.t){mv.t=null;} else if(mv.s){mv.s=null;} else return closeMods(); mRender(); }
+function mGo(k,v){if(k==='s'&&v&&!hasAccess('sub'+v)){openPremium(SYLLABUS.find(x=>x.id===v).name+' module','sub'+v);return;}mv[k]=v;if(k==='m')mv.tab='notes';mRender();$m('mods-page').scrollTop=0;}
+const mM=()=>MODS[mv.s][mv.t].find(x=>x.id===mv.m);
+function mToast(el){const c=el.querySelector('.caption');const o=c.textContent;c.textContent='Module not added yet';setTimeout(()=>c.textContent=o,1400);}
+function mRender(){
+  const b=$m('mods-body'),S0=SYLLABUS.find(x=>x.id===mv.s);
+  if(S0&&!hasAccess('sub'+S0.id)){mv.s=mv.t=mv.m=null;return mRender();}
+  $m('m-backlbl').textContent=mv.m?'Back to modules':mv.t?'Back to topics':mv.s?'Back to subjects':'Back to portal';
+  const crumb=`<div class="m-crumb"><a onclick="mGo('s',null)">Subjects</a>${S0?` / <a onclick="mGo('t',null)">${S0.name}</a>`:''}${mv.t?' / '+mv.t:''}</div>`;
+  if(!S0){ b.innerHTML=`<span class="eyebrow">Step 1 of 3</span><h2 class="h2" style="margin-top:6px">Choose a subject</h2><p class="body">Pick a GATE CS 2027 section. Modules unlock subject by subject.</p><div class="m-grid">${SYLLABUS.map(s=>{const ok=hasAccess('sub'+s.id);return `<button class="m-card${ok&&MODS[s.id]?'':' lock'}" onclick="mGo('s',${s.id})"><span class="dept-icon">${ic(s.icon,'icon')}</span><b>${s.name}</b><span class="caption">${ok?(MODS[s.id]?'1 module live':'Unlocked · modules coming soon'):'Locked by admin'} · ${s.count} topics</span>${lockBadge('sub'+s.id)}</button>`}).join('')}</div>`; return; }
+  if(!mv.t){ const M=MODS[S0.id]||{}; b.innerHTML=crumb+`<span class="eyebrow" style="margin-top:12px">Step 2 of 3</span><h2 class="h2" style="margin-top:6px">${S0.name}: topics</h2><div class="m-grid">${S0.groups.flatMap(g=>g.t).map(t=>{const on=M[t];return `<button class="m-card${on?'':' lock'}" onclick="${on?`mGo('t','${t}')`:`mToast(this)`}">${ic(on?'check':'lock','icon icon-sm')}<b>${t}</b><span class="caption">${on?'Module unlocked':'Locked · coming soon'}</span></button>`}).join('')}</div>`; return; }
+  const list=MODS[S0.id][mv.t];
+  if(!mv.m){ b.innerHTML=crumb+`<span class="eyebrow" style="margin-top:12px">Step 3 of 3</span><h2 class="h2" style="margin-top:6px">${mv.t}: modules</h2><div class="m-grid">${list.map(m=>`<button class="m-card" onclick="mGo('m','${m.id}')"><span class="badge badge-important">Unlocked</span><b>${m.title}</b><span class="caption">${m.sub}</span><span class="caption" style="display:block;margin-top:8px">${m.notes.length} notes · ${m.cards.length} flashcards · ${m.qs.length} questions · ${m.progs.length} programs</span></button>`).join('')}</div>`; return; }
+  const m=mM(),T=[['notes','Short Notes'],['cards','Flashcards'],['quiz','Practice'],['lab','Code Lab']];
+  b.innerHTML=crumb+`<h2 class="h2" style="margin-top:12px">${m.title}</h2><div class="m-tabs">${T.map(t=>`<button class="m-tab${mv.tab===t[0]?' on':''}" onclick="mv.tab='${t[0]}';mRender()">${t[1]}</button>`).join('')}</div><div id="m-pane"></div>`;
+  const P=$m('m-pane');
+  if(mv.tab==='notes'){ setTimeout(()=>{try{pdfLibs().catch(()=>{});}catch(e){}},200); setTimeout(()=>{docPaginate(); if(document.fonts&&document.fonts.status!=='loaded') document.fonts.ready.then(()=>docPaginate());},0); }
+  if(mv.tab==='notes') P.innerHTML=`<div class="m-toolbar"><button class="btn btn-primary btn-sm" id="pdf-btn" onclick="notesPdf()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>Download PDF</button><button class="btn btn-secondary btn-sm" onclick="notesPrint()">Print</button><span class="caption" id="pdf-st">A4 · ${m.notes.length} sections · light GateClashers watermark</span></div><div class="m-layout"><nav class="m-toc">${m.notes.map((n,i)=>`<a onclick="document.getElementById('nt${i}').scrollIntoView({behavior:'smooth'})">${i+1}. ${n[0]}</a>`).join('')}</nav><div class="m-docwrap"><div class="doc-stage" id="doc-stage"></div></div></div>`;
+  if(mv.tab==='cards') P.innerHTML=`<p class="caption" style="margin-bottom:12px">Tap a card to flip it. ${m.cards.length} cards.</p><div class="fc-grid">${m.cards.map(c=>`<div class="fc" onclick="this.classList.toggle('flip')"><div class="fc-in"><div class="fc-f">${c[0]}</div><div class="fc-b">${c[1]}</div></div></div>`).join('')}</div>`;
+  if(mv.tab==='quiz') mQuiz(m);
+  if(mv.tab==='lab') labInit(m);
+}
+function mQuiz(m){ const P=$m('m-pane'),sy=$m('mods-page').scrollTop; P.innerHTML=m.qs.map((q,i)=>{const s=mq[i]||(mq[i]={sel:[],val:'',done:false,ok:false});
+  const tag={mcq:'MCQ',msq:'MSQ',nat:'NAT'}[q.t];
+  const body=q.t==='nat'?`<input type="number" step="any" placeholder="Your answer" value="${s.val}" ${s.done?'disabled':''} oninput="mq[${i}].val=this.value">`:q.o.map((o,j)=>`<button class="m-opt${s.sel.includes(j)?' sel':''}${s.done&&q.a.includes(j)?' ok':''}${s.done&&s.sel.includes(j)&&!q.a.includes(j)?' bad':''}" ${s.done?'disabled':''} onclick="mPick(${i},${j})">${String.fromCharCode(65+j)}. ${o}</button>`).join('');
+  return `<div class="m-q"><span class="badge badge-neutral">${tag}${q.t==='msq'?' · select all that apply':''}</span><p style="margin-top:8px;font-weight:600">Q${i+1}. ${q.q}</p>${q.c?`<pre>${q.c.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</pre>`:''}${body}<div style="margin-top:10px;display:flex;gap:8px">${s.done?`<button class="btn btn-secondary btn-sm" onclick="delete mq[${i}];mQuiz(mM())">Retry</button>`:`<button class="btn btn-primary btn-sm" onclick="mCheck(${i})">Check</button>`}</div>${s.done?`<div class="m-exp"><b>${s.ok?'✔ Correct.':'✘ Incorrect.'}</b> ${q.t==='nat'?'Answer: '+q.a+'. ':''}${q.e}</div>`:''}</div>`;}).join('')+`<p class="caption">Score: <b>${Object.values(mq).filter(s=>s.done&&s.ok).length}</b> / ${m.qs.length}</p>`; $m('mods-page').scrollTop=sy; }
+function mPick(i,j){const q=mM().qs[i],s=mq[i];if(q.t==='mcq')s.sel=[j];else s.sel=s.sel.includes(j)?s.sel.filter(x=>x!==j):[...s.sel,j];mQuiz(mM());}
+function mCheck(i){const q=mM().qs[i],s=mq[i];if(q.t==='nat'){if(s.val==='')return;s.ok=Math.abs(+s.val-q.a)<0.01;}else{if(!s.sel.length)return;s.ok=s.sel.length===q.a.length&&q.a.every(a=>s.sel.includes(a));}s.done=true;mQuiz(mM());}
+/* ---------- C STUDIO ---------- */
+const KW=/^(int|char|void|return|if|else|for|while|do|switch|case|break|continue|default|static|float|double|long|short|unsigned|signed|struct|union|enum|typedef|const|sizeof)$/;
+function hl1(l){return l.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/(\/\/.*$)|(^\s*#\w+.*$)|("(?:\\.|[^"\\])*")|('(?:\\.|[^'\\])')|(\b[A-Za-z_]\w*\b)(?=\s*\()|\b([A-Za-z_]\w*)\b|\b(\d+)\b/g,(x,c,p,s,ch,f,w,n)=>c?`<i class="c">${x}</i>`:p?`<i class="p">${x}</i>`:(s||ch)?`<i class="s">${x}</i>`:f?(KW.test(f)?`<i class="k">${x}</i>`:`<i class="f">${x}</i>`):w?(KW.test(w)?`<i class="k">${x}</i>`:x):`<i class="n">${x}</i>`);}
+let L={i:0,code:[],st:-1,out:'',tab:'t',err:[],busy:false};
+function labInit(m){ L={i:L.i<m.progs.length?L.i:0,code:m.progs.map(p=>p.c),st:-1,out:'',tab:'t',err:[],busy:false};
+  $m('m-pane').innerHTML=`<p class="caption">GATEClashers C Studio is a simulated compiler. Edit the code and press Compile for gcc-style syntax checks. Run and Step show real traced execution of the bundled programs. Move the mouse over the window to tilt it.</p>
+  <div class="mac-scene" id="mac-scene"><div class="mac" id="mac"><div class="mac-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="tt" id="lb-title"></span><button class="mb b" onclick="labCompile()">Compile</button><button class="mb g" onclick="labRun()">▶ Run</button><button class="mb" onclick="labStep()">Step ⏭</button><button class="mb" onclick="labReset(true)">Reset</button></div>
+  <div class="ide"><div class="ide-side"><b>Explorer</b>${m.progs.map((p,i)=>`<button id="lf${i}" onclick="labFile(${i})">📄 ${p.n}</button>`).join('')}</div>
+  <div class="ed"><pre class="gut" id="lb-gut"></pre><div class="edw" id="lb-edw"><pre id="lb-hl"></pre><textarea id="lb-ta" spellcheck="false" autocapitalize="off" oninput="labEdit(this.value)" onkeydown="labKey(event)" onscroll="" ></textarea></div></div>
+  <div class="ide-out"><div class="ot"><button id="ot-t" onclick="labTab('t')">Terminal</button><button id="ot-m" onclick="labTab('m')">Call stack &amp; variables</button></div><div class="op" id="lb-op"></div></div></div>
+  <div class="mac-st"><span>gcc 13.2 (simulated)</span><span>C17</span><span id="lb-pos">Ln 1, Col 1</span><span id="lb-state">Ready</span></div></div></div>`;
+  const sc=$m('mac-scene'),mc=$m('mac');
+  sc.onmousemove=e=>{const r=sc.getBoundingClientRect();mc.style.transform=`rotateY(${((e.clientX-r.left)/r.width-.5)*8}deg) rotateX(${-((e.clientY-r.top)/r.height-.5)*6}deg)`;};
+  sc.onmouseleave=()=>mc.style.transform='';
+  $m('lb-ta').addEventListener('click',labPos);$m('lb-ta').addEventListener('keyup',labPos);
+  labFile(L.i);}
+const labP=()=>mM().progs[L.i];
+function labFile(i){ L.i=i;L.st=-1;L.out='';L.err=[];L.tab='t';mM().progs.forEach((_,k)=>$m('lf'+k).classList.toggle('on',k===i));
+  $m('lb-ta').value=L.code[i];labDraw();labOut();$m('lb-state').textContent='Ready';}
+function labMod(){return L.code[L.i]!==labP().c;}
+function labDraw(){ const code=L.code[L.i],lines=code.split('\n'),act=(L.st>=0&&!labMod())?labP().tr[L.st].l:-1;
+  $m('lb-title').textContent=`${labP().n}${labMod()?' (edited)':''} — GATEClashers C Studio`;
+  $m('lb-hl').innerHTML=lines.map((l,i)=>`<span class="ln${i===act?' on':''}${L.err.some(e=>e[0]===i+1)?' er':''}">${hl1(l)||'\u200b'}</span>`).join('');
+  $m('lb-gut').innerHTML=lines.map((_,i)=>i+1).join('\n');
+  const w=$m('lb-edw');if(act>=0){const y=act*20;if(y<w.scrollTop||y>w.scrollTop+360)w.scrollTop=Math.max(0,y-160);}
+  const ta=$m('lb-ta');ta.style.height=Math.max(lines.length*20+20,$m('lb-edw').clientHeight)+'px';ta.style.width=Math.max($m('lb-hl').scrollWidth,$m('lb-edw').clientWidth)+'px';}
+function labEdit(v){L.code[L.i]=v;L.st=-1;L.out='';L.err=[];labDraw();labOut();$m('lb-state').textContent=labMod()?'Modified, not compiled':'Ready';}
+function labKey(e){ if(e.key==='Tab'){e.preventDefault();const t=e.target,s=t.selectionStart;t.value=t.value.slice(0,s)+'  '+t.value.slice(t.selectionEnd);t.selectionStart=t.selectionEnd=s+2;labEdit(t.value);} }
+function labPos(){const t=$m('lb-ta'),b=t.value.slice(0,t.selectionStart).split('\n');$m('lb-pos').textContent=`Ln ${b.length}, Col ${b[b.length-1].length+1}`;}
+function labTab(t){L.tab=t;labOut();}
+function labOut(){ $m('ot-t').classList.toggle('on',L.tab==='t');$m('ot-m').classList.toggle('on',L.tab==='m');const op=$m('lb-op');
+  if(L.tab==='t'){op.innerHTML=L.out||'<span class="t-dim">Press Compile, Run or Step.</span>';op.scrollTop=op.scrollHeight;return;}
+  if(L.st<0||labMod()){op.innerHTML='<span class="t-dim">Press Step to execute line by line. The call stack (top first) and variables appear here.</span>';return;}
+  const s=labP().tr[L.st],v=Object.entries(s.v);
+  op.innerHTML=`<span class="t-dim">Step ${L.st+1} of ${labP().tr.length} · line ${s.l+1}</span><div style="margin-top:8px">${[...s.s].reverse().map((f,i)=>`<div class="fr${i===0?' top':''}">${f}</div>`).join('')}</div><table class="vt">${v.length?v.map(([k,x])=>`<tr><td>${k}</td><td>${x}</td></tr>`).join(''):'<tr><td colspan="2" class="t-dim">no variables changed</td></tr>'}</table>`;}
+const P0='<span class="t-pr">student@gateclashers</span><span class="t-dim">:~$</span> ';
+const wt=ms=>new Promise(r=>setTimeout(r,ms));
+function labCheck(code){ const er=[],ls=code.split('\n'),wr=[];let b=0,p=0,k=0;
+  ls.forEach((raw,i)=>{const t=raw.replace(/\/\/.*$/,'').replace(/"(\\.|[^"\\])*"/g,'""').replace(/'(\\.|[^'\\])'/g,"''").trimEnd(),s=t.trim();
+    for(const ch of t){if(ch==='{')b++;if(ch==='}')b--;if(ch==='(')p++;if(ch===')')p--;if(ch==='[')k++;if(ch===']')k--;}
+    if(b<0||p<0||k<0){er.push([i+1,t.length,"expected declaration or statement at end of input"]);b=Math.max(b,0);p=Math.max(p,0);k=Math.max(k,0);}
+    if(!s||s[0]==='#'||/^(else|do)$/.test(s))return;
+    const nx=(ls.slice(i+1).find(x=>x.trim())||'').trim();
+    if(/[\w\]"')]$/.test(s)){ const hdr=/^(if|for|while|switch)\b/.test(s)||/^(else\s+if)\b/.test(s)||(/^(int|void|char|float|double|long|short|unsigned|static|struct)\b[^=]*\)$/.test(s)&&nx[0]==='{');
+      if(!hdr&&!(/\)$/.test(s)&&nx[0]==='{'&&/^(if|for|while)/.test(s))) er.push([i+1,t.length,"expected ';' at end of statement"]);
+      else if(/^(if|for|while|switch)\b/.test(s)&&/\)$/.test(s)&&nx==='' ) er.push([i+1,t.length,"expected statement"]);}});
+  if(b>0)er.push([ls.length,1,"expected '}' at end of input"]); if(p>0)er.push([ls.length,1,"expected ')' before end of input"]);
+  if(!/\bmain\s*\(/.test(code))er.push([0,0,"undefined reference to `main'"]);
+  if(/\bprintf\s*\(/.test(code)&&!/#include\s*<stdio\.h>/.test(code))wr.push("warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]");
+  if(/\bstrlen\s*\(/.test(code)&&!/#include\s*<string\.h>/.test(code))wr.push("warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]");
+  return {er,wr};}
+async function labCompile(quiet){ if(L.busy)return false;L.busy=true;const n=labP().n,c=L.code[L.i],{er,wr}=labCheck(c);L.out=P0+`gcc -Wall ${n} -o a.out\n`;L.tab='t';L.st=-1;labOut();$m('lb-state').textContent='Compiling…';
+  const stages=['[1/4] Preprocessing  → expanding #include and macros','[2/4] Compiling     → '+n.replace('.c','.s'),'[3/4] Assembling    → '+n.replace('.c','.o')];
+  for(const s of stages){await wt(quiet?60:320);L.out+=`<span class="t-dim">${s}</span>\n`;labOut();
+    if(s.startsWith('[2/4]')&&er.length){ L.err=er.filter(e=>e[0]>0);L.out+=er.map(e=>`<span class="t-pr">${n}:${e[0]||1}:${e[1]||1}: error:</span> ${e[2]}`).join('\n')+`\n<span class="t-pr">compilation terminated. ${er.length} error(s)</span>\n`;L.busy=false;labDraw();labOut();$m('lb-state').textContent=`${er.length} error(s)`;return false;}}
+  await wt(quiet?60:320);L.out+=`<span class="t-dim">[4/4] Linking       → a.out</span>\n`+wr.map(w=>`<span class="t-w">${n}: ${w}</span>\n`).join('')+`<span class="t-ok">Build succeeded · 0 errors · ${wr.length} warning(s)</span>\n`;
+  L.err=[];L.compiled=true;L.busy=false;labDraw();labOut();$m('lb-state').textContent='Build OK';return true;}
+async function labRun(){ if(L.busy)return; const ok=await labCompile(); if(!ok)return; L.out+=P0+'./a.out\n';labOut();
+  if(labMod()){L.out+='<span class="t-w">Edited code compiled successfully. Live execution preview is available for the bundled programs; use Reset to restore this file.</span>\n';labOut();return;}
+  for(const s of labP().tr){ if(s.o){await wt(280);L.out+=s.o;labOut();} } L.out+='<span class="t-dim">[process exited with code 0]</span>\n';labOut();$m('lb-state').textContent='Finished';}
+async function labStep(){ if(L.busy)return; if(labMod()){L.tab='t';L.out='<span class="t-w">Step mode traces the bundled programs. Press Reset to restore the original file.</span>\n';labOut();return;}
+  const tr=labP().tr; if(L.st<0){ const ok=await labCompile(true); if(!ok)return; L.out+=P0+'./a.out  <span class="t-dim">(step mode)</span>\n'; L.stOut='';}
+  if(L.st>=tr.length-1){L.out+='<span class="t-dim">[process exited with code 0]</span>\n';L.tab='t';labOut();$m('lb-state').textContent='Finished';return;}
+  L.st++; const s=tr[L.st]; if(s.o)L.out+=s.o; L.tab='m'; labDraw();labOut();$m('lb-state').textContent=`Step ${L.st+1}/${tr.length}`; }
+function labReset(full){ if(full)L.code[L.i]=labP().c; L.st=-1;L.out='';L.err=[];L.tab='t';$m('lb-ta').value=L.code[L.i];labDraw();labOut();$m('lb-state').textContent='Ready'; }
+
+/* ---------- ACCESS CONTROL (admin-managed locks) ---------- */
+const ADMIN_EMAILS=['co.2024.prdeshkar@bitwardha.ac.in','class11art@gmail.com'];
+const LOCKS={pyq:'Previous Year Papers',tests:'Practice Tests',impq:'Important Questions',guess:'Guess Papers',video:'Video Lectures',weekly:'Weekly Test Series'};
+const NAME2KEY=Object.fromEntries(Object.entries(LOCKS).map(([k,n])=>[n,k]));
+const FEATURE_ACTIONS={pyq:()=>goPyq()}; /* register launchers here when a section gets real content */
+const ACC={user:null,admin:false,open:{},keys:[],sdk:false,err:''};
+window.GC_ACC=ACC;window.GC_ADMINS=ADMIN_EMAILS;
+function hasAccess(key){ if(!key) return true; if(ACC.admin) return true; return !!(ACC.open[key]||ACC.keys.includes('__all__')||ACC.keys.includes(key)); }
+function lockBadge(key,small){ if(!key) return ''; return hasAccess(key)?`<span class="lk un${small?' q':''}">${ic('tick')}${small?'':'Unlocked'}</span>`:`<span class="lk${small?' q':''}">${ic('lock')}${small?'':'Locked'}</span>`; }
+function sylBtn(s){ return hasAccess('sub'+s.id)?`<button class="btn btn-secondary btn-sm" onclick="goMods(${s.id})">${ic('tick')}Unlocked · Open modules</button>`:`<button class="btn btn-primary btn-sm" onclick="openPremium('${s.name.replace(/&/g,'and')}','sub${s.id}')">${ic('lock')}Unlock section</button>`; }
+function gcToast(m){ const t=document.createElement('div');t.className='gc-toast';t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),3200); }
+function openFeature(key,name){ const f=FEATURE_ACTIONS[key]; if(f) return f(); gcToast(`${name} is unlocked for you. Content will appear here once it is published.`); }
+function openPremium(name,key){
+  if(name==='Study Modules'){goMods();return;}
+  key=key||NAME2KEY[name];
+  if(key&&hasAccess(key)){openFeature(key,name);return;}
+  const sub=document.getElementById('pm-sub'),sb=document.getElementById('pm-signin');
+  document.getElementById('pm-name').textContent=name;
+  if(!ACC.sdk){sub.textContent='This content is part of the premium course. Message @ragexking on Telegram to unlock full access, or pick a plan below.';sb.style.display='none';}
+  else if(!ACC.user){sub.textContent='Sign in with the Google account your admin has unlocked. If you have not been added yet, message @ragexking on Telegram.';sb.style.display='';}
+  else{sub.textContent=`Signed in as ${ACC.user.email}. This is not unlocked for your account yet. Message @ragexking on Telegram to get it unlocked.`;sb.style.display='none';}
+  document.getElementById('premium-modal').classList.add('open');
+}
+function authClick(e){ if(!window.GC) return true; e.preventDefault(); toggleMenu(false); if(ACC.user) openAcct(); else gcLogin(); return false; }
+async function gcLogin(){ try{ await GC.login(); closeModal(); }catch(e){ gcToast(e.code==='auth/popup-closed-by-user'?'Sign-in cancelled':'Sign-in failed: '+(e.code||e.message)); } }
+async function gcLogout(){ try{ await GC.logout(); }catch(e){} closeModal(); }
+function openAcct(){
+  const names=[...(ACC.keys.includes('__all__')?['All content']:[]),...ACC.keys.filter(k=>k!=='__all__').map(k=>k.startsWith('sub')?(SYLLABUS.find(s=>'sub'+s.id===k)||{}).name:LOCKS[k]).filter(Boolean)];
+  document.getElementById('ac-role').textContent=ACC.admin?'Admin':'Student';
+  document.getElementById('ac-email').textContent=ACC.user.email;
+  document.getElementById('ac-list').textContent=ACC.admin?'You have access to everything and can manage locks.':(names.length?'Unlocked for you: '+names.join(', ')+'.':'Nothing is unlocked for this account yet.');
+  document.getElementById('ac-admin').style.display=ACC.admin?'':'none';
+  document.getElementById('acct-modal').classList.add('open');
+}
+function updateLoginUI(){ const n=ACC.user?(ACC.admin?'Admin':ACC.user.email.split('@')[0]):'Login'; const a=document.getElementById('nav-login-text'),b=document.getElementById('mob-login'); if(a)a.textContent=n; if(b)b.textContent=ACC.user?'Account · '+n:'Login'; }
+function accRefresh(){ renderAll(); updateLoginUI(); if($m('mods-page').classList.contains('open'))mRender(); if(openId!==null){const id=openId;openId=null;openSyl(id,null,true);} if($m('adm-page').classList.contains('open'))admRender(); }
+window.GC_REFRESH=accRefresh;
+/* ---------- ADMIN PANEL ---------- */
+let adm={sel:'sub4',rows:[],err:'',busy:false};
+const admItems=()=>[{k:'__all__',n:'Full access (every item)',g:'All'},...SYLLABUS.map(s=>({k:'sub'+s.id,n:s.id+'. '+s.name,g:'Subjects'})),...Object.entries(LOCKS).map(([k,n])=>({k:k,n:n,g:'Features'}))];
+async function admOpen(){ if(!ACC.admin)return; $m('adm-page').classList.add('open');document.body.style.overflow='hidden'; admRender(); await admLoad(); }
+function admClose(){ $m('adm-page').classList.remove('open');document.body.style.overflow=''; }
+async function admLoad(){ try{ adm.rows=await GC.adminList(); adm.err=''; }catch(e){ adm.err=e.code||e.message; } admRender(); }
+function admRender(){ const b=$m('adm-body'); if(!b)return; if(!ACC.admin){b.innerHTML='<p class="body">Admin access required.</p>';return;}
+  const items=admItems(),cur=items.find(i=>i.k===adm.sel)||items[1],cnt=k=>adm.rows.filter(r=>r.keys.includes(k)).length,list=adm.rows.filter(r=>r.keys.includes(cur.k)).map(r=>r.email).sort();
+  const grp=g=>items.filter(i=>i.g===g).map(i=>`<button class="adm-row${i.k===cur.k?' on':''}" onclick="adm.sel='${i.k}';admRender()"><span>${i.n}</span><span class="adm-meta">${i.k==='__all__'?'':(ACC.open[i.k]?'<span class="lk un">Open for all</span>':`<span class="lk">${ic('lock')}Locked</span>`)}<small>${cnt(i.k)} user(s)</small></span></button>`).join('');
+  b.innerHTML=`<span class="eyebrow">Admin</span><h2 class="h2" style="margin-top:6px">Locks &amp; access</h2><p class="body">Everything is locked by default. Open an item for everyone, or add the emails that may open it.</p>
+  ${adm.err?`<div class="adm-err"><b>Could not load access list (${adm.err}).</b> Add these Firestore rules, then reload.<pre>Open Firestore → Rules and paste the full rules file from your admin notes, which includes the gateConfig and gateAccess blocks.</pre></div>`:''}
+  <div class="adm-grid"><div>${grp('All')}<h5>Subjects</h5>${grp('Subjects')}<h5>Features</h5>${grp('Features')}</div>
+  <div class="adm-box"><h3 class="h3">${cur.n}</h3>
+    ${cur.k==='__all__'?'<p class="caption" style="margin-top:6px">Emails added here can open every locked item.</p>':`<p class="caption" style="margin:6px 0 12px">${ACC.open[cur.k]?'Open for everyone.':'Locked. Only the emails below, full-access emails and admins can open it.'}</p><button class="btn ${ACC.open[cur.k]?'btn-secondary':'btn-primary'} btn-sm" ${adm.busy?'disabled':''} onclick="admToggle()">${ACC.open[cur.k]?'Lock for everyone':'Open for everyone'}</button>`}
+    <h5 style="margin-top:20px">Add emails</h5><textarea id="adm-in" placeholder="student1@gmail.com, student2@gmail.com"></textarea><button class="btn btn-primary btn-sm" ${adm.busy?'disabled':''} onclick="admAdd()">Unlock for these emails</button>
+    <h5 style="margin-top:20px">Unlocked for (${list.length})</h5>${list.length?list.map(e=>`<div class="adm-email"><span>${e}</span><button class="btn btn-secondary btn-sm" ${adm.busy?'disabled':''} onclick="admRemove('${e}')">Remove</button></div>`).join(''):'<p class="caption">No emails yet.</p>'}</div></div>`; }
+async function admDo(fn){ adm.busy=true;admRender(); try{await fn();}catch(e){gcToast('Failed: '+(e.code||e.message));} adm.busy=false; await admLoad(); }
+const admToggle=()=>admDo(()=>GC.setOpen(adm.sel,!ACC.open[adm.sel]));
+const admRemove=e=>admDo(()=>GC.revoke(e,adm.sel));
+function admAdd(){ const v=($m('adm-in').value||'').toLowerCase().split(/[\s,;]+/).filter(Boolean),ok=[...new Set(v.filter(x=>/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(x)))]; if(!ok.length){gcToast('Enter at least one valid email');return;} if(ok.length<v.length)gcToast('Some entries were not valid emails and were skipped'); return admDo(async()=>{for(const e of ok)await GC.grant(e,adm.sel);}); }
+
+/* ---------- NOTES PDF (light GateClashers watermark) ---------- */
+let pdfBusy=false;
+const pdfLoad=src=>new Promise((res,rej)=>{const s=document.createElement('script');s.src=src;s.onload=res;s.onerror=()=>rej(new Error('Could not load '+src));document.head.appendChild(s);});
+let _pdfLibsP=null;
+function pdfLibs(){ if(_pdfLibsP) return _pdfLibsP; _pdfLibsP=Promise.all([
+  window.html2canvas?0:pdfLoad('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js'),
+  (window.jspdf&&window.jspdf.jsPDF)?0:pdfLoad('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js')
+ ]).catch(e=>{_pdfLibsP=null;throw e;}); return _pdfLibsP; }
+const pdfCache={};
+function pdfSaveBlob(blob,name){ const u=URL.createObjectURL(blob),a=document.createElement('a'); a.href=u;a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{a.remove();URL.revokeObjectURL(u);},4000); }
+const pdfSecHTML=(n,i)=>`<section class="m-note"><h3>${i+1}. ${n[0]}</h3>${n[1]}</section>`;
+const pdfCover=m=>`<div class="cv"><small>GATECLASHERS · GATE 2027 CS &amp; IT</small><h1>${m.title}</h1><p>${m.sub}</p><p>${m.notes.length} sections · Short notes</p><ol>${m.notes.map(n=>`<li>${n[0]}</li>`).join('')}</ol></div>`;
+function pdfCut(cv,from,to){ const x=cv.getContext('2d'); for(let r=to;r>from;r--){ const d=x.getImageData(0,r,cv.width,1).data; let ok=true; for(let i=0;i<d.length;i+=4){ if(d[i]<246||d[i+1]<246||d[i+2]<246){ok=false;break;} } if(ok) return r; } return to; }
+async function notesPdf(){
+  if(pdfBusy) return; pdfBusy=true; const m=mM(),st=$m('pdf-st'),btn=$m('pdf-btn'),say=t=>{if(st)st.textContent=t;}; if(btn)btn.disabled=true;
+  const name=m.title.replace(/[^A-Za-z0-9]+/g,'-').replace(/^-|-$/g,'')+'-Notes-GateClashers.pdf';
+  if(pdfCache[name]){ pdfSaveBlob(pdfCache[name].blob,name); say(`Downloaded ${name} (${pdfCache[name].n} pages)`); pdfBusy=false; if(btn)btn.disabled=false; return; }
+  const sy0=window.scrollY, host=document.createElement('div'); host.className='pdf-sheet';
+  const tick=()=>new Promise(r=>setTimeout(r,0));
+  try{
+    say('Preparing…'); await pdfLibs(); if(document.fonts&&document.fonts.ready) await document.fonts.ready;
+    const doc=new window.jspdf.jsPDF({unit:'mm',format:'a4',compress:true});
+    const PW=210,PH=297,MX=12,MT=17,MB=15,CW=PW-2*MX,CH=PH-MT-MB; let y=MT;
+    document.body.appendChild(host); window.scrollTo(0,0);
+    const parts=[pdfCover(m),...m.notes.map(pdfSecHTML)];
+    const wrap=a=>a.map(h=>`<div class="pb">${h}</div>`).join('');
+    const SC=window.innerWidth<700?1.5:1.8, QUAL=.8, BATCH=3200;
+    const put=(cv,sy,sh)=>{ let c=cv; if(sy!==0||sh!==cv.height){ c=document.createElement('canvas'); c.width=cv.width; c.height=sh; c.getContext('2d').drawImage(cv,0,sy,cv.width,sh,0,0,cv.width,sh); } doc.addImage(c.toDataURL('image/jpeg',QUAL),'JPEG',MX,y,CW,sh/cv.width*CW); };
+    const newPage=()=>{doc.addPage();y=MT;};
+    const place=cv=>{
+      const tot=cv.height/cv.width*CW, left=PH-MB-y;
+      if(tot<=left){ put(cv,0,cv.height); y+=tot+1; }
+      else if(tot<=CH){ newPage(); put(cv,0,cv.height); y+=tot+1; }
+      else { if(left<50) newPage(); let sy=0;
+        while(sy<cv.height){ const availPx=Math.floor((PH-MB-y)/CW*cv.width); let sh=Math.min(cv.height-sy,availPx);
+          if(sy+sh<cv.height) sh=pdfCut(cv,sy+Math.floor(sh*.55),sy+sh)-sy;
+          if(sh<20){ newPage(); continue; }
+          put(cv,sy,sh); y+=sh/cv.width*CW; sy+=sh; if(sy<cv.height) newPage(); } }
+    };
+    /* 1) measure every part once, 2) group into few tall batches (html2canvas has a big fixed cost per call) */
+    host.innerHTML=wrap(parts); await tick();
+    const hs=[...host.children].map(c=>c.getBoundingClientRect().height);
+    const batches=[]; let cur=[],ch=0;
+    hs.forEach((h,i)=>{ if(cur.length&&ch+h>BATCH){batches.push(cur);cur=[];ch=0;} cur.push(i); ch+=h; }); if(cur.length) batches.push(cur);
+    for(let bi=0;bi<batches.length;bi++){
+      say(`Rendering ${Math.round(bi/batches.length*100)}%…`); await tick();
+      const idx=batches[bi]; host.innerHTML=wrap(idx.map(i=>parts[i]));
+      const hr=host.getBoundingClientRect();
+      const cv=await html2canvas(host,{scale:SC,backgroundColor:'#ffffff',logging:false,useCORS:true,imageTimeout:0,windowWidth:720,scrollX:0,scrollY:0,
+        onclone:d=>{ [...d.body.children].forEach(c=>{ if(!c.classList||!c.classList.contains('pdf-sheet')) c.remove(); }); }});
+      const k=cv.width/hr.width;
+      [...host.children].forEach(c=>{ const r=c.getBoundingClientRect(); const top=Math.max(0,Math.round((r.top-hr.top)*k)); const h=Math.min(cv.height-top,Math.round(r.height*k)); if(h<=0) return;
+        const sc=document.createElement('canvas'); sc.width=cv.width; sc.height=h; const x=sc.getContext('2d'); x.fillStyle='#fff'; x.fillRect(0,0,sc.width,h); x.drawImage(cv,0,top,cv.width,h,0,0,cv.width,h); place(sc); sc.width=sc.height=0; });
+      cv.width=cv.height=0;
+    }
+    say('Adding watermark…'); await tick(); const N=doc.getNumberOfPages(), rad=35*Math.PI/180, gs=new doc.GState({opacity:.085});
+    for(let p=1;p<=N;p++){ doc.setPage(p);
+      doc.saveGraphicsState(); doc.setGState(gs); doc.setFont('helvetica','bold'); doc.setFontSize(58); doc.setTextColor(110,110,110);
+      const w=doc.getTextWidth('GateClashers'); [.22,.5,.78].forEach(f=>doc.text('GateClashers',PW/2-(w/2)*Math.cos(rad),PH*f+(w/2)*Math.sin(rad),{angle:35})); doc.restoreGraphicsState();
+      doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.setTextColor(130,130,130);
+      doc.text('GATEClashers | GATE 2027 CS & IT',MX,9); doc.text(m.title,PW-MX,9,{align:'right'}); doc.setDrawColor(225,225,225); doc.line(MX,11,PW-MX,11);
+      doc.text(`Page ${p} of ${N}`,PW-MX,PH-7,{align:'right'}); doc.text('gateclashers',MX,PH-7); }
+    say('Saving…'); const blob=doc.output('blob'); pdfCache[name]={blob,n:N}; pdfSaveBlob(blob,name); say(`Downloaded ${name} (${N} pages)`);
+  }catch(e){ console.warn('PDF export failed',e); say('Direct download unavailable. Opening print dialog: choose "Save as PDF".'); notesPrint(m); }
+  finally{ host.remove(); window.scrollTo(0,sy0); pdfBusy=false; if(btn)btn.disabled=false; }
+}
+function notesPrint(m){ m=m||mM(); let r=document.getElementById('print-root'); if(r)r.remove(); r=document.createElement('div'); r.id='print-root'; r.className='pdf-sheet';
+  r.innerHTML='<div class="wm-print">GateClashers</div>'+pdfCover(m)+m.notes.map(pdfSecHTML).join(''); document.body.appendChild(r);
+  document.body.classList.add('printing'); const done=()=>{document.body.classList.remove('printing');r.remove();window.removeEventListener('afterprint',done);}; window.addEventListener('afterprint',done); setTimeout(()=>window.print(),150); }
+
+/* ---------- WORD-STYLE PAGINATION (A4 pages on screen) ---------- */
+function docPaginate(){
+  const stage=document.getElementById('doc-stage'); if(!stage) return;
+  const m=mM(), wrap=stage.parentNode, cs=getComputedStyle(wrap);
+  const W=Math.max(280,Math.min(794,Math.floor(wrap.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight))));
+  stage.style.setProperty('--pw',W+'px'); stage.dataset.w=W; stage.innerHTML='';
+  const pages=[]; let body=null, full=false;
+  const newPage=()=>{ const pg=document.createElement('div'); pg.className='doc-page';
+    pg.innerHTML='<div class="pg-head"><span>GATEClashers | GATE 2027 CS &amp; IT</span><span></span></div><div class="pg-body m-note"></div><div class="pg-foot"><span>gateclashers</span><span class="pn"></span></div>';
+    pg.querySelector('.pg-head span:last-child').textContent=m.title; stage.appendChild(pg); pages.push(pg); body=pg.querySelector('.pg-body'); full=false; };
+  const over=()=>body.scrollHeight>body.clientHeight+1;
+  const tall=()=>{ const pg=body.parentNode; body.style.overflow='visible'; pg.style.height='auto'; pg.style.minHeight='calc(var(--pw)*1.4142)'; full=true; };
+  const add=el=>{ if(full||!body) newPage(); body.appendChild(el);
+    if(over()){ if(body.children.length>1){ body.removeChild(el); newPage(); body.appendChild(el); if(over()) tall(); } else tall(); } };
+  const units=node=>{ if(node.tagName==='UL'||node.tagName==='OL'){ const li=[...node.children].filter(c=>c.tagName==='LI'); if(li.length>1){ const st=node.tagName==='OL'?(node.start||1):1;
+      return li.map((x,k)=>{ const l=node.cloneNode(false); if(node.tagName==='OL') l.start=st+k; l.appendChild(x.cloneNode(true)); return l; }); } } return [node]; };
+  newPage(); const cv=document.createElement('div'); cv.innerHTML=pdfCover(m); add(cv.firstElementChild); full=true;
+  m.notes.forEach((n,i)=>{
+    const tmp=document.createElement('div'); tmp.innerHTML=n[1];
+    const nodes=[...tmp.childNodes].filter(x=>x.nodeType===1||(x.nodeType===3&&x.textContent.trim())).map(x=>{ if(x.nodeType===3){ const p=document.createElement('p'); p.textContent=x.textContent; return p; } return x; });
+    const us=nodes.flatMap(units);
+    const sec=document.createElement('div'); sec.className='u sec'; sec.id='nt'+i;
+    const h=document.createElement('h3'); h.innerHTML=(i+1)+'. '+n[0]; sec.appendChild(h); if(us.length) sec.appendChild(us.shift());
+    add(sec); us.forEach(add);
+  });
+  pages.forEach((pg,i)=>{ pg.querySelector('.pn').textContent='Page '+(i+1)+' of '+pages.length; });
+}
+(function(){ if(window._docRz) return; window._docRz=1; let t; window.addEventListener('resize',()=>{ clearTimeout(t); t=setTimeout(()=>{ const st=document.getElementById('doc-stage'); if(!st) return; const w=st.parentNode.clientWidth; if(Math.abs(w-(+st.dataset.w||0))>24) docPaginate(); },250); }); })();
+
+pqInit();
+renderAll();
+</script>
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {getAuth,GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {getFirestore,doc,onSnapshot,setDoc,getDocs,collection,arrayUnion,arrayRemove,serverTimestamp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+const ACC=window.GC_ACC,refresh=()=>window.GC_REFRESH();
+try{
+  const firebaseConfig={
+    apiKey:"AIzaSyBtWu9rJli1ngM-xMJeDa10fNRCHFE_EO8",
+    authDomain:"loginpage-d13a7.firebaseapp.com",
+    databaseURL:"https://loginpage-d13a7-default-rtdb.firebaseio.com",
+    projectId:"loginpage-d13a7",
+    storageBucket:"loginpage-d13a7.firebasestorage.app",
+    messagingSenderId:"865928476680",
+    appId:"1:865928476680:web:d03e9e5c79a68ddc03b9bd",
+    measurementId:"G-NN79RZX78R"
+  };
+  const app=initializeApp(firebaseConfig);
+  const auth=getAuth(app),db=getFirestore(app),gp=new GoogleAuthProvider();let unsub=null;
+  ACC.sdk=true;
+  onSnapshot(doc(db,'gateConfig','public'),s=>{ACC.open=(s.exists()&&s.data().open)||{};refresh();},e=>{ACC.err='config: '+e.code;refresh();});
+  onAuthStateChanged(auth,u=>{
+    if(unsub){unsub();unsub=null;}
+    const em=u?(u.email||'').toLowerCase():'';
+    ACC.user=u?{email:em,name:u.displayName||em}:null;ACC.admin=!!u&&window.GC_ADMINS.includes(em);ACC.keys=[];
+    if(u)unsub=onSnapshot(doc(db,'gateAccess',em),s=>{ACC.keys=(s.exists()&&s.data().keys)||[];refresh();},e=>{ACC.err='access: '+e.code;refresh();});
+    refresh();});
+  window.GC={login:()=>signInWithPopup(auth,gp),logout:()=>signOut(auth),
+    adminList:async()=>(await getDocs(collection(db,'gateAccess'))).docs.map(d=>({email:d.id,keys:d.data().keys||[]})),
+    grant:(email,key)=>setDoc(doc(db,'gateAccess',email),{email,keys:arrayUnion(key),updatedAt:serverTimestamp()},{merge:true}),
+    revoke:(email,key)=>setDoc(doc(db,'gateAccess',email),{email,keys:arrayRemove(key),updatedAt:serverTimestamp()},{merge:true}),
+    setOpen:(key,v)=>setDoc(doc(db,'gateConfig','public'),{open:{[key]:v},updatedAt:serverTimestamp()},{merge:true})};
+  refresh();
+}catch(e){console.warn('Access control unavailable',e);}
+</script>
+</body>
+</html>
